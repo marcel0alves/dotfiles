@@ -1,0 +1,20 @@
+! ROFI 
+!------------------------------------------------
+rofi.modi: window,run,drun
+rofi.color-enabled: true
+rofi.terminal: termite
+rofi.show-icons: false
+rofi.lines: 10
+rofi.columns: 1
+rofi.width: 800
+rofi.bw: 4
+rofi.font: Iosevka Medium 14
+
+! Window	    backgroud  border   separator
+rofi.color-window: #00122d, #101e6d, #00122d
+rofi.color-normal: #00122d, #d8dee8, #00122d, #00122d, #00bcd4
+rofi.color-active: #00122d, #b48ead, #00122d, #00122d, #93e5cc
+rofi.color-urgent: #00122d, #ebcb8b, #00122d, #00122d, #ebcb8b
+
+! Hide scroll
+rofi.hide-scrollbar: true
