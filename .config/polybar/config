@@ -18,42 +18,57 @@ primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
 
+amareloescuro = #ECD078
+azulclaro = #63B6D9
+azulescuro = #20312F
+cinza = #DCDEDB
+cinzaclaro = #89AEC1
+cinzaescuro = #172D3A
+escuro = #1C252E
+verde = #8A9B0F
+vermelhoclaro = #FE4365
+vermelhoescuro = #8E1632
+
 [bar/top]
 monitor = ${env:MONITOR:eDP-1}
-width = 100%
-height = 26
-offset-x = 0
-offset-y = 0
-dpi = 96
+width = 95%
+height = 28
+offset-x = 50
+offset-y = 5
+radius = 0.0
 
-background = ${colors.background}
+;fixed-center = true
+;width = 100%
+;height = 26
+;offset-x = 0
+;offset-y = 0
+
+background = ${colors.escuro}
 foreground = ${colors.foreground}
 
-;line-size = 3
-;line-color = #f00
+;line-size = 100
+;line-color = ${colors.amareloescuro}
 
-border-size = 6
-border-color = #00000000
+;border-size = 10
+;border-color = ${colors.azulclaro}
 
 ;border-bottom-size = 1
 ;border-bottom-color = #333
 
-spacing = 1
+;spacing = 1
 padding-left = 2
 padding-right = 2
-module-margin-left = 0
+
+module-margin-left = 2
 module-margin-right = 1
 
-font-0 = xos4Terminus-Regular:size=10;2
-;font-0 = AnonymousPro-Regular:size=8;2
-;font-0 = CodeNewRomanNerdFont-Book:size=8;2
-;font-0 = mononokiNerdFont-Regular:size=8;2
-font-1 = unifont:size=6;1
-font-2 = FontAwesome:size=10;3
+;font-0 = FantasqueSansMono Nerd Font:pixelsize=11;2
+font-0 = xos4 Terminus:pixelsize=12;2
+font-1 = FontAwesome:pixelsize=10;2
 
-modules-left = i3 xwindow
-modules-center = 
-modules-right = memory cpu temperature wlan eth battery backlight-acpi alsa date
+modules-left = i3 memory cpu temperature
+modules-center = date xwindow
+modules-right = eth wlan volume backlight-acpi battery
 
 tray-position = right
 tray-padding = 3
@@ -61,7 +76,7 @@ tray-background = ${colors.background}
 
 wm-restack = i3
 
-;override-redirect = true
+override-redirect = true
 
 ;scroll-up = bspwm-desknext
 ;scroll-down = bspwm-deskprev
@@ -91,7 +106,7 @@ label-unmounted-foreground = ${colors.foreground-alt}
 type = internal/bspwm
 
 label-focused = %index%
-label-focused-background = ${colors.secondary}
+label-focused-background = ${colors.cinzaescuro}
 label-focused-underline= ${colors.primary}
 label-focused-padding = 2
 
@@ -116,19 +131,19 @@ strip-wsnumbers = true
 ;format = <label-state> <label-mode> <ws-icon>
 ;wrapping-scroll = false
 
-label-focused = %index% %icon%
-label-focused-foreground = #FFFFFF
-label-focused-background = ${colors.secondary}
+label-focused = %index%: %icon%
+label-focused-foreground = ${colors.cinzaescuro}
+label-focused-background = ${colors.cinzaclaro}
 label-focused-padding = 2
 
-label-unfocused = %index% %icon%
+label-unfocused = %index%: %icon%
 label-unfocused-padding = 2
 
-label-urgent = %index% %icon%
-label-urgent-foreground = #FE6347
+label-urgent = %index%: %icon%
+label-urgent-foreground = ${colors.vermelhoclaro}
 label-urgent-padding = 2
 
-ws-icon-1 = "1;"
+ws-icon-1 = "1;"
 ws-icon-2 = "2;"
 ws-icon-3 = "3;"
 ws-icon-4 = "4;"
@@ -187,13 +202,8 @@ label-song-ellipsis = true
 type = internal/xbacklight
 
 format = <label>
-label = "%{F#F8CA00} %percentage%%"
-
-;ramp-0 = 🌕
-;ramp-1 = 🌔
-;ramp-2 = 🌓
-;ramp-3 = 🌒
-;ramp-4 = 🌑
+format-foreground = ${colors.cinza}
+label = " %percentage%%"
 
 [module/backlight-acpi]
 inherit = module/xbacklight
@@ -202,9 +212,10 @@ card = intel_backlight
 
 [module/cpu]
 type = internal/cpu
-interval = 0.5
+interval = 1
 format-padding = 2
-label = "%{F#fecf87} CPU %percentage:2%%"
+format-foreground = ${colors.cinza}
+label = " CPU %percentage:2%%"
 
 [module/memory]
 ;format = <label> <ramp-coreload>
@@ -213,7 +224,8 @@ interval = 1
 format-padding = 2
 
 format = <label>
-label = "%{F#C5E0DC} RAM %gb_used%"
+format-foreground = ${colors.cinza}
+label = " RAM %gb_used%"
 
 [module/wlan]
 type = internal/network
@@ -223,9 +235,15 @@ interval = 1.0
 format-connected = <label-connected>
 format-padding = 2
 
-label-connected = "%{F#8A9B0F} %essid% %local_ip%%{F-}  %{F#98de00} %downspeed%  %{F#FF0000} %upspeed%  "
-label-disconnected = "%{F#547980}No Wi-Fi connected "
-label-disconnected-foreground = #547980
+label-connected = " %essid%   %downspeed%  %upspeed% "
+label-conected-foreground = ${colors.cinza}
+
+label-disconnected = "No Wi-Fi connected "
+label-disconnected-foreground = ${colors.vermelhoclaro}
+
+#label-connected = "%{F#8A9B0F} %essid% %local_ip%%{F-} %{F#98de00} %downspeed% %{F#FF0000} %upspeed%  "
+#label-disconnected = "%{F#547980}No Wi-Fi connected "
+#label-disconnected-foreground = #547980
 
 [module/eth]
 type = internal/network
@@ -235,8 +253,11 @@ interval = 1.0
 format-connected = <label-connected>
 format-padding = 2
 
-label-connected = "%{F#69D2E7} %local_ip%%{F-}  %{F#98de00} %downspeed%  %{F#FF0000} %upspeed% "
-label-disconnected = "%{F#547980}No LAN connected "
+label-connected = " %local_ip%  %downspeed%  %upspeed% "
+label-connected-foreground = ${colors.cinza}
+
+label-disconnected = "LAN off "
+label-disconnected-foreground = ${colors.vermelhoclaro}
 
 [module/date]
 type = internal/date
@@ -246,19 +267,22 @@ format-padding = 2
 ;date =
 ;date-alt = " %Y-%m-%d"
 
-time = "%a %b %d, %H:%M:%S"
-label = "%{F#4876FF}  %time%"
+time = "%b %d, %H:%M"
+label = %time%
 
-[module/alsa]
-type = internal/alsa
+label-foreground = ${colors.cinza}
+
+[module/volume]
+type = internal/volume
 
 format-volume = <label-volume>
 format-padding = 2
 
-label-volume = "%{F#AB82FF} %percentage%%"
-label-volume-foreground = #836fff
+label-volume = " %percentage%%"
+label-volume-foreground = ${colors.cinza}
 
-label-muted = "%{F#CAE1FF} Mute"
+label-muted = " Mute"
+label-muted-foreground = ${colors.vermelhoclaro}
 
 [module/battery]
 type = internal/battery
@@ -267,39 +291,60 @@ adapter = AC
 full-at = 98
 format-padding = 2
 
-format-charging = <animation-charging><label-charging>
-format-charging-underline = #ffb52a
-format-charging-prefix = "Charging  "
+format-charging = <animation-charging> <label-charging>
+format-charging-prefix = " Charging "
 
 format-discharging = <ramp-capacity><label-discharging>
 
-label-discharging = %percentage%% %time%
+label-discharging = %percentage%%
 label-full = " %percentage%%"
 ;format-full-prefix = " "
 ;format-full-prefix-foreground = ${colors.verde}
 
-ramp-capacity-0 = "%{F#FF0000}%{F-}"
-ramp-capacity-1 = "%{F#FF0000}%{F-}"
-ramp-capacity-2 = "%{F#e4b226}%{F-}"
-ramp-capacity-3 = "%{F#98de00}%{F-}"
-ramp-capacity-4 = "%{F#98de00}%{F-}"
+ramp-capacity-0 = " "
+ramp-capacity-1 = " "
+ramp-capacity-2 = " "
+ramp-capacity-3 = " "
+ramp-capacity-4 = " "
+ramp-capacity-0-foreground = ${colors.vermelhoescuro} 
+ramp-capacity-1-foreground = ${colors.vermelhoclaro}
+ramp-capacity-2-foreground = ${colors.amareloescuro}
 
-animation-charging-0 = "%{F#FF0000}%{F-}"
-animation-charging-1 = "%{F#FF0000}%{F-}"
-animation-charging-2 = "%{F#e4b226}%{F-}"
-animation-charging-3 = "%{F#98de00}%{F-}"
-animation-charging-4 = "%{F#98de00}%{F-}"
+animation-charging-0 = ""
+animation-charging-1 = ""
+animation-charging-2 = ""
+animation-charging-3 = ""
+animation-charging-4 = ""
 animation-charging-framerate = 350
 
+#ramp-capacity-0 = "%{F#FF0000}%{F-}"
+#ramp-capacity-1 = "%{F#FF0000}%{F-}"
+#ramp-capacity-2 = "%{F#e4b226}%{F-}"
+#ramp-capacity-3 = "%{F#98de00}%{F-}"
+#ramp-capacity-4 = "%{F#98de00}%{F-}"
+
+#animation-charging-0 = "%{F#FF0000}%{F-}"
+#animation-charging-1 = "%{F#FF0000}%{F-}"
+#animation-charging-2 = "%{F#e4b226}%{F-}"
+#animation-charging-3 = "%{F#98de00}%{F-}"
+#animation-charging-4 = "%{F#98de00}%{F-}"
+#animation-charging-framerate = 350
+
 [module/temperature]
-;type = internal/temperature
-type = custom/script
-exec-if = sensors
-exec = sensors | grep Core | awk '{print substr($3, 2, 2)}' | tr '\n' ' ' | sed 's/ /°C  /g' | sed 's/  $//'
-format-padding = 2
+#type = custom/script
+type = internal/temperature
+thermal-zone = 0
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input
+
+format = <label>
+
+label = %temperature-c%
+#exec-if = sensors
+#exec = sensors | grep Core | awk '{print substr($3, 2, 2)}' | tr '\n' ' ' | sed 's/ /°C  /g' | sed 's/  $//'
+#format-padding = 2
 
 format-prefix = " " 
-format-prefix-foreground = #FE4365
+format-prefix-foreground = ${colors.cinza}
 
 [settings]
 screenchange-reload = true

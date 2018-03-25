@@ -10,10 +10,8 @@
 
 exec --no-startup-id mopidy
 exec --no-startup-id xfce4-clipman
-exec_always /usr/lib/xfce4/notifyd/xfce4-notifyd
 exec --no-startup-id nm-applet
 exec --no-startup-id compton
-exec --no-startup-id thunar --daemon
 exec --no-startup-id numlockx on
 exec --no-startup-id dunst
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
@@ -29,19 +27,19 @@ exec nitrogen --restore
 set $mod Mod4
 
 # font for windo titles
-font pango:Cantarell 10
+#font pango:Cantarell 10
 
 # start rofi program launcher
-bindsym XF86Search exec "rofi -show drun"
+bindsym $mod+d exec "rofi -show drun"
 
 # rofi alt+tab show
 bindsym Mod1+Tab exec rofi -show window
 
 # start dmenu (program launcher)
-bindsym $mod+d exec dmenu_run
+bindsym XF86Search exec dmenu_run
 
 # abrir terminal
-bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Return exec urxvt
 
 # kill janela 
 bindsym $mod+Shift+q kill
@@ -94,8 +92,8 @@ bindsym $mod+Shift+e mode "[l]ogout, [d]esligar, [r]einiciar, [s]uspender"
 ##### Configuração de janelas #####
 
 # espaço entre as janelas
-gaps inner 10
-gaps outer 10
+gaps inner 20
+gaps outer 20
 
 # remove blue window bar i3 uses
 for_window [class="^.*"] border pixel 2
@@ -215,8 +213,11 @@ assign [class="^Telegram"] $ws2
 for_window [class="^Nitrogen"] floating enable, move position center
 for_window [class="^Thunar"] floating enable, move position center
 for_window [class="^Personalizar"] floating enable, move position center
+for_window [class="^Telegram"] floating enable, move position center
+for_window [class="(?i)urxvt"] floating enable, move position center
 for_window [class="(?i)nm-connection-editor"] floating enable, move position center
 for_window [class="(?i)virtualbox"] floating enable, move position center
+for_window [class="(?i)lxappearance"] floating enable, move position center
 
 #######################################
 #				      #
