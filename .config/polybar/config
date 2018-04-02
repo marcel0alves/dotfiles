@@ -30,13 +30,12 @@ vermelhoclaro = #FE4365
 vermelhoescuro = #8E1632
 
 [bar/top]
-monitor = ${env:MONITOR:eDP-1}
-width = 95%
-height = 28
-offset-x = 50
-offset-y = 5
-radius = 0.0
-
+;monitor = ${env:MONITOR:eDP-1}
+width = 100%
+height = 26
+fixed-center = true
+offset-x = 0
+offset-y = 0
 ;fixed-center = true
 ;width = 100%
 ;height = 26
@@ -62,11 +61,11 @@ padding-right = 2
 module-margin-left = 2
 module-margin-right = 1
 
-;font-0 = FantasqueSansMono Nerd Font:pixelsize=11;2
-font-0 = xos4 Terminus:pixelsize=12;2
+;font-0 = xos4 Terminus:pixelsize=12;2
+font-0 = Fira Sans:Regular:pixelsize=10;2
 font-1 = FontAwesome:pixelsize=10;2
 
-modules-left = i3 memory cpu temperature
+modules-left = i3 memory cpu filesystem temperature
 modules-center = date xwindow
 modules-right = eth wlan volume backlight-acpi battery
 
@@ -89,7 +88,7 @@ cursor-scroll = ns-resize
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:50:...%
+label = %title:0:30:...%
 
 [module/filesystem]
 type = internal/fs
@@ -98,9 +97,8 @@ format-padding = 3
 
 mount-0 = /home
 
-label-mounted = "%{F#0a81f5} %percentage_used%%"  
-label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.foreground-alt}
+label-mounted = " %percentage_used%%"  
+label-mounted-foreground = ${colors.cinza}
 
 [module/bspwm]
 type = internal/bspwm
@@ -296,7 +294,7 @@ format-charging-prefix = " Charging "
 
 format-discharging = <ramp-capacity><label-discharging>
 
-label-discharging = %percentage%%
+label-discharging = %percentage%% %time%
 label-full = " %percentage%%"
 ;format-full-prefix = " "
 ;format-full-prefix-foreground = ${colors.verde}
@@ -331,19 +329,14 @@ animation-charging-framerate = 350
 #animation-charging-framerate = 350
 
 [module/temperature]
-#type = custom/script
-type = internal/temperature
+type = custom/script
 thermal-zone = 0
-hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input
+interval = 2
+exec-if = sensors
+exec = sensors | grep Core | awk '{print substr($3, 2, 2)}' | tr '\n' ' ' | sed 's/ /°C  /g' | sed 's/  $//'
+format-padding = 2
 
-format = <label>
-
-label = %temperature-c%
-#exec-if = sensors
-#exec = sensors | grep Core | awk '{print substr($3, 2, 2)}' | tr '\n' ' ' | sed 's/ /°C  /g' | sed 's/  $//'
-#format-padding = 2
-
-format-prefix = " " 
+format-prefix = "  " 
 format-prefix-foreground = ${colors.cinza}
 
 [settings]

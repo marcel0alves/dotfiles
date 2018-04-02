@@ -51,9 +51,12 @@ bindsym Print exec xfce4-screenshooter
 #   Hotkeys/Atalhos    #
 ########################
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q -D pulse sset Master 5%+ unmute
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q -D pulse sset Master 5%- unmute
-bindsym XF86AudioMute exec --no-startup-id amixer -q -D pulse sset Master 1+ toggle
+#bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q -D pulse sset Master 5%+ unmute
+#bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q -D pulse sset Master 5%- unmute
+#bindsym XF86AudioMute exec --no-startup-id amixer -q -D pulse sset Master 1+ toggle
+bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+
+bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%-
+bindsym XF86AudioMute exec amixer -D pulse sset Master toggle
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
@@ -213,8 +216,8 @@ assign [class="^Telegram"] $ws2
 for_window [class="^Nitrogen"] floating enable, move position center
 for_window [class="^Thunar"] floating enable, move position center
 for_window [class="^Personalizar"] floating enable, move position center
-for_window [class="^Telegram"] floating enable, move position center
-for_window [class="(?i)urxvt"] floating enable, move position center
+for_window [class="^Ristretto"] floating enable, move position center
+#for_window [class="(?i)urxvt"] floating enable, move position center
 for_window [class="(?i)nm-connection-editor"] floating enable, move position center
 for_window [class="(?i)virtualbox"] floating enable, move position center
 for_window [class="(?i)lxappearance"] floating enable, move position center
@@ -244,7 +247,7 @@ bindsym $mod+f exec firefox
 bindsym $mod+c exec chromium
 
 # Abrir Telegram
-bindsym $mod+t exec ./Telegram/Telegram
+bindsym $mod+t exec telegram-desktop
 
 # Abrir Thunar
 bindsym $mod+Ctrl+e exec thunar
