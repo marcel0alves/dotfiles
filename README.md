@@ -4,6 +4,7 @@ My personal config/dotfiles files for Linux. In development.
 
 Setup:
 - Arch Linux x64
+- Urxvt Terminal (AUR package: rxvt-unicode-cvs-patched-wideglyphs)
 - i3-gaps
 - Polybar
 - cli-visualizer
