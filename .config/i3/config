@@ -95,14 +95,19 @@ bindsym $mod+Shift+e mode "[l]ogout, [d]esligar, [r]einiciar, [s]uspender"
 ##### Configuração de janelas #####
 
 # espaço entre as janelas
-gaps inner 20
-gaps outer 20
+gaps inner 10
+gaps outer 10
 
 # remove blue window bar i3 uses
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 1
 new_window pixel 0
 
 # definir workspaces
+#set $ws1 "1:  www"
+#set $ws2 "2:  telegram"
+#set $ws3 "3:  terminal"
+#set $ws4 "4:  files"
+#set $ws5 "5:  music"
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
@@ -112,7 +117,6 @@ set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "10"
 
 # mudar para workspace
 bindsym $mod+1 workspace $ws1
@@ -124,7 +128,6 @@ bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
-bindsym $mod+0 workspace $ws10
 
 # mover janela para workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -209,9 +212,9 @@ for_window [window_role="dialog"] floating enable, move position center
 
 assign [class="^Firefox"] $ws1
 assign [class="^Telegram"] $ws2
-#assign [class="^Gnome-terminal"] $ws3
-#assign [class="^Thunar"] $ws4
-#assign [class="^Ncmpcpp"] $ws5
+assign [class="(?i)urxvt"] $ws3
+assign [class="^Thunar"] $ws4
+assign [class="(?i)Spotify"] $ws5
 
 for_window [class="^Nitrogen"] floating enable, move position center
 for_window [class="^Thunar"] floating enable, move position center
@@ -253,3 +256,13 @@ bindsym $mod+t exec telegram-desktop
 bindsym $mod+Ctrl+e exec thunar
 
 ####################
+
+
+#########################
+## i3bar/blocks config ##
+#########################
+
+#bar {
+#	status_command i3blocks
+#	font pango: xos4 Terminess Powerline Regular 9
+#} 
