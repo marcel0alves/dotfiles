@@ -1,0 +1,357 @@
+;=====================================================
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/jaagr/polybar
+;
+;   The README contains alot of information
+;
+;=====================================================
+
+##########
+
+[colors]
+background = #222
+background-alt = #444
+foreground = #dfdfdf
+foreground-alt = #55
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
+
+amareloescuro = #ECD078
+amareloouro = #FFD700
+azulsky = #00BFFF
+azulclaro = #63B6D9
+azulescuro = #20312F
+cinza = #DCDEDB
+cinzaclaro = #89AEC1
+cinzaescuro = #172D3A
+escuro = #1C252E
+verde = #8A9B0F
+verdeclaro = #32CD32
+vermelho = #FF0000
+vermelhoclaro = #FE4365
+vermelhoescuro = #8E1632
+
+[bar/top]
+;monitor = ${env:MONITOR:eDP-1}
+width = 100%
+height = 26
+fixed-center = false
+offset-x = 0
+offset-y = 0
+;fixed-center = true
+;width = 100%
+;height = 26
+;offset-x = 0
+;offset-y = 0
+
+background = ${colors.escuro}
+foreground = ${colors.foreground}
+
+;line-size = 100
+;line-color = ${colors.amareloescuro}
+
+;border-size = 10
+;border-color = ${colors.azulclaro}
+
+;border-bottom-size = 1
+;border-bottom-color = #333
+
+;spacing = 1
+padding-left = 0
+padding-right = 0
+
+#module-margin = 0
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = xos4 Terminess Powerline:size=8;2
+font-1 = FontAwesome:size=10;2
+
+modules-left = i3 memory cpu filesystem temperature
+modules-center = date xwindow
+modules-right = eth wlan volume backlight-acpi battery
+
+tray-position = right
+tray-padding = 3
+tray-background = ${colors.background}
+
+;wm-restack = i3
+
+;override-redirect = true
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+format-padding = 3
+
+mount-0 = /home
+
+label-mounted = " %percentage_used%%"  
+label-mounted-foreground = ${colors.amareloouro}
+
+[module/bspwm]
+type = internal/bspwm
+
+label-focused = %index%
+label-focused-background = ${colors.cinzaescuro}
+label-focused-underline= ${colors.primary}
+label-focused-padding = 2
+
+label-occupied = %index%
+label-occupied-padding = 2
+
+label-urgent = %index%!
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+label-empty = %index%
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 2
+
+; Separator in between workspaces
+; label-separator = |
+
+[module/i3]
+type = internal/i3
+index-sort = true
+strip-wsnumbers = true
+;format = <label-state> <label-mode> <ws-icon>
+;wrapping-scroll = false
+
+label-focused = %index%: %icon%
+label-focused-foreground = ${colors.cinzaescuro}
+label-focused-background = ${colors.cinzaclaro}
+label-focused-padding = 1
+
+label-unfocused = %index%: %icon%
+label-unfocused-padding = 1
+
+label-urgent = %index%: %icon%
+label-urgent-foreground = ${colors.vermelhoclaro}
+label-urgent-padding = 1
+
+ws-icon-1 = "1;  www"
+ws-icon-2 = "2;  telegram"
+ws-icon-3 = "3;  terminal"
+ws-icon-4 = "4;  files"
+ws-icon-5 = "5;  music"
+ws-icon-6 = "6;"
+ws-icon-7 = "7;"
+ws-icon-8 = "8;"
+ws-icon-9 = "9;"
+ws-icon-0 = "10;"
+ws-icon-default = ""
+
+; Only show workspaces on the same output as the bar
+;pin-workspaces = true
+
+;label-mode-padding = 2
+;label-mode-foreground = #000
+;label-mode-background = ${colors.secondary}
+
+; focused = Active workspace on focused monitor
+;label-focused-underline = ${module/bspwm.label-focused-underline}
+;label-focused-padding = ${module/bspwm.label-focused-padding}
+;label-focused-background = ${module/bspwm.label-focused-background}
+
+; unfocused = Inactive workspace on any monitor
+
+;label-unfocused-padding = ${module/bspwm.label-occupied-padding}
+
+; visible = Active workspace on unfocused monitor
+;label-visible = %index%
+;label-visible-background = ${self.label-focused-background}
+;label-visible-underline = ${self.label-focused-underline}
+;label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+;label-urgent = %index%
+;label-urgent-background = ${module/bspwm.label-urgent-background}
+;label-urgent-padding = ${module/bspwm.label-urgent-padding}
+
+; Separator in between workspaces
+; label-separator = |
+
+[module/mpd]
+type = internal/mpd
+format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
+
+icon-prev = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
+
+label-song-maxlen = 25
+label-song-ellipsis = true
+
+[module/xbacklight]
+type = internal/xbacklight
+
+format = <label>
+format-foreground = ${colors.cinza}
+label = " %percentage%%"
+
+[module/backlight-acpi]
+inherit = module/xbacklight
+type = internal/backlight
+card = intel_backlight
+
+[module/cpu]
+type = internal/cpu
+interval = 1
+#format-padding = 2
+format-foreground = ${colors.azulsky}
+label = " CPU %percentage:2%%"
+
+[module/memory]
+;format = <label> <ramp-coreload>
+type = internal/memory
+interval = 1
+#format-padding = 2
+
+format = <label>
+format-foreground = ${colors.verdeclaro}
+label = " RAM %gb_used%"
+
+[module/wlan]
+type = internal/network
+interface = wlp3s0
+interval = 1.0
+
+format-connected = <label-connected>
+#format-padding = 2
+
+label-connected = " %essid%   %downspeed%  %upspeed% "
+label-connected-foreground = ${colors.verde}
+
+label-disconnected = "No Wi-Fi connected "
+label-disconnected-foreground = ${colors.vermelhoclaro}
+
+#label-connected = "%{F#8A9B0F} %essid% %local_ip%%{F-} %{F#98de00} %downspeed% %{F#FF0000} %upspeed%  "
+#label-disconnected = "%{F#547980}No Wi-Fi connected "
+#label-disconnected-foreground = #547980
+
+[module/eth]
+type = internal/network
+interface = enp2s0
+interval = 1.0
+
+format-connected = <label-connected>
+#format-padding = 2
+
+label-connected = " %local_ip%  %downspeed%  %upspeed% "
+label-connected-foreground = ${colors.verde}
+
+label-disconnected = "LAN off "
+label-disconnected-foreground = ${colors.vermelhoclaro}
+
+[module/date]
+type = internal/date
+interval = 1
+#format-padding = 2
+
+;date =
+;date-alt = " %Y-%m-%d"
+
+time = "%b %d, %H:%M"
+label = %time%
+
+label-foreground = ${colors.cinza}
+
+[module/volume]
+type = internal/volume
+
+format-volume = <label-volume>
+#format-padding = 2
+
+label-volume = " %percentage%%"
+label-volume-foreground = ${colors.azulclaro}
+
+label-muted = " Mute"
+label-muted-foreground = ${colors.vermelhoclaro}
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 98
+#format-padding = 2
+
+format-charging = <animation-charging> <label-charging>
+format-charging-prefix = " Charging "
+
+format-discharging = <ramp-capacity><label-discharging>
+
+label-discharging = %percentage%% %time%
+label-full = " %percentage%%"
+;format-full-prefix = " "
+;format-full-prefix-foreground = ${colors.verde}
+
+ramp-capacity-0 = " "
+ramp-capacity-1 = " "
+ramp-capacity-2 = " "
+ramp-capacity-3 = " "
+ramp-capacity-4 = " "
+ramp-capacity-0-foreground = ${colors.vermelhoescuro} 
+ramp-capacity-1-foreground = ${colors.vermelhoclaro}
+ramp-capacity-2-foreground = ${colors.amareloescuro}
+
+animation-charging-0 = ""
+animation-charging-1 = ""
+animation-charging-2 = ""
+animation-charging-3 = ""
+animation-charging-4 = ""
+animation-charging-framerate = 350
+
+#ramp-capacity-0 = "%{F#FF0000}%{F-}"
+#ramp-capacity-1 = "%{F#FF0000}%{F-}"
+#ramp-capacity-2 = "%{F#e4b226}%{F-}"
+#ramp-capacity-3 = "%{F#98de00}%{F-}"
+#ramp-capacity-4 = "%{F#98de00}%{F-}"
+
+#animation-charging-0 = "%{F#FF0000}%{F-}"
+#animation-charging-1 = "%{F#FF0000}%{F-}"
+#animation-charging-2 = "%{F#e4b226}%{F-}"
+#animation-charging-3 = "%{F#98de00}%{F-}"
+#animation-charging-4 = "%{F#98de00}%{F-}"
+#animation-charging-framerate = 350
+
+[module/temperature]
+type = custom/script
+thermal-zone = 0
+interval = 2
+exec-if = sensors
+exec = sensors | grep Core | awk '{print substr($3, 2, 2)}' | tr '\n' ' ' | sed 's/ /°C  /g' | sed 's/  $//'
+#format-padding = 2
+
+format-prefix = "  " 
+format-prefix-foreground = ${colors.vermelho}
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+
+[global/wm]
+margin-top = 4
+margin-bottom = 4
+
+; vim:ft=dosini

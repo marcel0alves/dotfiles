@@ -1,127 +1,114 @@
-;=====================================================
-;
-;   To learn more about how to configure Polybar
-;   go to https://github.com/jaagr/polybar
-;
-;   The README contains alot of information
-;
-;=====================================================
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;      Polybar Setup      ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-##########
+; Made by: Marcelo Alves
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+; Global Settings
+margin-bottom = 4
+margin-top = 4
+
+; Colors
 [colors]
 background = #222
 background-alt = #444
-foreground = #dfdfdf
+foreground = #DFDFDF
 foreground-alt = #55
-primary = #ffb52a
-secondary = #e60053
-alert = #bd2c40
+primary = #FFB52A
+secondary = #E60053
+alert = #BD2C40
 
 amareloescuro = #ECD078
+amareloouro = #FFD700
+azulsky = #00BFFF
 azulclaro = #63B6D9
 azulescuro = #20312F
 cinza = #DCDEDB
-cinzaclaro = #89AEC1
+cinzaclaro = #C5E0DC
 cinzaescuro = #172D3A
 escuro = #1C252E
 verde = #8A9B0F
+verdeclaro = #32CD32
+vermelho = #FF0000
 vermelhoclaro = #FE4365
 vermelhoescuro = #8E1632
 
+
+; Topbar
 [bar/top]
-;monitor = ${env:MONITOR:eDP-1}
 width = 100%
 height = 26
 fixed-center = true
-offset-x = 0
-offset-y = 0
-;fixed-center = true
-;width = 100%
-;height = 26
-;offset-x = 0
-;offset-y = 0
 
 background = ${colors.escuro}
 foreground = ${colors.foreground}
 
-;line-size = 100
-;line-color = ${colors.amareloescuro}
-
-;border-size = 10
-;border-color = ${colors.azulclaro}
-
-;border-bottom-size = 1
-;border-bottom-color = #333
-
-;spacing = 1
 padding-left = 2
 padding-right = 2
 
 module-margin-left = 2
-module-margin-right = 1
+module-margin-right = 2
 
-;font-0 = xos4 Terminus:pixelsize=12;2
-font-0 = Fira Sans:Regular:pixelsize=10;2
-font-1 = FontAwesome:pixelsize=10;2
+font-0 = xos4 Terminess Powerline:size=8;2
+font-1 = FontAwesome:size=10;2
 
-modules-left = i3 memory cpu filesystem temperature
-modules-center = date xwindow
-modules-right = eth wlan volume backlight-acpi battery
+modules-left = memory cpu filesystem temperature
+modules-center = xwindow
+modules-right = eth wlan
+
+
+
+; Bottombar
+[bar/bot]
+width= 100%
+height = 26
+fixed-center = true
+bottom = true
+
+background = ${colors.escuro}
+foreground = ${colors.foreground}
+
+padding-left = 1
+padding-right = 1
+
+module-margin-left = 2
+module-margin-right = 2
+
+font-0 = xos4 Terminess Powerline:size=8;2
+font-1 = FontAwesome:size=10;2
+
+modules-left = i3
+modules-center = spotify
+modules-right = backlight-acpi volume battery date
 
 tray-position = right
 tray-padding = 3
-tray-background = ${colors.background}
+tray-background = ${colors.escuro}
 
-wm-restack = i3
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-override-redirect = true
+; MODULES ;
 
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
-
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
-
-cursor-click = pointer
-cursor-scroll = ns-resize
-
+; Xwindow
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:30:...%
+label = %title:0:50:...%
+label-foreground = ${colors.cinzaclaro}
 
+; Filesystem
 [module/filesystem]
 type = internal/fs
 interval = 25
-format-padding = 3
 
 mount-0 = /home
 
-label-mounted = " %percentage_used%%"  
-label-mounted-foreground = ${colors.cinza}
+label-mounted = " %percentage_used%%"
+label-mounted-foreground = ${colors.cinzaclaro}
 
-[module/bspwm]
-type = internal/bspwm
-
-label-focused = %index%
-label-focused-background = ${colors.cinzaescuro}
-label-focused-underline= ${colors.primary}
-label-focused-padding = 2
-
-label-occupied = %index%
-label-occupied-padding = 2
-
-label-urgent = %index%!
-label-urgent-background = ${colors.alert}
-label-urgent-padding = 2
-
-label-empty = %index%
-label-empty-foreground = ${colors.foreground-alt}
-label-empty-padding = 2
-
-; Separator in between workspaces
-; label-separator = |
-
+; i3
 [module/i3]
 type = internal/i3
 index-sort = true
@@ -132,20 +119,21 @@ strip-wsnumbers = true
 label-focused = %index%: %icon%
 label-focused-foreground = ${colors.cinzaescuro}
 label-focused-background = ${colors.cinzaclaro}
-label-focused-padding = 2
+label-focused-padding = 1
 
 label-unfocused = %index%: %icon%
-label-unfocused-padding = 2
+label-unfocused-padding = 1
+label-unfocused-foreground = ${colors.cinzaclaro} 
 
 label-urgent = %index%: %icon%
 label-urgent-foreground = ${colors.vermelhoclaro}
-label-urgent-padding = 2
+label-urgent-padding = 1
 
-ws-icon-1 = "1;"
-ws-icon-2 = "2;"
-ws-icon-3 = "3;"
-ws-icon-4 = "4;"
-ws-icon-5 = "5;"
+ws-icon-1 = "1;  www"
+ws-icon-2 = "2;  telegram"
+ws-icon-3 = "3;  terminal"
+ws-icon-4 = "4;  files"
+ws-icon-5 = "5;  music"
 ws-icon-6 = "6;"
 ws-icon-7 = "7;"
 ws-icon-8 = "8;"
@@ -153,114 +141,68 @@ ws-icon-9 = "9;"
 ws-icon-0 = "10;"
 ws-icon-default = ""
 
-; Only show workspaces on the same output as the bar
-;pin-workspaces = true
-
-;label-mode-padding = 2
-;label-mode-foreground = #000
-;label-mode-background = ${colors.secondary}
-
-; focused = Active workspace on focused monitor
-;label-focused-underline = ${module/bspwm.label-focused-underline}
-;label-focused-padding = ${module/bspwm.label-focused-padding}
-;label-focused-background = ${module/bspwm.label-focused-background}
-
-; unfocused = Inactive workspace on any monitor
-
-;label-unfocused-padding = ${module/bspwm.label-occupied-padding}
-
-; visible = Active workspace on unfocused monitor
-;label-visible = %index%
-;label-visible-background = ${self.label-focused-background}
-;label-visible-underline = ${self.label-focused-underline}
-;label-visible-padding = ${self.label-focused-padding}
-
-; urgent = Workspace with urgency hint set
-;label-urgent = %index%
-;label-urgent-background = ${module/bspwm.label-urgent-background}
-;label-urgent-padding = ${module/bspwm.label-urgent-padding}
-
-; Separator in between workspaces
-; label-separator = |
-
-[module/mpd]
-type = internal/mpd
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
-
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
-
-label-song-maxlen = 25
-label-song-ellipsis = true
-
+; Xbacklight
 [module/xbacklight]
 type = internal/xbacklight
 
 format = <label>
-format-foreground = ${colors.cinza}
+format-foreground = ${colors.cinzaclaro}
 label = " %percentage%%"
 
+; Backlight-acpi
 [module/backlight-acpi]
 inherit = module/xbacklight
 type = internal/backlight
 card = intel_backlight
 
+; CPU
 [module/cpu]
 type = internal/cpu
 interval = 1
-format-padding = 2
-format-foreground = ${colors.cinza}
+format-foreground = ${colors.cinzaclaro}
 label = " CPU %percentage:2%%"
 
+; Memory
 [module/memory]
-;format = <label> <ramp-coreload>
 type = internal/memory
 interval = 1
-format-padding = 2
 
 format = <label>
-format-foreground = ${colors.cinza}
+format-foreground = ${colors.cinzaclaro}
 label = " RAM %gb_used%"
 
+; Wireless
 [module/wlan]
 type = internal/network
 interface = wlp3s0
 interval = 1.0
-
+ 
 format-connected = <label-connected>
-format-padding = 2
 
 label-connected = " %essid%   %downspeed%  %upspeed% "
-label-conected-foreground = ${colors.cinza}
+label-connected-foreground = ${colors.cinzaclaro}
 
 label-disconnected = "No Wi-Fi connected "
 label-disconnected-foreground = ${colors.vermelhoclaro}
 
-#label-connected = "%{F#8A9B0F} %essid% %local_ip%%{F-} %{F#98de00} %downspeed% %{F#FF0000} %upspeed%  "
-#label-disconnected = "%{F#547980}No Wi-Fi connected "
-#label-disconnected-foreground = #547980
-
+; Ethernet
 [module/eth]
 type = internal/network
 interface = enp2s0
 interval = 1.0
 
 format-connected = <label-connected>
-format-padding = 2
 
 label-connected = " %local_ip%  %downspeed%  %upspeed% "
-label-connected-foreground = ${colors.cinza}
+label-connected-foreground = ${colors.cinzaclaro}
 
 label-disconnected = "LAN off "
 label-disconnected-foreground = ${colors.vermelhoclaro}
 
+; Date
 [module/date]
 type = internal/date
 interval = 1
-format-padding = 2
 
 ;date =
 ;date-alt = " %Y-%m-%d"
@@ -268,30 +210,30 @@ format-padding = 2
 time = "%b %d, %H:%M"
 label = %time%
 
-label-foreground = ${colors.cinza}
+label-foreground = ${colors.cinzaclaro}
 
+; Volume
 [module/volume]
 type = internal/volume
 
 format-volume = <label-volume>
-format-padding = 2
 
 label-volume = " %percentage%%"
-label-volume-foreground = ${colors.cinza}
+label-volume-foreground = ${colors.cinzaclaro}
 
 label-muted = " Mute"
 label-muted-foreground = ${colors.vermelhoclaro}
 
+; Battery
 [module/battery]
 type = internal/battery
 battery = BAT0
 adapter = AC
 full-at = 98
-format-padding = 2
-
+ 
 format-charging = <animation-charging> <label-charging>
 format-charging-prefix = " Charging "
-
+ 
 format-discharging = <ramp-capacity><label-discharging>
 
 label-discharging = %percentage%% %time%
@@ -304,7 +246,7 @@ ramp-capacity-1 = " "
 ramp-capacity-2 = " "
 ramp-capacity-3 = " "
 ramp-capacity-4 = " "
-ramp-capacity-0-foreground = ${colors.vermelhoescuro} 
+ramp-capacity-0-foreground = ${colors.vermelhoescuro}·
 ramp-capacity-1-foreground = ${colors.vermelhoclaro}
 ramp-capacity-2-foreground = ${colors.amareloescuro}
 
@@ -315,39 +257,26 @@ animation-charging-3 = ""
 animation-charging-4 = ""
 animation-charging-framerate = 350
 
-#ramp-capacity-0 = "%{F#FF0000}%{F-}"
-#ramp-capacity-1 = "%{F#FF0000}%{F-}"
-#ramp-capacity-2 = "%{F#e4b226}%{F-}"
-#ramp-capacity-3 = "%{F#98de00}%{F-}"
-#ramp-capacity-4 = "%{F#98de00}%{F-}"
-
-#animation-charging-0 = "%{F#FF0000}%{F-}"
-#animation-charging-1 = "%{F#FF0000}%{F-}"
-#animation-charging-2 = "%{F#e4b226}%{F-}"
-#animation-charging-3 = "%{F#98de00}%{F-}"
-#animation-charging-4 = "%{F#98de00}%{F-}"
-#animation-charging-framerate = 350
-
+; Temperature 
 [module/temperature]
 type = custom/script
 thermal-zone = 0
 interval = 2
 exec-if = sensors
-exec = sensors | grep Core | awk '{print substr($3, 2, 2)}' | tr '\n' ' ' | sed 's/ /°C  /g' | sed 's/  $//'
-format-padding = 2
+exec = sensors | grep Core | awk '{print substr($3, 2, 2)}' | tr '\n' ' ' | sed 's/ /°C  /g' | sed 's/  $/    /'
 
-format-prefix = "  " 
-format-prefix-foreground = ${colors.cinza}
+format-prefix = "  "
+format-foreground = ${colors.cinzaclaro}
 
-[settings]
-screenchange-reload = true
-;compositing-background = xor
-;compositing-background = screen
-;compositing-foreground = source
-;compositing-border = over
+;;;;;;
 
-[global/wm]
-margin-top = 4
-margin-bottom = 4
+; Spotify custom
+[module/spotify]
+type = custom/script
+format-prefix = " "
+format-foreground = ${colors.verde}
+exec = $HOME/.config/polybar/scripts/music
+
+
 
 ; vim:ft=dosini
