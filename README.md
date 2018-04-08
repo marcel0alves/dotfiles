@@ -9,7 +9,8 @@ Setup:
 - Zsh
 - Zsh with Oh-my-zsh
 
- 
+
+![alt text](https://i.imgur.com/8jmXHPC.png)
 
 
 
