@@ -4,10 +4,12 @@ My personal config/dotfiles files for Linux. In development.
 
 Setup:
 - Arch Linux x64
-- Mopidy
-- Ncmpcpp
+- i3-gaps
+- Polybar
+- cli-visualizer
+- htop
 - Zsh
-- Zsh with Oh-my-zsh
+- Oh-my-zsh with punctual theme
 
 
 ![alt text](https://i.imgur.com/WHQPnqD.png)
