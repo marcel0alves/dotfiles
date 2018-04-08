@@ -1,32 +1,3 @@
-!
-! Edited: @ueiciowr | https://t.me/ueiciowr
-!
-!-----------------------------------------------------------------------
-!                         Xft settings
-!-----------------------------------------------------------------------
-
-! DPI/Font
-!Xft.dpi: 30
-!Xft.autohint: 0
-!Xft.antialias: 1
-!Xft.hinting: true
-!Xft.hintstyle: hintslight
-!Xft.rgba: rgb
-!Xft.lcdfilter: lcddefault
-
-! Dylans Xresources
-URxvt.scrollBar: true
-URxvt*buffered: true
-
-!Xft.dpi:                80
-!Xft.autohint:           10
-!Xft.antialias:          true
-!Xft.rgba:               rgb
-!Xft.hinting:            true
-!Xft.lcdfilter:          lcddefault
-!Xft.hintstyle:          hintsfull
-
-
 !-----------------------------------------------------------------------
 !                        URxvt settings
 !-----------------------------------------------------------------------
@@ -35,44 +6,45 @@ URxvt*buffered: true
 ! Generated with :
 ! XRDB2Xreources.py
 !
-*.foreground:  #FFFFFF
-*.background:	#1D2426
-*.cursorColor: #FFFFFF
+URxvt*foreground:  #D4D2CF
+URxvt*background:  #1D2426
+URxvt*cursorColor: #FFFFFF
 !
 ! Black
-*.color0:      #414141
-*.color8:      #5A5A5A
+URxvt*color0:      #172D3A
+URxvt*color8:      #859CA4
 !
 ! Red
-*.color1:      #CA0049
-*.color9:      #BD005B
+URxvt*color1:      #A22618
+URxvt*color9:      #E84C24
 !
 ! Green
-*.color2:      #CA0049
-*.color10:     #FFFFFF
+URxvt*color2:      #539927
+URxvt*color10:     #70B751
 !
 ! Yellow
-*.color3:      #FFFFFF
-*.color11:     #F0DFAF
+URxvt*color3:      #8E6514
+URxvt*color11:     #B4A05A
 !
 ! Blue
-*.color4:      #FF9B3E
-*.color12:     #BDBDBD
+URxvt*color4:      #0A47A4
+URxvt*color12:     #4587CC
 !
 ! Magenta
-*.color5:      #83AAA9
-*.color13:     #819FA0
+URxvt*color5:      #543973
+URxvt*color13:     #84699B
 !
 ! Cyan
-*.color6:      #86949B
-*.color14:     #BD004F
+URxvt*color6:      #4D92B4
+URxvt*color14:     #8BCAEA
 !
 ! White
-*.color7:      #FFFFFF
-*.color15:     #FFFFFF
+URxvt*color7:      #A3A29F
+URxvt*color15:     #D4D2CF
 !
 ! Bold, Italic, Underline
-*.colorBD:     #dcdccc
+URxvt*colorBD:     #275FA0
+URxvt*colorUL:     #E84C24
 !*.colorIT:
 !*.colorUL:
 
@@ -86,6 +58,7 @@ URxvt.externalBorder:    10
 !URxvt.lineSpace:        0
 !urxvt*shading:          30
 URxvt.depth:             32
+URxvt.background:        [80]#000000
 URxvt.saveLines:         10000
 URxvt*geometry:          120x35
 URxvt*terminalName:      rxvt-unicode-256color
@@ -148,5 +121,3 @@ Xcursor.theme:             Adwaita
 !! Pointer
 !URxvt.pointerBlank:        true
 
-!! Locale
-URxvt.imLocale:		"pt_BR.UTF-8"
