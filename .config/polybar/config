@@ -27,7 +27,7 @@ azulsky = #00BFFF
 azulclaro = #63B6D9
 azulescuro = #20312F
 cinza = #DCDEDB
-cinzaclaro = #C5E0DC
+cinzaclaro = #E8E8E8
 cinzaescuro = #172D3A
 escuro = #1C252E
 verde = #8A9B0F
@@ -52,7 +52,7 @@ padding-right = 2
 module-margin-left = 2
 module-margin-right = 2
 
-font-0 = xos4 Terminess Powerline:size=8;2
+font-0 = xos4 Terminess Powerline:size=10;2
 font-1 = FontAwesome:size=10;2
 
 modules-left = memory cpu filesystem temperature
@@ -72,15 +72,16 @@ foreground = ${colors.foreground}
 padding-left = 1
 padding-right = 1
 
-module-margin-left = 2
-module-margin-right = 2
+module-margin-left = 1
+module-margin-right = 1
 
-font-0 = xos4 Terminess Powerline:size=8;2
-font-1 = FontAwesome:size=10;2
+font-0 = xos4 Terminess Powerline:pixelsize=12;2
+font-1 = FontAwesome:pixelsize=10;2
+font-2 = Weather Icons:pixelsize=10;4
 
 modules-left = i3
 modules-center = spotify
-modules-right = backlight-acpi volume battery date
+modules-right = openweather crypto backlight-acpi volume battery date
 
 tray-position = right
 tray-padding = 3
@@ -106,7 +107,7 @@ interval = 25
 
 mount-0 = /home
 
-label-mounted = " %percentage_used%%"
+label-mounted = " %mountpoint%: %used% of %total%"
 label-mounted-foreground = ${colors.cinzaclaro}
 
 ; i3
@@ -130,13 +131,13 @@ label-urgent = %index%: %icon%
 label-urgent-foreground = ${colors.vermelhoclaro}
 label-urgent-padding = 1
 
-ws-icon-1 = "1;  www"
-ws-icon-2 = "2;  telegram"
-ws-icon-3 = "3;  terminal"
-ws-icon-4 = "4;  files"
-ws-icon-5 = "5;  music"
-ws-icon-6 = "6;"
-ws-icon-7 = "7;"
+ws-icon-1 = "1; www"
+ws-icon-2 = "2; telegram"
+ws-icon-3 = "3; terminal"
+ws-icon-4 = "4; files"
+ws-icon-5 = "5; music"
+ws-icon-6 = "6; windows"
+ws-icon-7 = "7; code"
 ws-icon-8 = "8;"
 ws-icon-9 = "9;"
 ws-icon-0 = "10;"
@@ -170,7 +171,7 @@ interval = 1
 
 format = <label>
 format-foreground = ${colors.cinzaclaro}
-label = " RAM %gb_used%"
+label = " RAM %gb_used%"
 
 ; Wireless
 [module/wlan]
@@ -180,10 +181,10 @@ interval = 1.0
  
 format-connected = <label-connected>
 
-label-connected = " %essid%   %downspeed%  %upspeed% "
+label-connected = " %essid% %local_ip%  %downspeed%"
 label-connected-foreground = ${colors.cinzaclaro}
 
-label-disconnected = "No Wi-Fi connected "
+label-disconnected = "No Wi-Fi connected"
 label-disconnected-foreground = ${colors.vermelhoclaro}
 
 ; Ethernet
@@ -194,10 +195,10 @@ interval = 1.0
 
 format-connected = <label-connected>
 
-label-connected = " %local_ip%  %downspeed%  %upspeed% "
+label-connected = " %ifname% %local_ip%  %downspeed% %linkspeed%"
 label-connected-foreground = ${colors.cinzaclaro}
 
-label-disconnected = "LAN off "
+label-disconnected = "LAN off"
 label-disconnected-foreground = ${colors.vermelhoclaro}
 
 ; Date
@@ -239,6 +240,7 @@ format-discharging = <ramp-capacity><label-discharging>
 
 label-discharging = %percentage%% %time%
 label-full = " %percentage%%"
+label-discharging-foreground = ${colors.cinzaclaro}
 ;format-full-prefix = " "
 ;format-full-prefix-foreground = ${colors.verde}
 
@@ -247,7 +249,7 @@ ramp-capacity-1 = " "
 ramp-capacity-2 = " "
 ramp-capacity-3 = " "
 ramp-capacity-4 = " "
-ramp-capacity-0-foreground = ${colors.vermelhoescuro}·
+ramp-capacity-0-foreground = ${colors.vermelhoescuro}
 ramp-capacity-1-foreground = ${colors.vermelhoclaro}
 ramp-capacity-2-foreground = ${colors.amareloescuro}
 
@@ -266,7 +268,7 @@ interval = 2
 exec-if = sensors
 exec = sensors | grep Core | awk '{print substr($3, 2, 2)}' | tr '\n' ' ' | sed 's/ /°C  /g' | sed 's/  $/    /'
 
-format-prefix = "  "
+format-prefix = " CPU "
 format-foreground = ${colors.cinzaclaro}
 
 ;;;;;;
@@ -278,6 +280,19 @@ format-prefix = " "
 format-foreground = ${colors.verde}
 exec = $HOME/.config/polybar/scripts/music
 
+; OpenWeather
+[module/openweather]
+type = custom/script
+exec = ~/.config/polybar/scripts/openweather-detailed
+interval = 600
+label-font = 3
 
+foreground = ${colors.cinzaclaro}
+
+; Crypto
+[module/crypto]
+type = custom/script
+exec = ~/.config/polybar/scripts/crypto
+interval = 600
 
 ; vim:ft=dosini
