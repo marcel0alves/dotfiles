@@ -13,7 +13,7 @@ Setup:
 - Oh-my-zsh with punctual theme
 
 
-![alt text](https://i.imgur.com/WHQPnqD.png)
+![alt text](https://i.imgur.com/Fzq6Bwt.png)
 
 
 
