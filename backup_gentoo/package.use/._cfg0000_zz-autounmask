@@ -1,0 +1,8 @@
+# package.use# required by dev-python/cryptography-2.1.4::gentoo[-libressl]
+# required by dev-python/pyopenssl-17.5.0::gentoo
+# required by dev-python/urllib3-1.22::gentoo
+# required by dev-python/requests-2.18.4::gentoo
+# required by dev-python/ssl-fetch-0.4::gentoo
+# required by app-portage/mirrorselect-2.2.3::gentoo
+# required by app-portage/mirrorselect (argument)
+=dev-libs/openssl-1.0.2n -bindist
