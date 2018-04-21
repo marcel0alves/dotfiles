@@ -8,12 +8,10 @@
 
 ####### Arquivos inicializados no i3 ########
 
-exec --no-startup-id mopidy
 exec --no-startup-id xfce4-clipman
 exec --no-startup-id nm-applet
-exec --no-startup-id compton
-exec --no-startup-id numlockx on
 exec --no-startup-id dunst
+exec --no-startup-id compton
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 #############################################
@@ -51,17 +49,12 @@ bindsym Print exec xfce4-screenshooter
 #   Hotkeys/Atalhos    #
 ########################
 
-#bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q -D pulse sset Master 5%+ unmute
-#bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q -D pulse sset Master 5%- unmute
-#bindsym XF86AudioMute exec --no-startup-id amixer -q -D pulse sset Master 1+ toggle
-bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+
-bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%-
-bindsym XF86AudioMute exec amixer -D pulse sset Master toggle
+bindsym XF86AudioRaiseVolume exec amixer sset Master 1%+
+bindsym XF86AudioLowerVolume exec amixer sset Master 1%-
+bindsym XF86AudioMute exec amixer sset Master toggle
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
-bindsym XF86MonBrightnessDown exec /home/arch/.config/brightness/BrightDown.sh
-bindsym XF86MonBrightnessUp exec /home/arch/.config/brightness/BrightUp.sh
 
 # bloquear tela
 bindsym $mod+x exec betterlockscreen --lock
@@ -95,8 +88,8 @@ bindsym $mod+Shift+e mode "[l]ogout, [d]esligar, [r]einiciar, [s]uspender"
 ##### Configuração de janelas #####
 
 # espaço entre as janelas
-gaps inner 20
-gaps outer 20
+gaps inner 15
+gaps outer 15
 
 # remove blue window bar i3 uses
 for_window [class="^.*"] border pixel 1
@@ -222,10 +215,11 @@ for_window [class="^Nitrogen"] floating enable, move position center
 for_window [class="^Thunar"] floating enable, move position center
 for_window [class="^Personalizar"] floating enable, move position center
 for_window [class="^Ristretto"] floating enable, move position center
-#for_window [class="(?i)urxvt"] border pixel 0, floating enable, move position center
+for_window [class="^Remmina"] floating enable, move position center
+for_window [class="^Mousepad"] floating enable, move position center
 for_window [class="(?i)urxvt"] border pixel 0
 for_window [class="(?i)nm-connection-editor"] floating enable, move position center
-for_window [class="(?i)virtualbox"] floating disable, move position center
+for_window [class="(?i)virtualbox"] floating enable, move position center
 for_window [class="(?i)lxappearance"] floating enable, move position center
 for_window [class="(?i)gnome-calculator"] floating enable, move position center
 
