@@ -217,11 +217,13 @@ for_window [class="^Personalizar"] floating enable, move position center
 for_window [class="^Ristretto"] floating enable, move position center
 for_window [class="^Remmina"] floating enable, move position center
 for_window [class="^Mousepad"] floating enable, move position center
-for_window [class="(?i)urxvt"] border pixel 0
+for_window [class="^Brasero"] floating enable, move position center
+for_window [class="(?i)urxvt"] floating enable, border pixel 0
 for_window [class="(?i)nm-connection-editor"] floating enable, move position center
 for_window [class="(?i)virtualbox"] floating enable, move position center
 for_window [class="(?i)lxappearance"] floating enable, move position center
 for_window [class="(?i)gnome-calculator"] floating enable, move position center
+for_window [class="(?i)android-file-transfer"] floating enable, move position center
 
 #######################################
 #				      #
@@ -264,6 +266,10 @@ bindsym $mod+Ctrl+w exec /usr/lib/virtualbox/VirtualBox --comment "Windows 7 (DG
 #########################
 
 #bar {
+#	i3bar_command i3bar
 #	status_command i3blocks
-#	font pango: xos4 Terminess Powerline Regular 9
+#	position top
+#	workspace_buttons yes
+#	font pango: Iosevka Nerd Font Regular 9
+#	separator_symbol ""
 #} 
