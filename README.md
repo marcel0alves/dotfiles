@@ -13,10 +13,10 @@ Setup:
 - Oh-my-zsh with half-life theme
 
 
-![alt text](https://i.imgur.com/0d2d173.png)
+![alt text](https://i.imgur.com/MTqulah.png)
 
 
 
 Created by Marcelo Alves.
 
-Last Update: May 07 2018
+Last Update: May 08 2018
