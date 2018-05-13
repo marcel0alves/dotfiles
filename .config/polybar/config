@@ -55,7 +55,7 @@ module-margin-right = 2
 font-0 = xos4 Terminess Powerline:size=10;2
 font-1 = FontAwesome:size=10;2
 
-modules-left = memory cpu filesystem temperature
+modules-left = cpu memory temperature
 modules-center = xwindow
 modules-right = eth wlan
 
@@ -77,11 +77,10 @@ module-margin-right = 1
 
 font-0 = xos4 Terminess Powerline:pixelsize=12;2
 font-1 = FontAwesome:pixelsize=10;2
-font-2 = Weather Icons:pixelsize=10;4
 
 modules-left = i3
 modules-center = spotify
-modules-right = openweather crypto backlight-acpi volume battery date
+modules-right = crypto backlight-acpi volume battery date
 
 tray-position = right
 tray-padding = 3
@@ -158,20 +157,83 @@ type = internal/backlight
 card = intel_backlight
 
 ; CPU
+;[module/cpu]
+;type = internal/cpu
+;interval = 1
+;format = <label> <ramp-coreload>
+;format-foreground = ${colors.cinzaclaro}
+;label = " CPU %percentage:2%%"
+;label = " CPU "
+
+;ramp-coreload-0 = ▁
+;ramp-coreload-1 = ▂
+;ramp-coreload-2 = ▃
+;ramp-coreload-3 = ▄
+;ramp-coreload-4 = ▅
+;ramp-coreload-5 = ▆
+;ramp-coreload-6 = ▇
+;ramp-coreload-7 = █
+
+; CPU
 [module/cpu]
 type = internal/cpu
-interval = 1
-format-foreground = ${colors.cinzaclaro}
-label = " CPU %percentage:2%%"
+interval = 0.5
+format = <label> <ramp-coreload>
+;label = " CPU "
+label = "CPU"
+
+ramp-coreload-0 = ▁
+ramp-coreload-0-font = 2
+ramp-coreload-0-foreground = #0a8200
+ramp-coreload-1 = ▂
+ramp-coreload-1-font = 2
+ramp-coreload-1-foreground = #68f25c
+ramp-coreload-2 = ▃
+ramp-coreload-2-font = 2
+ramp-coreload-2-foreground = #8aff7f
+ramp-coreload-3 = ▄
+ramp-coreload-3-font = 2
+ramp-coreload-3-foreground = #FFCA00
+ramp-coreload-4 = ▅
+ramp-coreload-4-font = 2
+ramp-coreload-4-foreground = #FFCA00
+ramp-coreload-5 = ▆
+ramp-coreload-5-font = 2
+ramp-coreload-5-foreground = #ea7100
+ramp-coreload-6 = ▇
+ramp-coreload-6-font = 2
+ramp-coreload-6-foreground = #ff6060
+ramp-coreload-7 = █
+ramp-coreload-7-font = 2
+ramp-coreload-7-foreground = #ff1414
 
 ; Memory
+; [module/memory]
+;type = internal/memory
+;interval = 1
+
+;format = <label>
+;format-foreground = ${colors.cinzaclaro}
+;label = " RAM %gb_used%"
+
+; Memory (2)
 [module/memory]
 type = internal/memory
 interval = 1
+format = <label> <bar-used>
 
-format = <label>
-format-foreground = ${colors.cinzaclaro}
-label = " RAM %gb_used%"
+;label = " RAM %gb_used% of %gb_total%"
+label = "RAM"
+
+bar-used-indicator =
+bar-used-width = 40
+bar-used-foreground-0 = #55aa55
+bar-used-foreground-1 = #557755
+bar-used-foreground-2 = #f5a70a
+bar-used-foreground-3 = #ff5555
+bar-used-fill = ▐
+bar-used-empty = ▐
+bar-used-empty-foreground = #444444
 
 ; Wireless
 [module/wlan]
@@ -195,7 +257,7 @@ interval = 1.0
 
 format-connected = <label-connected>
 
-label-connected = " %ifname% %local_ip%  %downspeed% %linkspeed%"
+label-connected = " %local_ip%  %downspeed% %linkspeed%"
 label-connected-foreground = ${colors.cinzaclaro}
 
 label-disconnected = "LAN off"
@@ -279,15 +341,6 @@ type = custom/script
 format-prefix = " "
 format-foreground = ${colors.verde}
 exec = $HOME/.config/polybar/scripts/music
-
-; OpenWeather
-[module/openweather]
-type = custom/script
-exec = ~/.config/polybar/scripts/openweather-detailed
-interval = 600
-label-font = 3
-
-foreground = ${colors.cinzaclaro}
 
 ; Crypto
 [module/crypto]
