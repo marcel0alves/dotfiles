@@ -30,3 +30,6 @@ set showmode
 
 " Show the filename in the window titlebar
 set title
+
+
+let $PYTHONPATH='/usr/lib/python3.6/site-packages'
