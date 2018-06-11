@@ -18,7 +18,7 @@ Setup:
 
 ## Guide
 
-A guide for installing Arch Linux with LUKS disk encryption over a UEFI based system.
+LUKS_LVM_UEFI is a guide for installing Arch Linux with LUKS disk encryption over a UEFI based system.
 
 ## What is this?
 
@@ -27,6 +27,9 @@ While I was further exploring the linux universe seeking the answer to the meani
 ## Avaliable guide
 
 - LVM on LUKS, a standard install using well tested and stable tools.
+
+
+
 
 
 Created by Marcelo Alves.
