@@ -1,0 +1,123 @@
+-------------------------------------------------------------
+---------------- Arch Linux by Marcelo Alves ----------------
+-------- LVM on LUKS installation in a UEFI System ----------
+-------------------------------------------------------------
+
+# Obs: Make sure you're actually booted in UEFI mode, and verify that Secure Boot is disabled
+
+# Verify if your connection is OK. Use dhcpcd to wired connection, or wifi-menu to WiFi connections
+ping google.com -c 5
+
+# Use timedatectl to ensure the system clock is accurate, then check for the service status.
+timedatectl set-ntp true
+
+# Use lsblk and/or fdisk -l to list all drivers and choose the one you want to install
+
+# Use fdisk, cfdisk or parted to create a partition scheme for your disk. Use GPT format.
+# Example and my suggestion (assuming /dev/sda as the disk used)
+# /dev/sda1 256M /boot EFI System Partition
+# /dev/sda2 free space disk LVM
+
+# Format the EFI System Partition (ESP) using vfat filesystem
+mkfs.vfat -F32 /dev/sda1
+
+# Encrypt the LVM partition using LUKS. Read this link to more information:
+# https://wiki.archlinux.org/index.php/Dm-crypt/Device_encryption
+
+# This is used in my setup
+cryptsetup luksFormat -c aes-xts-plain64 -s 512 -h sha512 --use-random -i 30000 /dev/sda2
+
+# Open the encrypted LVM partition
+cryptsetup luksOpen /dev/sda2 dmcrypt
+
+# Create a physical volume on top of the opened LUKS container
+pvcreate /dev/mapper/dmcrypt
+
+# Add a volume group using a name as your prefer
+vgcreate <volume name> /dev/mapper/dmcrypt
+
+# Create all the logical volumes on such group
+lvcreate -L <swap size>G <volume name> -n swap
+lvcreate -L <root size>G <volume name> -n root
+lvcreate -l 100%FREE <volume name> -n home
+
+# Format logical volumes
+mkfs.ext4 /dev/mapper/<volume name>-root
+mkfs.ext4 /dev/mapper/<volume name>-home
+mkswap /dev/mapper/<volume name>-swap
+swapon /dev/mapper/<volume name>-swap
+
+# Mount filesystems. LVM setup is done
+mount /dev/mapper/<volume name>-root /mnt
+mkdir /mnt/boot
+mkdir /mnt/home
+mount /dev/mapper/<volume name>-home /mnt/home
+mount /dev/sda1 /mnt/boot
+
+# Install the base and base-devel system using pacstrap
+pacstrap /mnt base base-devel vim
+
+# Generate the FSTAB using UUIDs then check it's fine
+genfstab -U /mnt /mnt/etc/fstab
+cat /mnt/etc/fstab | less
+
+# Chroot into installation
+arch-chroot /mnt
+
+# Setup time zone and hardware clock
+ln -sf /usr/share/zoneinfo/<region>/<city> /etc/localtime
+hwclock --systohc --utc
+
+# Uncomment the locale you want to be generated from /etc/locale.gen (pt_BR or en_US), then
+# generate locale and set the LANG variable in /etc/locale.conf accoringly.
+# You can set the keymap for your current language as well as the hostname
+# you prefer.
+locale-gen
+echo "LANG=pt_BR.UTF-8" > /etc/locale.conf   OR
+echo "LANG=en_US.UTF-8" > /etc/locale.conf
+echo "KEYMAP=us-acentos" > /etc/vconsole.conf   OR
+echo "KEYMAP=br-abnt2" > /etc/vconsole.conf
+
+# Choose a name to your machine
+echo "<name hostname>" > /etc/hostname
+
+# Add the encrypted partition LVM to crypttab file. Use blkid to list UUIDs: blkid | grep LUKS
+--> /etc/crypttab
+dmcrypt UUID=</dev/sda2 UUID> none luks    (change luks to discards if your use SSD)
+
+# Configure the mkinitcpio by adding encrypt and lvm2 hooks before filesystems.
+# mkinitcpio generate the initramfs used in boot with kernel
+
+--> /etc/mkinitcpio.conf
+HOOKS="... block encrypt lvm2 ... filesystems..."
+
+mkinitcpio -p linux
+
+# Update the root password
+passwd
+
+# Install intel-ucode package if your CPU is Intel to enable microcodes updates, and install efibootmgr to UEFI compatibility
+pacman -S intel-ucode grub efibootmgr
+
+# Configure GRUB to recognize LUKS encrypted partition and unlock the root LVM
+--> /etc/default/grub
+GRUB_CMDLINE_LINUX="... cryptdevice=UUID=</dev/sda2 UUID>:dmcrypt:allow-discards ..."
+GRUB_ENABLE_CRYPTODISK=y
+
+# Install GRUB in boot partition
+grub-install --target=x86_64-efi --efi-directory=/boot --recheck
+
+# Install the GRUB config
+# OBS: Don't panic if you see a lvmetad error. Just ignore it
+grub-mkconfig -o /boot/grub/grub.cfg
+
+# Installation is finished. Optionally, you can install the optionals packages recommended by me:
+pacman -S wget git networkmanager dialog htop zsh elinks
+
+# NetworkManager is better for me. If you prefer him, enable the service
+systemctl enable NetworkManager.service
+
+# Everything is done. Exit setup, umount all drivers and reboot
+exit
+umount -R /mnt
+reboot
