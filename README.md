@@ -16,7 +16,19 @@ Setup:
 ![alt text](https://i.imgur.com/MTqulah.png)
 
 
+## Guide
+
+A guide for installing Arch Linux with LUKS disk encryption over a UEFI based system.
+
+## What is this?
+
+While I was further exploring the linux universe seeking the answer to the meaning of life, I met a challenge of never matched difficulty: full disk encryption using LUKS over a UEFI based system. Many are the guides available on the web but none of them fullfilled my thirst for knowledge, as some were for older non-GPT installs or a bit too vague for a first time approach of the argument.
+
+## Avaliable guide
+
+- LVM on LUKS, a standard install using well tested and stable tools.
+
 
 Created by Marcelo Alves.
 
-Last Update: May 08 2018
+Last Update: Jun 11, 2018
