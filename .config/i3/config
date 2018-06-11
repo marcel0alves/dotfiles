@@ -89,8 +89,8 @@ bindsym $mod+Shift+e mode "[l]ogout, [d]esligar, [r]einiciar, [s]uspender"
 ##### Configuração de janelas #####
 
 # espaço entre as janelas
-gaps inner 15
-gaps outer 15
+gaps inner 5
+gaps outer 5
 
 # remove blue window bar i3 uses
 for_window [class="^.*"] border pixel 1
