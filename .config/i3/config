@@ -12,7 +12,7 @@ exec --no-startup-id blueman-applet
 exec --no-startup-id xfce4-clipman
 exec --no-startup-id nm-applet
 exec --no-startup-id dunst
-exec --no-startup-id compton
+exec --no-startup-id compton -b -c --config ~/.config/compton.conf.andre
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 #############################################
@@ -56,6 +56,8 @@ bindsym XF86AudioMute exec amixer sset Master toggle
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 
 # bloquear tela
 bindsym $mod+x exec betterlockscreen --lock
