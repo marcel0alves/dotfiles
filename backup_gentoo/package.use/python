@@ -1,1 +1,1 @@
->=dev-lang/python-2.7.14-r1:2.7 sqlite
+>=dev-lang/python-3.5.5:3.5 sqlite
