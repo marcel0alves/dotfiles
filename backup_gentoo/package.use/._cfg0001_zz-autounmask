@@ -1,3 +1,0 @@
-# package.use# required by net-misc/openssh-7.5_p1-r4::gentoo[-libressl,ssl,-static]
-# required by @__auto_slot_operator_replace_installed__ (argument)
->=dev-libs/openssl-1.1.0h bindist
