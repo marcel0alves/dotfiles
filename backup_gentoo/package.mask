@@ -1,0 +1,4 @@
+>=media-fonts/fontawesome-5.0.6
+>media-fonts/cantarell-0.0.25
+#>=media-libs/mesa-18.0.5
+#>dev-libs/wayland-1.14.0
