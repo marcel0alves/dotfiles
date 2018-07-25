@@ -12,13 +12,13 @@ exec --no-startup-id blueman-applet
 exec --no-startup-id xfce4-clipman
 exec --no-startup-id nm-applet
 exec --no-startup-id dunst
-exec --no-startup-id compton -b -c --config ~/.config/compton.conf.andre
+exec --no-startup-id compton --config ~/.config/compton.conf -b -c
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 #############################################
 
 # set nitrogen wallpaper at startup
-exec nitrogen --restore
+exec --no-startup-id nitrogen --restore
 
 ###################
 
@@ -48,8 +48,6 @@ bindsym Print exec xfce4-screenshooter
 
 ########################
 #   Hotkeys/Atalhos    #
-########################
-
 bindsym XF86AudioRaiseVolume exec amixer sset Master 1%+
 bindsym XF86AudioLowerVolume exec amixer sset Master 1%-
 bindsym XF86AudioMute exec amixer sset Master toggle
@@ -91,8 +89,8 @@ bindsym $mod+Shift+e mode "[l]ogout, [d]esligar, [r]einiciar, [s]uspender"
 ##### Configuração de janelas #####
 
 # espaço entre as janelas
-gaps inner 5
-gaps outer 5
+gaps inner 20
+gaps outer 20
 
 # remove blue window bar i3 uses
 for_window [class="^.*"] border pixel 1
