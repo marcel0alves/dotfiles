@@ -48,9 +48,9 @@ bindsym Print exec xfce4-screenshooter
 
 ########################
 #   Hotkeys/Atalhos    #
-bindsym XF86AudioRaiseVolume exec amixer sset Master 1%+
-bindsym XF86AudioLowerVolume exec amixer sset Master 1%-
-bindsym XF86AudioMute exec amixer sset Master toggle
+bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 1%+
+bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 1%-
+bindsym XF86AudioMute exec amixer -D pulse sset Master toggle
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
@@ -226,6 +226,8 @@ for_window [class="(?i)lxappearance"] floating enable, move position center
 for_window [class="(?i)gnome-calculator"] floating enable, move position center
 for_window [class="(?i)android-file-transfer"] floating enable, move position center
 for_window [class="(?i)blueman-manager"] floating enable, move position center
+for_window [class="(?i)pavucontrol"] floating enable, move position center
+for_window [class="(?i)gmtp"] floating enable, move position center
 
 #######################################
 #				      #
@@ -246,7 +248,7 @@ client.background       #ffffff
 ###################
 
 # Abrir Firefox
-bindsym $mod+f exec firefox
+bindsym $mod+f exec firefox-bin
 
 # Abrir Chromium
 bindsym $mod+c exec chromium
@@ -256,9 +258,6 @@ bindsym $mod+t exec telegram-desktop
 
 # Abrir Thunar
 bindsym $mod+Ctrl+e exec thunar
-
-# Abrir Windows 7 VM
-bindsym $mod+Ctrl+w exec /usr/lib/virtualbox/VirtualBox --comment "Windows 7 (DGR)" --startvm "ff46af8b-d8c2-48e0-ae34-d1277989919c"
 
 ####################
 
