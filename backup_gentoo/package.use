@@ -9,8 +9,6 @@ x11-misc/rofi windowmode
 x11-misc/polybar alsa curl i3wm ipc mpd network
 media-fonts/fontawesome otf ttf
 sys-kernel/genkernel-next cryptsetup
-net-misc/networkmanager -modemmanager
-gnome-extra/nm-applet -modemmanager
 media-libs/mesa dri3 egl gallium gbm llvm openmax osmesa vdpau vulkan xa xvmc 
 app-laptop/laptop-mode-tools acpi
 sys-fs/udev kmod
@@ -26,3 +24,4 @@ gnome-base/gvfs nfs ios
 sys-libs/zlib minizip
 dev-qt/qtwidgets gtk
 media-sound/mpd curl eventfd fifo flac icu inotify lame libmpdclient mms network soundcloud 
+net-misc/remmina rdp
