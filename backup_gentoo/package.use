@@ -1,15 +1,13 @@
->=dev-lang/python-2.7.15:2.7 sqlite
->=dev-lang/python-3.6.6 -bluetooth
-#>=sys-apps/dbus-1.12.8 -X
+dev-lang/python sqlite
+media-libs/mesa dri3 egl gallium gbm llvm openmax osmesa vdpau vulkan xa xvmc
+x11-libs/libva drm utils
+sys-kernel/genkernel-next cryptsetup
 sys-boot/grub:2 device-mapper
 sys-fs/udisks lvm
 x11-base/xorg-server glamor xorg
-x11-terms/rxvt-unicode 256-color blink fading-colors font-styles iso14755 mousewheel perl pixbuf unicode3
 x11-misc/rofi windowmode
 x11-misc/polybar alsa curl i3wm ipc mpd network
 media-fonts/fontawesome otf ttf
-sys-kernel/genkernel-next cryptsetup
-media-libs/mesa dri3 egl gallium gbm llvm openmax osmesa vdpau vulkan xa xvmc 
 app-laptop/laptop-mode-tools acpi
 sys-fs/udev kmod
 sys-auth/consolekit pm-utils policykit
@@ -20,8 +18,11 @@ x11-apps/intel-gpu-tools glib xrandr
 gnome-base/gvfs nfs ios
 >=app-crypt/pinentry-1.1.0-r2 gnome-keyring
 >=sys-libs/libblockdev-2.18-r1 lvm
+x11-terms/rxvt-unicode 256-color blink fading-colors font-styles iso14755 mousewheel perl pixbuf unicode3
 
-sys-libs/zlib minizip
-dev-qt/qtwidgets gtk
-media-sound/mpd curl eventfd fifo flac icu inotify lame libmpdclient mms network soundcloud 
+
+net-misc/rdesktop kerberos
+media-sound/mpd curl eventfd fifo flac icu inotify lame libmpdclient mms network soundcloud
+media-sound/ncmpcpp clock outputs visualizer
+net-wireless/bluez mesh obex deprecated
 net-misc/remmina rdp
