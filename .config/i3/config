@@ -8,7 +8,6 @@
 
 ####### Arquivos inicializados no i3 ########
 
-exec --no-startup-id mopidy &
 exec --no-startup-id blueman-applet
 exec --no-startup-id dunst
 exec --no-startup-id compton --config ~/.config/compton.conf -b -c
@@ -43,7 +42,7 @@ bindsym $mod+Return exec urxvt
 bindsym $mod+Shift+q kill
 
 # captura de tela
-bindsym Print exec xfce4-screenshooter 
+#bindsym Print exec xfce4-screenshooter 
 
 ########################
 #   Hotkeys/Atalhos    #
@@ -212,11 +211,11 @@ assign [class="^Spotify"] $ws5
 assign [class="^Remmina"] $ws6
 assign [class="(?i)code"] $ws7
 
-for_window [class="^Thunar"] floating enable, move position center
+#for_window [class="^Thunar"] floating enable, move position center
 for_window [class="^Personalizar"] floating enable, move position center
 for_window [class="^Remmina"] floating enable, move position center
 for_window [class="(?i)urxvt"] floating enable, border pixel 0
-for_window [class="(?i)virtualbox"] floating enable, move position center
+#for_window [class="(?i)virtualbox"] floating enable, move position center
 for_window [class="(?i)lxappearance"] floating enable, move position center
 for_window [class="(?i)gnome-calculator"] floating enable, move position center
 for_window [class="(?i)gmtp"] floating enable, move position center
