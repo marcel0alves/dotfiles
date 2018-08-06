@@ -1,0 +1,34 @@
+sw_volume: 100
+audio_device_state:1:PulseAudio
+audio_device_state:1:my_fifo
+state: play
+current: 8
+time: 119.443000
+random: 0
+repeat: 0
+single: 0
+consume: 0
+crossfade: 0
+mixrampdb: 0.000000
+mixrampdelay: -1.000000
+playlist_begin
+0:Trance/01 Faixa 1.mp3
+1:Trance/02 Faixa 2.mp3
+2:Trance/04 Faixa 4.mp3
+3:Trance/05 Faixa 5.mp3
+4:Trance/06 Faixa 6.mp3
+5:Trance/07 Faixa 7.mp3
+6:Trance/08 Faixa 8.mp3
+7:Trance/Astrix - 01 - Poison.mp3
+8:Trance/Astrix - 06 - On Fire.mp3
+9:Trance/Astrix - 07 - Underbeat.mp3
+10:Trance/Astrix - Closer to heaven.mp3
+11:Trance/Astrix - Eye to Eye.mp3
+12:Trance/Astrix & Pixel - Roll Over.mp3
+13:Trance/Astrix - Trance for Nations 12.mp3
+14:Trance/Astrix - Type 1 (Thales Dumbra & Sollomoom Remix).mp3
+15:Trance/Magic_Mizrahi_Old_Times_CBR_192k.mp3
+16:Trance/Rica Amaral & Pragmatix CICLO DE EXPANSÃO.mp3
+17:Trance/X Noize vs Assi - 15000 Micrograms.mp3
+18:Trance/Yves_Larock_Rise_Up__Sesto_sento_Remix__medium.mp3
+playlist_end
