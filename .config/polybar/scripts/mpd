@@ -1,0 +1,3 @@
+#!/bin/sh
+set -e
+mpc current 2>/dev/null
