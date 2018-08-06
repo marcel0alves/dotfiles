@@ -3,17 +3,18 @@
 My personal config/dotfiles files for Linux. In development.
 
 Setup:
-- Arch Linux x64
-- Urxvt Terminal (rxvt-unicode)
+- Gentoo Linux
+- Rxvt-unicode
 - i3-gaps
 - Polybar
-- cli-visualizer
+- MPD + Ncmpcpp
 - htop
-- Zsh
-- Oh-my-zsh with half-life theme
+- Bash
+- Cmatrix
+- Ufetch
 
 
-![alt text](https://i.imgur.com/MTqulah.png)
+![alt text](https://i.imgur.com/3a12wsw.png)
 
 
 ## Guide
@@ -28,10 +29,10 @@ While I was further exploring the linux universe seeking the answer to the meani
 
 - LVM on LUKS, a standard install using well tested and stable tools.
 - BTRFS on LUKS, a standard install using well tested and stable tools.
-
+- Both guides tested on Arch Linux.
 
 
 
 Created by Marcelo Alves.
 
-Last Update: Jun 17, 2018
+Last Update: Aug 06, 2018
