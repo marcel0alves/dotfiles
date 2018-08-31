@@ -9,26 +9,36 @@ margin-top = 10
 
 ; Colors
 ;
-
 [colors]
-background = ${xrdb:color0} 
-foreground = ${xrdb:color7}
-foreground-alt = ${xrdb:color7}
-primary = ${xrdb:color1}
+background = #222
+background-alt = #444
+foreground = #DFDFDF
+foreground-alt = #55
+primary = #FFB52A
+secondary = #E60053
+alert = #BD2C40
 
-secondary = ${xrdb:color6}
-alert = ${xrdb:color3}
-
+amareloescuro = #ECD078
+amareloouro = #FFD700
+azulsky = #00BFFF
+azulclaro = #63B6D9
+azulescuro = #20312F
+cinza = #DCDEDB
+cinzaclaro = #E8E8E8
+cinzaescuro = #172D3A
+escuro = #283030
 verde = #8A9B0F
+verdeclaro = #32CD32
+vermelho = #FF0000
+vermelhoclaro = #FE4365
+vermelhoescuro = #8E1632
 
 ; Topbar
 ;
 [bar/top]
-monitor = eDP-1-1
-
-;border-left-size = 90%
-;border-right-size = 90%
-;offset-y = 10
+border-left = 90%
+border-right = 90%
+offset-y = 6
 ;border-bottom = 5
 
 width = 100%
@@ -36,7 +46,7 @@ height = 28
 
 fixed-center = true
 
-background = ${colors.background}
+background = ${colors.escuro}
 foreground = ${colors.foreground}
 
 padding-left = 2
@@ -47,11 +57,10 @@ module-margin-right = 2
 
 font-0 = lucy tewi:size=12;2
 font-1 = Material Design Icons:size=10;2
-#font-2 = FontAwesome:size=10;2
 
-modules-left = cpu memory temperature
+modules-left = cpu memory
 modules-center = bspwm
-modules-right = wlan eth backlight-acpi pulseaudio battery date
+modules-right = wlan eth backlight-acpi pulseaudio battery date time
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -67,20 +76,19 @@ wm-restack = bspwm
 type = internal/bspwm
 
 label-focused = %icon% %name%
-label-focused-background = ${colors.secondary}
-label-focused-foreground = ${colors.foreground}
+label-focused-background = ${colors.cinzaclaro}
+label-focused-foreground = ${colors.cinzaescuro}
 label-focused-padding = 2
 
 label-occupied = %icon% %name%
-label-occupied-foreground = ${colors.foreground-alt}
 label-occupied-padding = 2
 
 label-urgent = %icon% %name%
-label-urgent-foreground = ${colors.alert}
+label-urgent-foreground = ${colors.vermelhoclaro}
 label-urgent-padding = 2
 
 label-empty = %icon% %name%
-label-empty-foreground = ${colors.primary}
+label-empty-foreground = ${colors.cinzaclaro}
 label-empty-padding = 2
 
 ws-icon-0 = web;
@@ -95,7 +103,7 @@ ws-icon-5 = work;蘒
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:50:...%
-label-foreground = ${colors.foreground-alt}
+label-foreground = ${colors.cinzaclaro}
 
 ; Wireless
 ;
@@ -107,7 +115,7 @@ interval = 1.0
 format-connected = <label-connected>
 
 label-connected = " %local_ip%"
-label-connected-foreground = ${colors.foreground-alt}
+label-connected-foreground = ${colors.cinzaclaro}
 
 ; Ethernet
 ;
@@ -119,7 +127,7 @@ interval = 1.0
 format-connected = <label-connected>
 
 label-connected = " %local_ip%"
-label-connected-foregrond = ${colors.foreground-alt}
+label-connected-foregrond = ${colors.cinzaclaro}
 
 ;Date
 ;
@@ -128,7 +136,7 @@ type = custom/script
 interval = 1.0
 
 format-prefix = " "
-format-foreground = ${colors.foreground-alt}
+format-foreground = ${colors.cinzaclaro}
 
 exec = date +'%A, %b %d %H:%M'
 
@@ -145,7 +153,7 @@ card = intel_backlight
 type = internal/xbacklight
 
 format = <label>
-format-foreground = ${colors.foreground-alt}
+format-foreground = ${colors.cinzaclaro}
 label = " %percentage%%"
 
 ; Pulseaudio
@@ -160,10 +168,10 @@ interval = 5
 format-volume = <ramp-volume> <label-volume>
 
 label-volume =  %percentage%%
-label-volume-foreground = ${colors.foreground-alt}
+label-volume-foreground = ${colors.cinzaclaro}
 
 label-muted = " Mute"
-label-muted-foreground = ${colors.secondary}
+label-muted-foreground = ${colors.vermelhoclaro}
 
 ramp-volume-0 = 
 ramp-volume-1 = 
@@ -183,14 +191,17 @@ format-discharging = <ramp-capacity><label-discharging>
 
 label-discharging = %percentage%%
 label-full = " %percentage%%"
-label-discharging-foreground = ${colors.foreground-alt}
+label-discharging-foreground = ${colors.cinzaclaro}
 
 ramp-capacity-0 = " "
 ramp-capacity-1 = " "
 ramp-capacity-2 = " "
 ramp-capacity-3 = " "
 ramp-capacity-4 = " "
-ramp-capacity-0-foreground = ${colors.secondary}
+ramp-capacity-0-foreground = ${colors.vermelhoescuro}
+ramp-capacity-1-foreground = ${colors.vermelhoclaro}
+ramp-capacity-2-foreground = ${colors.amareloescuro}
+ramp-capacity-3-foreground = ${colors.amareloouro} 
 
 animation-charging-0 = ""
 animation-charging-1 = ""
@@ -208,17 +219,16 @@ interval = 0.5
 format = <label> <bar-load>
 
 label = " CPU"
-label-foreground = ${colors.foreground-alt}
 
 bar-load-indicator = |
-bar-load-width = 10
-bar-load-foreground-0 = ${colors.secondary}
-bar-load-foreground-1 = ${colors.secondary}
-bar-load-foreground-2 = ${colors.secondary}
-bar-load-foreground-3 = ${colors.secondary}
+bar-load-width = 15
+bar-load-foreground-0 = #55aa55
+bar-load-foreground-1 = #557755
+bar-load-foreground-2 = #f5a70a
+bar-load-foreground-3 = #ff5555
 bar-load-fill = ─
 bar-load-empty = ─
-bar-load-empty-foreground = ${colors.primary}
+bar-load-empty-foreground = #444444
 
 ; Memory
 ;
@@ -229,17 +239,16 @@ interval = 2
 format = <label> <bar-used>
 
 label = " RAM"
-label-foreground = ${colors.foreground-alt}
 
 bar-used-indicator = |
-bar-used-width = 20
-bar-used-foreground-0 = ${colors.secondary}
-bar-used-foreground-1 = ${colors.secondary}
-bar-used-foreground-2 = ${colors.secondary}
-bar-used-foreground-3 = ${colors.secondary}
+bar-used-width = 30
+bar-used-foreground-0 = #55aa55
+bar-used-foreground-1 = #557755
+bar-used-foreground-2 = #f5a70a
+bar-used-foreground-3 = #ff5555
 bar-used-fill = ─
 bar-used-empty = ─
-bar-used-empty-foreground = ${colors.primary}
+bar-used-empty-foreground = #444444
 
 ;
 ; Custom
@@ -252,24 +261,12 @@ format-prefix = " "
 format-foreground = ${colors.verde}
 exec = $HOME/.config/polybar/scripts/music
 
-; Temperature
-;
-[module/temperature]
-type = custom/script
-interval = 1.5
-exec-if = sensors
-exec = sensors | grep Core | awk '{print substr($3, 2, 2)}' | tr '\n' ' ' | sed 's/ /°C  /g' | sed 's/  $//'
-
-format-prefix = " "
-format-foreground = ${colors.foreground-alt}
-
-
 ; Gentoo
 ;
 [module/gentoo]
 type = custom/script
 format-prefix = " "
-format-foreground = ${colors.foreground-alt}
+format-foreground = ${colors.cinzaclaro}
 exec = uname -r
 
 ; vim:ft=dosini

@@ -1,0 +1,49 @@
+#! /bin/sh
+
+# Load sxhkd
+sxhkd &
+
+# Custom applications
+xsetroot -cursor_name left_ptr &
+dunst &
+. "${HOME}/.cache/wal/colors.sh" &
+~/.config/polybar/launch.sh &
+feh --bg-tile "$(< "${HOME}/.cache/wal/wal")"
+compton -b --config ~/.compton.conf &
+
+# Rules bspwm
+
+bspc monitor -d web telegram terminal files music work
+
+bspc config border_width         2
+bspc config window_gap          20
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+bspc rule -a Firefox desktop='^1' follow=on
+bspc rule -a TelegramDesktop desktop='^2' follow=on 
+bspc rule -a URxvt desktop='^3' follow=on state=tiling
+bspc rule -a URxvt:ranger desktop='^4' follow=on state=floating
+bspc rule -a Spotify desktop='^5' follow=on state=floating
+bspc rule -a URxvt:cava state=floating desktop='^5' follow=on center=true
+bspc rule -a URxvt:vis state=floating desktop='^5' follow=on center=true
+bspc rule -a org.remmina.Remmina state=floating desktop='^6' follow=on
+bspc rule -a "VirtualBox Manager" state=floating desktop='^6' follow=on
+
+bspc rule -a Blueman-manager state=floating follow=on
+bspc rule -a VirtualBox state=floating follow=on
+bspc rule -a Lxappearance state=floating follow=on
+bspc rule -a Pavucontrol state=floating follow=on
+bspc rule -a mpv state=floating follow=on
+bspc rule -a Nvidia-settings state=floating follow=on
+
+bspc rule -a Screenkey manage=off
+
+bspc config focus_follows_pointer true
+
+bspc config normal_border_color "$color1"
+bspc config active_border_color "$color2"
+bspc config focused_border_color "$color15"
+bspc config presel_feedback_color "$color1"

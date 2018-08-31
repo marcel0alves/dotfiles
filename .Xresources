@@ -2,63 +2,56 @@
 !                        URxvt settings
 !-----------------------------------------------------------------------
 
-!
-! Generated with :
-! XRDB2Xreources.py
-!
-URxvt*foreground:  #D4D2CF
-URxvt*background:  #1D2426
-URxvt*cursorColor: #FFFFFF
+!URxvt*background:  #1E1F28
+!URxvt*foreground:  #EBECE6
+!URxvt*cursorColor: #E4E4E4
 !
 ! Black
-URxvt*color0:      #172D3A
-URxvt*color8:      #859CA4
+!*color0:      #000
+!*color8:      #555555
 !
 ! Red
-URxvt*color1:      #A22618
-URxvt*color9:      #E84C24
+!*color1:      #FB4245
+!*color9:      #FB4245
 !
 ! Green
-URxvt*color2:      #539927
-URxvt*color10:     #70B751
+!*color2:      #50FA7B
+!*color10:     #50FA7B
 !
 ! Yellow
-URxvt*color3:      #8E6514
-URxvt*color11:     #B4A05A
+!*color3:      #F0FA8B
+!*color11:     #F0FA8B
 !
 ! Blue
-URxvt*color4:      #0A47A4
-URxvt*color12:     #4587CC
+!*color4:      #49B9FE
+!*color12:     #49B9FE
 !
 ! Magenta
-URxvt*color5:      #543973
-URxvt*color13:     #84699B
+!*color5:      #543973
+!*color13:     #84699B
 !
 ! Cyan
-URxvt*color6:      #4D92B4
-URxvt*color14:     #8BCAEA
+!*color6:      #8BE9FD
+!*color14:     #8BE9FD
 !
 ! White
-URxvt*color7:      #A3A29F
-URxvt*color15:     #D4D2CF
+!*color7:      #EDEDEC
+!*color15:     #EDEDEC
 !
 ! Bold, Italic, Underline
-URxvt*colorBD:     #275FA0
-URxvt*colorUL:     #E84C24
+!*colorBD:     #275FA0
+!*colorUL:     #E84C24
 !*.colorIT:
 !*.colorUL:
 
 
-! +=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
-
 Urxvt.secondaryScroll:  true    # Enable Shift-PageUp/Down in screen
 
-URxvt.internalBorder:    14
-URxvt.externalBorder:    10
+URxvt.internalBorder:    35
+URxvt.externalBorder:    15
 !URxvt.lineSpace:        0
 !urxvt*shading:          30
 URxvt.depth:             32
-URxvt.background:        #1F1D22
 URxvt.saveLines:         10000
 URxvt*geometry:          120x35
 URxvt*terminalName:      rxvt-unicode-256color
@@ -72,7 +65,8 @@ URxvt*scrollWithBuffer:  true
 URxvt*scrollTtyKeypress: true
 
 ! fonts
-URxvt.font: xft:xos4 Terminess Powerline:pixelsize=16:style=Regular
+!URxvt.font: xft:Iosevka Term:pixelsize=14:style=Bold
+URxvt.font: xft:GohuFont Nerd Font:pixelsize=14:style=Medium
 URxvt.letterSpace:       true
 
 !! Keybinding
@@ -81,8 +75,10 @@ URxvt.keysym.C-Down:     perl:font-size:decrease
 URxvt.keysym.C-S-Up:     perl:font-size:incglobal
 URxvt.keysym.C-S-Down:   perl:font-size:decglobal
 !Home and End keys to jump to the beginning and end of lines
-URxvt*keysym.Home:       \033[1~
-URxvt*keysym.End:        \033[4~
+URxvt.keysym.Home: \033[1~
+URxvt.keysym.End: \033[4~
+URxvt.keysym.KP_Home: \033[1~
+URxvt.keysym.KP_End:  \033[4~
 
 !! Tabs
 URxvt.tabbed.tabbar-bg:  -1

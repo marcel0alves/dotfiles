@@ -1,35 +1,29 @@
+" Automatic installation vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" Vim-plug configuration
+call plug#begin('~/.vim/plugged')
+Plug 'itchyny/lightline.vim'
+Plug 'joshdick/onedark.vim'
+Plug 'tpope/vim-sensible'
+Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/seoul256.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+call plug#end()
+
 " Enable syntax colors
 syntax on
 
 " Enable line numbers
 set number
 
-" Allow backspace in insert mode
-set backspace=indent,eol,start
-
 " Optimize for fast terminal connections
 set ttyfast
 
-" Use UTF-8 without BOM
-set encoding=utf-8 nobomb
-
-set linespace=15
-
-" Show invisible characters
-set lcs=tab:▸\ ,trail:·,nbsp:_
-set list
-
-" Always show status line
-set laststatus=2
-
-" Show the cursor position
-set ruler
-
-" Show the current mode
-set showmode
-
-" Show the filename in the window titlebar
-set title
-
-
-let $PYTHONPATH='/usr/lib/python3.6/site-packages'
+" Color scheme
+"colorscheme 

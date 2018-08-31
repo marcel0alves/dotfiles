@@ -1,13 +1,30 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# Starting devmon in daemon mode
+devmon 2>&1 > /dev/null &
+
+# Turn on ç character
+export LC_CTYPE=pt_BR.UTF-8
+
+# Add local 'pip' to PATH
+# export PATH="${PATH}:${HOME}/.local/bin/"
+
+# Import colorscheme from 'wal' asynchronously
+# &   # Run the process in the background.
+# ( ) # Hide shell job control messages.
+# (cat ~/.cache/wal/sequences &)
+
+# Alternative (blocks terminal for 0-3ms)
+# cat ~/.cache/wal/sequences
+
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/arch/.oh-my-zsh
+  export ZSH="/home/gentoo/.oh-my-zsh"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="punctual"
+ZSH_THEME="trapd00r"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -48,7 +65,10 @@ ZSH_THEME="punctual"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
@@ -92,3 +112,24 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+#
+#
+# Key bindings
+
+autoload zkbd
+source ~/.zkbd/rxvt-unicode-:0
+#[[ ! -f ${ZDOTDIR:-$HOME}/.zkbd/$TERM-$VENDOR-$OSTYPE ]] && zkbd
+#source ${ZDOTDIR:-$HOME}/.zkbd/$TERM-$VENDOR-$OSTYPE
+
+[[ -n ${key[Backspace]} ]] && bindkey "^?" backward-delete-char
+[[ -n ${key[Insert]} ]] && bindkey "^[[2~" overwrite-mode
+[[ -n ${key[Home]} ]] && bindkey "^[[1~" beginning-of-line
+[[ -n ${key[PageUp]} ]] && bindkey "^[[5~" up-line-or-history
+[[ -n ${key[Delete]} ]] && bindkey "^[[3~" delete-char
+[[ -n ${key[End]} ]] && bindkey "^[[4~" end-of-line
+[[ -n ${key[PageDown]} ]] && bindkey "^[[6~" down-line-or-history
+[[ -n ${key[Up]} ]] && bindkey "^[[A" up-line-or-search
+[[ -n ${key[Left]} ]] && bindkey "^[[D" backward-char
+[[ -n ${key[Down]} ]] && bindkey "^[[B" down-line-or-search
+[[ -n ${key[Right]} ]] && bindkey "^[[" forward-char

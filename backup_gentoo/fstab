@@ -28,7 +28,6 @@
 #LABEL=swap		none		swap		sw		0 0
 #/dev/cdrom		/mnt/cdrom	auto		noauto,ro	0 0
 
-#UUID=87D8-F1C2 		/boot		vfat		noauto,noatime	1 2
 
 /dev/mapper/vg-root	/		ext4		noatime,nodiratime,defaults	0 1
 

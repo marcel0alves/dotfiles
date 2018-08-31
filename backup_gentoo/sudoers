@@ -77,15 +77,15 @@
 ## User privilege specification
 ##
 root ALL=(ALL) ALL
-
 gentoo ALL=(ALL) ALL
 
-# Application privilege specification
-
+# Application privilege specificationi
 gentoo ALL = (root) NOPASSWD: /sbin/poweroff
 gentoo ALL = (root) NOPASSWD: /sbin/reboot
 gentoo ALL = (root) NOPASSWD: /usr/sbin/pm-suspend
-gentoo ALL = (root) NOPASSWD: /usr/bin/wifi_start
+
+
+#
 
 ## Uncomment to allow members of group wheel to execute any command
 # %wheel ALL=(ALL) ALL
@@ -104,6 +104,3 @@ gentoo ALL = (root) NOPASSWD: /usr/bin/wifi_start
 ## Read drop-in files from /etc/sudoers.d
 ## (the '#' here does not indicate a comment)
 #includedir /etc/sudoers.d
-
-# Privilege of applications
-

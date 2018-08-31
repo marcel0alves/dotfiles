@@ -1,16 +1,53 @@
->=dev-lang/python-2.7.15:2.7 sqlite
+# Hardware
+media-libs/mesa dri3 egl openmax osmesa vulkan 
+x11-base/xorg-server glamor xorg
+app-laptop/laptop-mode-tools acpi
+net-wireless/bluez mesh obex
+
+# GRUB
 sys-kernel/genkernel-next cryptsetup
 sys-boot/grub:2 device-mapper
-media-libs/mesa dri3 egl gallium gbm llvm openmax osmesa vdpau vulkan xa xvmc
-x11-base/xorg-server glamor xorg
+
+# Personalization
 x11-terms/rxvt-unicode 256-color blink fading-colors font-styles iso14755 mousewheel perl pixbuf unicode3 xft
-app-laptop/laptop-mode-tools acpi
 x11-misc/rofi windowmode
-x11-misc/polybar alsa curl i3wm ipc mpd network
+x11-misc/polybar alsa curl ipc network
 media-fonts/fontawesome otf ttf
 x11-themes/arc-theme gtk2 gtk3
-media-sound/mpd curl eventfd fifo flac icu inotify lame libmpdclient mms network soundcloud
-media-sound/ncmpcpp clock outputs visualizer
+x11-wm/bspwm examples
 
-net-wireless/bluz mesh obex
+# Editors
+app-editors/vim python terminal
+
+# Media
+media-sound/spotify minimal
+virtual/ffmpeg x264
+media-video/ffmpeg x264
+media-libs/libpng apng
+
+# Libs
+dev-libs/libpthread-stubs abi_x86_32
+net-libs/nodejs npm
+sys-libs/zlib abi_x86_32 minizip 
+sys-libs/ncurses -tinfo
+net-libs/libvncserver gcrypt
+x11-base/xcb-proto abi_x86_32
+x11-libs/libXau abi_x86_32
+x11-libs/libX11 abi_x86_32
+x11-libs/libXext abi_x86_32
+x11-libs/libvdpau abi_x86_32
+x11-libs/libxcb abi_x86_32 xkb
+x11-libs/libXdmcp abi_x86_32
+
+# Firefox
+www-client/firefox custom-optimization hwaccel
+
+# Nvidia
+x11-drivers/nvidia-drivers X acpi driver gtk3 kms tools
+
+# Other
+>=dev-lang/python-2.7.15:2.7 sqlite
 net-misc/aria2 bittorrent
+www-client/w3m imlib
+app-emulation/virtualbox qt5
+sys-libs/ncurses tinfo
