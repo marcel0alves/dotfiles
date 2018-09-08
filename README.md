@@ -9,7 +9,6 @@ Setup:
 - bspwm
 - polybar
 - htop
-- cava
 - ufetch
 - panes colorscript.
 
