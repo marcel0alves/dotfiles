@@ -65,8 +65,9 @@ URxvt*scrollWithBuffer:  true
 URxvt*scrollTtyKeypress: true
 
 ! fonts
-!URxvt.font: xft:Iosevka Term:pixelsize=14:style=Bold
-URxvt.font: xft:GohuFont Nerd Font:pixelsize=14:style=Medium
+!URxvt.font: xft:DejaVu Sans Mono for Powerline:pixelsize=14:style=Regular
+!URxvt.font: xft:GohuFont Nerd Font:pixelsize=14:style=Medium
+URxvt.font: xft:Misc Termsynu:pixelsize=16:style=Regular
 URxvt.letterSpace:       true
 
 !! Keybinding

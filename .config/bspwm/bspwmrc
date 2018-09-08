@@ -8,7 +8,7 @@ xsetroot -cursor_name left_ptr &
 dunst &
 . "${HOME}/.cache/wal/colors.sh" &
 ~/.config/polybar/launch.sh &
-feh --bg-tile "$(< "${HOME}/.cache/wal/wal")"
+feh --bg-scale "$(< "${HOME}/.cache/wal/wal")"
 compton -b --config ~/.compton.conf &
 
 # Rules bspwm
