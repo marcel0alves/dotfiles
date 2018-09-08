@@ -4,17 +4,17 @@ My personal config/dotfiles files for Linux. In development.
 
 Setup:
 - Gentoo Linux
-- Rxvt-unicode
-- i3-gaps
-- Polybar
-- MPD + Ncmpcpp
+- rxvt-unicode
+- zsh + oh-my-zsh
+- bspwm
+- polybar
 - htop
-- Bash
-- Cmatrix
-- Ufetch
+- cava
+- ufetch
+- panes colorscript.
 
 
-![alt text](https://i.imgur.com/3a12wsw.png)
+![alt text](https://i.imgur.com/aIQ7NXh.png)
 
 
 ## Guide
@@ -35,4 +35,4 @@ While I was further exploring the linux universe seeking the answer to the meani
 
 Created by Marcelo Alves.
 
-Last Update: Aug 06, 2018
+Last Update: Sep 07, 2018
