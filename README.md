@@ -14,7 +14,7 @@ Setup:
 - panes colorscript.
 
 
-![alt text](https://i.imgur.com/aIQ7NXh.png)
+![alt text](https://i.imgur.com/BZs0FOG.png)
 
 
 ## Guide
