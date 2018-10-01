@@ -4,13 +4,13 @@ My personal config/dotfiles files for Linux. In development.
 
 Setup:
 - Gentoo Linux
-- rxvt-unicode
+- st
 - zsh + oh-my-zsh
 - bspwm
 - polybar
 - htop
-- ufetch
-- panes colorscript.
+- panes
+- mpd + ncmpcpp
 
 
 ![alt text](https://i.imgur.com/p3cTCjg.png)
