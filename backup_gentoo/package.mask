@@ -1,3 +1,4 @@
+>=sys-kernel/gentoo-sources-4.17
 >=media-fonts/fontawesome-5.0.6
 >media-fonts/cantarell-0.0.25
->=x11-misc/polybar-9999
+>sys-auth/pambase-20101024-r2

@@ -1,53 +1,40 @@
 # Hardware
-media-libs/mesa dri3 egl openmax osmesa vulkan 
 x11-base/xorg-server glamor xorg
-app-laptop/laptop-mode-tools acpi
-net-wireless/bluez mesh obex
+media-libs/mesa dri3 egl openmax osmesa vulkan 
 
-# GRUB
+# Grub
 sys-kernel/genkernel-next cryptsetup
 sys-boot/grub:2 device-mapper
 
 # Personalization
 x11-terms/rxvt-unicode 256-color blink fading-colors font-styles iso14755 mousewheel perl pixbuf unicode3 xft
 x11-misc/rofi windowmode
-x11-misc/polybar alsa curl ipc network
-media-fonts/fontawesome otf ttf
-x11-themes/arc-theme gtk2 gtk3
+x11-misc/polybar alsa curl ipc network mpd
 x11-wm/bspwm examples
+x11-themes/arc-theme gtk2 gtk3
+media-fonts/fontawesome otf ttf
+media-gfx/imagemagick jpeg png tiff
+media-fonts/encodings -X
+
+# Libs
+media-libs/imlib2 jpeg png tiff
+>=dev-libs/openssl-1.0.2p -bindist
+>=x11-libs/cairo-1.14.12 xcb
+>=x11-libs/libxcb-1.13 xkb
+>=media-libs/libpng-1.6.35-r1 apng
+>=dev-lang/python-3.6.6:3.6 sqlite
 
 # Editors
 app-editors/vim python terminal
+app-text/ghostscript-gpl -cups
 
-# Media
-media-sound/spotify minimal
-virtual/ffmpeg x264
-media-video/ffmpeg x264
-media-libs/libpng apng
+# Media Sound
+media-sound/mpd -network
+media-sound/ncmpcpp clock outputs visualizer
 
-# Libs
-dev-libs/libpthread-stubs abi_x86_32
-net-libs/nodejs npm
-sys-libs/zlib abi_x86_32 minizip 
-sys-libs/ncurses -tinfo
-net-libs/libvncserver gcrypt
-x11-base/xcb-proto abi_x86_32
-x11-libs/libXau abi_x86_32
-x11-libs/libX11 abi_x86_32
-x11-libs/libXext abi_x86_32
-x11-libs/libvdpau abi_x86_32
-x11-libs/libxcb abi_x86_32 xkb
-x11-libs/libXdmcp abi_x86_32
-
-# Firefox
+# Browsers
 www-client/firefox custom-optimization hwaccel
-
-# Nvidia
-x11-drivers/nvidia-drivers X acpi driver gtk3 kms tools
-
-# Other
->=dev-lang/python-2.7.15:2.7 sqlite
-net-misc/aria2 bittorrent
 www-client/w3m imlib
-app-emulation/virtualbox qt5
-sys-libs/ncurses tinfo
+
+# Rsyslog
+app-admin/rsyslog openssl

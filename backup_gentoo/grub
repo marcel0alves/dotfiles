@@ -10,13 +10,9 @@
 
 GRUB_DISTRIBUTOR="Gentoo"
 
-GRUB_CMDLINE_LINUX_DEFAULT="dolvm"
-
-GRUB_CMDLINE_LINUX="crypt_root=/dev/sdb2 root=/dev/mapper/vg-root root_trim=yes"
+GRUB_CMDLINE_LINUX="crypt_root=/dev/sda2 dolvm real_root=/dev/mapper/vg_gentoo-root rootfstype=ext4 root_trim=yes"
 
 GRUB_ENABLE_CRYPTODISK=y
-
-GRUB_EARLY_INITRD_LINUX_CUSTOM="ucode.cpio"
 
 # Default menu entry
 #GRUB_DEFAULT=0
