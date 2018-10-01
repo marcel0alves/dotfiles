@@ -1,43 +1,40 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Starting devmon in daemon mode
-devmon 2>&1 > /dev/null &
+# Path to your oh-my-zsh installation.
+  export ZSH="/home/gentoo/.oh-my-zsh"
 
-# Turn on ç character
-export LC_CTYPE=pt_BR.UTF-8
-
-# Add local 'pip' to PATH
-# export PATH="${PATH}:${HOME}/.local/bin/"
+# Add local 'pip' to PATH:
+export PATH="${PATH}:${HOME}/.local/bin/"
 
 # Import colorscheme from 'wal' asynchronously
 # &   # Run the process in the background.
 # ( ) # Hide shell job control messages.
-# (cat ~/.cache/wal/sequences &)
+(cat ~/.cache/wal/sequences &)
 
 # Alternative (blocks terminal for 0-3ms)
 # cat ~/.cache/wal/sequences
 
-# Path to your oh-my-zsh installation.
-  export ZSH="/home/gentoo/.oh-my-zsh"
+# To add support for TTYs this line can be optionally added.
+# source ~/.cache/wal/colors-tty.sh
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="trapd00r"
+ZSH_THEME="spaceship"
 
-# Set list of themes to load
-# Setting this variable when ZSH_THEME=random
-# cause zsh load theme from this variable instead of
-# looking in ~/.oh-my-zsh/themes/
-# An empty array have no effect
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+# If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
@@ -74,7 +71,8 @@ ZSH_THEME="trapd00r"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Which plugins would you like to load?
+# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
@@ -113,14 +111,51 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Emerge functions
+alias updatesystem="sudo emerge --sync && sudo emerge -auvND @world"
+alias cleanemerge="sudo emerge --ask --depclean"
+alias searchpkg="emerge -s"
+alias installpkg="sudo emerge --ask"
+alias removepkg="sudo emerge --ask --unmerge"
+alias emergeworld="sudo emerge -auvND @world"
+
+# Portage files
+alias make.conf="sudo vim /etc/portage/make.conf"
+alias package.use="sudo vim /etc/portage/package.use"
+
+# Genkernel update
+alias upgenkernel="sudo genkernel --kernel-config=/usr/src/linux/.config --luks --lvm --install initramfs"
+
+# Update grub
+alias updategrub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
+
+# Bspwm config
+alias bspconfig="vim ~/.config/bspwm/bspwmrc"
+
+# Polybar config
+alias barconfig="vim ~/.config/polybar/config"
+
+# Undervolt CPU
+alias undervolt="sudo intel-undervolt apply"
+
+# Youtube-dl audio
+alias ytmusic="youtube-dl -x"
+
+# wpa_supplicant
+alias wpastart="sudo /etc/init.d/wpa_supplicant start"
+alias wparestart="sudo /etc/init.d/wpa_supplicant restart"
+
+# Minimalist scheme
+alias minimalist="wal -i ~/Pics/Minimalist/"
+
 #
 #
-# Key bindings
+# key bindings
 
 autoload zkbd
 source ~/.zkbd/rxvt-unicode-:0
-#[[ ! -f ${ZDOTDIR:-$HOME}/.zkbd/$TERM-$VENDOR-$OSTYPE ]] && zkbd
-#source ${ZDOTDIR:-$HOME}/.zkbd/$TERM-$VENDOR-$OSTYPE
+#[[ ! -f ${ZDOTDIR:-$HOME}/.zkbd/$TERM-:0 ]] && zkbd
+#source ${ZDOTDIR:-$HOME}/.zkbd/$TERM-:0
 
 [[ -n ${key[Backspace]} ]] && bindkey "^?" backward-delete-char
 [[ -n ${key[Insert]} ]] && bindkey "^[[2~" overwrite-mode
@@ -132,4 +167,5 @@ source ~/.zkbd/rxvt-unicode-:0
 [[ -n ${key[Up]} ]] && bindkey "^[[A" up-line-or-search
 [[ -n ${key[Left]} ]] && bindkey "^[[D" backward-char
 [[ -n ${key[Down]} ]] && bindkey "^[[B" down-line-or-search
-[[ -n ${key[Right]} ]] && bindkey "^[[" forward-char
+[[ -n ${key[Right]} ]] && bindkey "^[[C" forward-char
+
