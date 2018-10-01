@@ -14,6 +14,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
+Plug 'dylanaraps/wal.vim'
 call plug#end()
 
 " Enable syntax colors
