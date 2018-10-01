@@ -1,7 +1,9 @@
 sw_volume: 100
 audio_device_state:1:PulseAudio
 audio_device_state:1:my_fifo
-state: stop
+state: play
+current: 1
+time: 316.255000
 random: 0
 repeat: 0
 single: 0
@@ -10,4 +12,8 @@ crossfade: 0
 mixrampdb: 0.000000
 mixrampdelay: -1.000000
 playlist_begin
+0:Trance/Bendja - Primitive Encounters/01 - Bendja - Harvest.flac
+1:Trance/Bendja - Primitive Encounters/02 - Bendja - Achean.flac
+2:Trance/Bendja - Primitive Encounters/03 - Bendja - The DreamTime.flac
+3:Trance/Bendja - Primitive Encounters/04 - Bendja - Deafening Sun.flac
 playlist_end

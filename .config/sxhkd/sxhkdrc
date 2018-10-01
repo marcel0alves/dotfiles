@@ -147,31 +147,28 @@ alt + f
 
 # Open Telegram
 alt + t
-	telegram-desktop
+	./Telegram/Telegram
 
 # Open Ranger
 alt + r
-	 urxvt -name ranger -e ranger
+	st -c ranger -n ranger -e ranger
 
-# Open Cava
-alt + c
-	urxvt -name cava -e cava
-
-# Open Cli-visualizer
-alt + v
-	urxvt -name vis -e vis
+# Open ncmpcpp
+alt + n
+	st -c ncmpcpp -n ncmpcpp -e ncmpcpp
 
 # Restart Polybar
 alt + shift + p
-	~/.config/polybar/launch.sh
+	~/.config/polybar/launch.sh; \
+	notify-send 'Polybar' 'Config reloaded'
 
 # Lock screen
 super + x
-	~/scripts/lock
+	~/scripts/lock.sh
 
 # terminal emulator
 super + Return
-	urxvt
+	st
 
 # program launcher
 super + @space

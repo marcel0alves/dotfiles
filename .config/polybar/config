@@ -28,13 +28,13 @@ verde = #8A9B0F
 [bar/top]
 monitor = eDP-1
 
-;border-left-size = 90%
-;border-right-size = 90%
-;offset-y = 10
-;border-bottom = 5
+border-left-size = 90%
+border-right-size = 90%
+offset-y = 10
+border-bottom = 5
 
 width = 100%
-height = 26
+height = 34
 
 fixed-center = true
 
@@ -47,16 +47,21 @@ padding-right = 2
 module-margin-left = 2
 module-margin-right = 2
 
-;font-0 = lucy tewi:pixelsize=12;2
-font-0 = Misc Termsynu:style=Regular:pixelsize=12;2
-font-1 = Material Design Icons:pixelsize=10;2
+;font-0 = Misc Termsynu:style=Regular:pixelsize=12;2
+;font-0 = tewi:style=regular:pixelsize=10;2
+font-0 = Iosevka Term:style=Bold:size=9;2
+font-1 = Material Design Icons:pixelsize=12;2
 
-modules-left = cpu memory
+modules-left = bspwm
 modules-center = xwindow
 modules-right = eth wlan backlight-acpi pulseaudio battery date
 
 cursor-click = pointer
 cursor-scroll = ns-resize
+
+tray-position = right
+tray-padding = 2
+tray-background = ${colors.background}
 
 wm-restack = bspwm
 
@@ -65,10 +70,15 @@ wm-restack = bspwm
 [bar/bot]
 bottom = true
 
+border-left-size = 90%
+border-right-size = 90%
+offset-y = 10
+border-bottom = 5
+
 monitor = eDP-1
 
 width = 100%
-height = 26
+height = 34
 
 fixed-center = true
 
@@ -81,12 +91,13 @@ padding-right = 2
 module-margin-left = 2
 module-margin-right = 2
 
-;font-0 = lucy tewi:pixelsize=12;2
-font-0 = Misc Termsynu:style=Regular:pixelsize=12;2
+;font-0 = Misc Termsynu:style=Regular:pixelsize=12;2
+;font-0 = tewi:style=regular:pixelsize=10;2
+font-0 = Iosevka Term:style=Bold:size=9;2
 font-1 = Material Design Icons:pixelsize=10;2
 
-modules-left = bspwm
-modules-center = spotify
+modules-left = cpu memory
+modules-center = mpd
 modules-right = cpufreq temperature gentoo
 
 cursor-click = pointer
@@ -124,7 +135,8 @@ ws-icon-1 = telegram;
 ws-icon-2 = terminal;
 ws-icon-3 = files;
 ws-icon-4 = music;
-ws-icon-5 = work;蘒
+ws-icon-5 = work;
+ws-icon-6 = virtualbox;
 
 ; Xwindow
 ;
@@ -279,6 +291,32 @@ bar-used-fill = ─
 bar-used-empty = ─
 bar-used-empty-foreground = ${colors.primary}
 
+; MPD
+;
+[module/mpd]
+type = internal/mpd
+host = 127.0.0.1
+port = 6600
+interval = 1
+
+format-online = ${self.format-playing}
+format-playing = <label-song>  <bar-progress> <icon-prev> <icon-seekb> <icon-stop> <icon-play> <icon-pause> <icon-seekf> <icon-next> 
+format-stopped = ${self.format-playing}
+label-song = %artist% - %title%
+
+icon-prev = 
+icon-seekb = 
+icon-stop = 
+icon-play = 
+icon-pause =   
+icon-seekf = 
+icon-next =   
+
+bar-progress-width = 45
+bar-progress-indicator = |
+bar-progress-fill = ─
+bar-progress-empty = ─
+
 ;
 ; Custom
 ;
@@ -308,7 +346,7 @@ format-foreground = ${colors.foreground-alt}
 type = custom/script
 format-prefix = " "
 format-foreground = ${colors.foreground-alt}
-exec = uname -r
+exec = uname -a | awk '{ print substr ($3, 1, 7) "-deathstar"}'
 
 ; CPU Frequency
 ;
@@ -319,5 +357,6 @@ interval = 1.0
 format-prefix = " CPU "
 format-foreground = ${colors.foreground-alt}
 
-exec = lscpu | awk '/CPU MHz/ { print substr ($3, 1, 2)/10}' | tr '\n' ' ' | sed 's/ / GHz  /g' | sed 's/  $//' 
+exec = lscpu | awk '/CPU MHz/ { print substr ($3, 1, 4) " MHz"}'
+
 ; vim:ft=dosini
