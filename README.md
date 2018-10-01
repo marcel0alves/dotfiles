@@ -13,7 +13,7 @@ Setup:
 - panes colorscript.
 
 
-![alt text](https://i.imgur.com/BZs0FOG.png)
+![alt text](https://i.imgur.com/p3cTCjg.png)
 
 
 ## Guide
