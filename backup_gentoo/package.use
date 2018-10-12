@@ -28,9 +28,11 @@ media-libs/imlib2 jpeg png tiff
 app-editors/vim python terminal
 app-text/ghostscript-gpl -cups
 
-# Media Sound
+# Multimedia
 media-sound/mpd -network
 media-sound/ncmpcpp clock outputs visualizer
+>=virtual/ffmpeg-9-r2 x264
+>=media-video/ffmpeg-3.4.4 x264
 
 # Browsers
 www-client/firefox custom-optimization hwaccel
