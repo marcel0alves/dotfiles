@@ -1,5 +1,5 @@
 [global]
-    font = GohuFont Nerd Font 10
+    font = Iosevka Term 10
     frame_width = 3
     frame_color = "#d79921"
 

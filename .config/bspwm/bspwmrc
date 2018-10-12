@@ -24,6 +24,7 @@ bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
 bspc rule -a Firefox desktop='^1' follow=on
+bspc rule -a "Pale moon" desktop='^1' follow=on state=floating center=true
 bspc rule -a TelegramDesktop desktop='^2' follow=on state=floating center=true
 bspc rule -a st-256color desktop='^3' follow=on state=floating center=true
 bspc rule -a ranger desktop='^4' follow=on state=floating

@@ -346,7 +346,7 @@ format-foreground = ${colors.foreground-alt}
 type = custom/script
 format-prefix = " "
 format-foreground = ${colors.foreground-alt}
-exec = uname -a | awk '{ print substr ($3, 1, 7) "-deathstar"}'
+exec = uname -r
 
 ; CPU Frequency
 ;
