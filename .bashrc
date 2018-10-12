@@ -16,5 +16,3 @@ fi
 
 
 # Put your fun stuff here.
-export LC_CTYPE=pt_BR.UTF-8
-devmon 2>&1 > /dev/null &
