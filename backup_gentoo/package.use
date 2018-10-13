@@ -1,38 +1,17 @@
-# Hardware
-x11-base/xorg-server glamor xorg
-media-libs/mesa dri3 egl openmax osmesa vulkan 
-
-# Grub
-sys-kernel/genkernel-next cryptsetup
-sys-boot/grub:2 device-mapper
-
-# Personalization
-x11-terms/rxvt-unicode 256-color blink fading-colors font-styles iso14755 mousewheel perl pixbuf unicode3 xft
-x11-misc/rofi windowmode
-x11-misc/polybar alsa curl ipc network mpd
-x11-wm/bspwm examples
-x11-themes/arc-theme gtk2 gtk3
-media-fonts/fontawesome otf ttf
-media-gfx/imagemagick jpeg png tiff
-media-fonts/encodings -X
-
-# Libs
-media-libs/imlib2 jpeg png tiff
->=dev-libs/openssl-1.0.2p -bindist
->=x11-libs/cairo-1.14.12 xcb
->=x11-libs/libxcb-1.13 xkb
->=media-libs/libpng-1.6.35-r1 apng
->=dev-lang/python-3.6.6:3.6 sqlite
+# Xorg, Drivers, Hardware ... 
+media-libs/mesa dri3 
 
 # Editors
-app-editors/vim python terminal
-app-text/ghostscript-gpl -cups
+app-editors/vim python terminal -minimal
 
-# Multimedia
+# Personalization
+x11-misc/rofi windowmode
+x11-misc/polybar alsa curl ipc network mpd
+x11-terms/rxvt-unicode 256-color blink fading-colors font-styles iso14755 mousewheel perl pixbuf unicode3 xft
+
+# Multimedia 
 media-sound/mpd -network
 media-sound/ncmpcpp clock outputs visualizer
->=virtual/ffmpeg-9-r2 x264
->=media-video/ffmpeg-3.4.4 x264
 
 # Browsers
 www-client/firefox custom-optimization hwaccel
@@ -40,3 +19,10 @@ www-client/w3m imlib
 
 # Rsyslog
 app-admin/rsyslog openssl
+
+# Libs
+
+>=x11-libs/cairo-1.14.12 xcb
+>=x11-libs/libxcb-1.13.1 xkb
+>=virtual/ffmpeg-9-r2 x264
+>=media-video/ffmpeg-3.4.4 x264
