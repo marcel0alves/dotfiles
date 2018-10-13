@@ -156,7 +156,7 @@ alias synthwave="wal -i ~/Pics/Synthwave/"
 # key bindings
 
 autoload zkbd
-source ~/.zkbd/rxvt-unicode-:0
+source ~/.zkbd/rxvt-unicode-256color-:0
 #[[ ! -f ${ZDOTDIR:-$HOME}/.zkbd/$TERM-:0 ]] && zkbd
 #source ${ZDOTDIR:-$HOME}/.zkbd/$TERM-:0
 
