@@ -12,6 +12,7 @@ feh --bg-scale "$(< "${HOME}/.cache/wal/wal")"
 compton -b --config ~/.compton.conf &
 blueman-applet &
 
+
 # Rules bspwm
 
 bspc monitor -d web telegram terminal files music work virtualbox
