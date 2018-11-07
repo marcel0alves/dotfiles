@@ -4,8 +4,8 @@
 
 URxvt*secondaryScroll:  true    # Enable Shift-PageUp/Down in screen
 
-URxvt*internalBorder:    50
-URxvt*externalBorder:	 50
+URxvt*internalBorder:    60
+URxvt*externalBorder:	 60
 URxvt.saveLines:         10000
 URxvt*geometry:          120x35
 URxvt*terminalName:      rxvt-unicode-256color
@@ -14,39 +14,40 @@ URxvt*visualBell:        false
 !! Scrollbar
 !URxvt.scrollStyle:      rxvt
 URxvt*scrollBar:         false
-URxvt*scrollTtyOutput:   true
+URxvt*scrollTtyOutput:   false
 URxvt*scrollWithBuffer:  true
 URxvt*scrollTtyKeypress: true
 
 ! fonts
-URxvt*font: xft:Ubuntu Mono derivative Powerline:pixelsize=14:style=Bold
-URxvt*letterSpace:       true
-
-!! Keybinding
-URxvt*keysym.C-Up:       perl:font-size:increase
-URxvt*keysym.C-Down:     perl:font-size:decrease
-URxvt*keysym.C-S-Up:     perl:font-size:incglobal
-URxvt*keysym.C-S-Down:   perl:font-size:decglobal
+URxvt.font: xft:Misc Termsynu:pixelsize=14:style=Regular
+URxvt.letterSpace: 0
 
 !Home and End keys to jump to the beginning and end of lines
-URxvt*keysym.Home: \033[1~
-URxvt*keysym.End: \033[4~
-URxvt*keysym.KP_Home: \033[1~
-URxvt*keysym.KP_End:  \033[4~
+!URxvt*keysym.Home: \033[1~
+!URxvt*keysym.End: \033[4~
+!URxvt*keysym.KP_Home: \033[1~
+!URxvt*keysym.KP_End:  \033[4~
 
-!! Perl extensions
+! Perl extensions
 ! url-select (part of urxvt-perls package)
-URxvt*perl-ext-common:      default,clipboard,matcher,keyboard-select
-URxvt*keysym.M-u: perl:     url-select:select_next
-URxvt*url-select.autocopy:  true
-URxvt*url-select.button:    2
-URxvt*url-select.underline: true
-URxvt*url-launcher:         /usr/bin/firefox-bin
-URxvt*matcher.button:       1
+URxvt.perl-ext-common:	default,selection-to-clipboard,pasta,matcher,keyboard-select
+URxvt.keysym.M-u:	perl:url-select:select_next
+URxvt.url-launcher:	/usr/bin/firefox
+URxvt.underlineURLs:	true
+URxvt.matcher.button:	1
+URxvt.keysym.M-Escape:	perl:keyboard-select:activate
+URxvt.keysym.Control-Shift-V:     perl:pasta:paste
+URxvt.keysym.Control-Shift-C:     perl:pasta:copy
+
+!URxvt*url-select.autocopy:  true
+!URxvt*url-select.button:    2
+!URxvt*url-select.underline: true
+!URxvt*url-launcher:         /usr/bin/firefox
+!URxvt*matcher.button:       1
 
 !! CopyPaste Keys
-URxvt.keysym.C-V:   perl:clipboard:paste
-URxvt.keysym.C-C:   perl:clipboard:copy
+!URxvt.keysym.C-V:   perl:clipboard:paste
+!URxvt.keysym.C-C:   perl:clipboard:copy
 
 !! Disable the stupid ctrl+shift 'feature'
 URxvt.iso14755:            false
