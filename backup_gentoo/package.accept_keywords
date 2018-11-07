@@ -1,0 +1,5 @@
+# Firefox ESR
+www-client/firefox -~amd64
+
+# Gentoo Sources LTS
+sys-kernel/gentoo-sources -~amd64

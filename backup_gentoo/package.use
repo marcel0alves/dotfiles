@@ -1,17 +1,28 @@
+# Kernel
+sys-kernel/genkernel-next cryptsetup
+
+# Grub
+sys-boot/grub device-mapper
+
 # Xorg, Drivers, Hardware ... 
 media-libs/mesa dri3 
+x11-base/xorg-server -minimal suid
+x11-libs/libva utils
 
 # Editors
 app-editors/vim python terminal -minimal
+app-editors/vim-core -minimal
 
 # Personalization
 x11-misc/rofi windowmode
 x11-misc/polybar alsa curl ipc network mpd
 x11-terms/rxvt-unicode 256-color blink fading-colors font-styles iso14755 mousewheel perl pixbuf unicode3 xft
+x11-terms/st savedconfig
 
 # Multimedia 
 media-sound/mpd -network
 media-sound/ncmpcpp clock outputs visualizer
+media-plugins/alsa-plugins ffmpeg
 
 # Browsers
 www-client/firefox custom-optimization hwaccel
@@ -21,8 +32,12 @@ www-client/w3m imlib
 app-admin/rsyslog openssl
 
 # Libs
-
 >=x11-libs/cairo-1.14.12 xcb
 >=x11-libs/libxcb-1.13.1 xkb
 >=virtual/ffmpeg-9-r2 x264
 >=media-video/ffmpeg-3.4.4 x264
+>=media-libs/libpng-1.6.35-r1 apng
+>=dev-lang/python-3.6.6:3.6 sqlite
+
+# Android
+sys-fs/mtpfs mad

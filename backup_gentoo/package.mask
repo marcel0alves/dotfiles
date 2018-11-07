@@ -1,2 +1,2 @@
->=media-fonts/fontawesome-5.0.6
+# Fonts
 >media-fonts/cantarell-0.0.25
