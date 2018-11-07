@@ -4,8 +4,7 @@
 
 ; Global Settings
 ;
-margin-top = 10
-margin-top = 10
+;margin-top = 10
 
 ; Colors
 ;
@@ -26,55 +25,14 @@ verde = #8A9B0F
 ; Topbar
 ;
 [bar/top]
-monitor = eDP-1
-
-border-left-size = 90%
-border-right-size = 90%
-offset-y = 10
-border-bottom = 5
-
-width = 100%
-height = 34
-
-fixed-center = true
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-padding-left = 2
-padding-right = 2
-
-module-margin-left = 2
-module-margin-right = 2
-
-;font-0 = Misc Termsynu:style=Regular:pixelsize=12;2
-;font-0 = tewi:style=regular:pixelsize=10;2
-font-0 = Iosevka Term:style=Bold:size=9;2
-font-1 = Material Design Icons:pixelsize=12;2
-
-modules-left = bspwm
-modules-center = xwindow
-modules-right = eth wlan backlight-acpi pulseaudio battery date
-
-cursor-click = pointer
-cursor-scroll = ns-resize
-
-wm-restack = bspwm
-
-; Bottombar
-;
-[bar/bot]
 bottom = true
 
-border-left-size = 90%
-border-right-size = 90%
-offset-y = 10
-border-bottom = 5
-
 monitor = eDP-1
 
-width = 100%
-height = 34
+width = 90%
+height = 30
+offset-x = 5%
+offset-y = 10
 
 fixed-center = true
 
@@ -87,14 +45,12 @@ padding-right = 2
 module-margin-left = 2
 module-margin-right = 2
 
-;font-0 = Misc Termsynu:style=Regular:pixelsize=12;2
-;font-0 = tewi:style=regular:pixelsize=10;2
-font-0 = Iosevka Term:style=Bold:size=9;2
+font-0 = tewi:style=Regular:pixelsize=10;2
 font-1 = Material Design Icons:pixelsize=10;2
 
-modules-left = cpu memory
-modules-center = mpd
-modules-right = cpufreq temperature gentoo
+modules-left = cpu memory temperature
+modules-center = bspwm
+modules-right = eth wlan backlight-acpi alsa battery date
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -109,37 +65,22 @@ wm-restack = bspwm
 [module/bspwm]
 type = internal/bspwm
 
-label-focused = %icon% %name%
+label-focused = %name%
 label-focused-background = ${colors.secondary}
 label-focused-foreground = ${colors.foreground}
 label-focused-padding = 2
 
-label-occupied = %icon% %name%
+label-occupied = %name%
 label-occupied-foreground = ${colors.foreground-alt}
 label-occupied-padding = 2
 
-label-urgent = %icon% %name%
+label-urgent = %name%
 label-urgent-foreground = ${colors.alert}
 label-urgent-padding = 2
 
-label-empty = %icon% %name%
+label-empty = %name%
 label-empty-foreground = ${colors.primary}
 label-empty-padding = 2
-
-ws-icon-0 = web;
-ws-icon-1 = telegram;
-ws-icon-2 = terminal;
-ws-icon-3 = files;
-ws-icon-4 = music;
-ws-icon-5 = work;
-ws-icon-6 = virtualbox;
-
-; Xwindow
-;
-[module/xwindow]
-type = internal/xwindow
-label = %title:0:50:...%
-label-foreground = ${colors.foreground-alt}
 
 ; Wireless
 ;
@@ -150,7 +91,7 @@ interval = 1.0
 
 format-connected = <label-connected>
 
-label-connected = " %local_ip%"
+label-connected = "蠟 %local_ip%"
 label-connected-foreground = ${colors.foreground-alt}
 
 ; Ethernet
@@ -192,14 +133,16 @@ format = <label>
 format-foreground = ${colors.foreground-alt}
 label = " %percentage%%"
 
-; Pulseaudio
+; ALSA
 ;
-[module/pulseaudio]
-type = internal/pulseaudio
+[module/alsa]
+type = internal/alsa
 
-use-ui-max = false
+master-soundcard = default
+master-mixer = Master
+mapped = true
 
-interval = 5
+interval = 1
 
 format-volume = <ramp-volume> <label-volume>
 
@@ -251,7 +194,6 @@ interval = 0.5
 
 format = <label> <bar-load>
 
-;label = " CPU"
 label = "CPU"
 label-foreground = ${colors.foreground-alt}
 
@@ -273,12 +215,11 @@ interval = 2
 
 format = <label> <bar-used>
 
-;label = " RAM"
 label = "RAM"
 label-foreground = ${colors.foreground-alt}
 
 bar-used-indicator = |
-bar-used-width = 30
+bar-used-width = 20
 bar-used-foreground-0 = ${colors.secondary}
 bar-used-foreground-1 = ${colors.secondary}
 bar-used-foreground-2 = ${colors.secondary}
@@ -286,43 +227,6 @@ bar-used-foreground-3 = ${colors.secondary}
 bar-used-fill = ─
 bar-used-empty = ─
 bar-used-empty-foreground = ${colors.primary}
-
-; MPD
-;
-[module/mpd]
-type = internal/mpd
-host = 127.0.0.1
-port = 6600
-interval = 1
-
-format-online = ${self.format-playing}
-format-playing = <label-song>  <bar-progress> <icon-prev> <icon-seekb> <icon-stop> <icon-play> <icon-pause> <icon-seekf> <icon-next> 
-format-stopped = ${self.format-playing}
-label-song = %artist% - %title%
-
-icon-prev = 
-icon-seekb = 
-icon-stop = 
-icon-play = 
-icon-pause =   
-icon-seekf = 
-icon-next =   
-
-bar-progress-width = 45
-bar-progress-indicator = |
-bar-progress-fill = ─
-bar-progress-empty = ─
-
-;
-; Custom
-;
-; Spotify
-;
-[module/spotify]
-type = custom/script
-format-prefix = " "
-format-foreground = ${colors.verde}
-exec = $HOME/.config/polybar/scripts/music
 
 ; Temperature
 ;
@@ -335,7 +239,6 @@ exec = sensors | grep Core | awk '{print substr($3, 2, 2)}' | tr '\n' ' ' | sed 
 format-prefix = " "
 format-foreground = ${colors.foreground-alt}
 
-
 ; Gentoo
 ;
 [module/gentoo]
@@ -343,16 +246,5 @@ type = custom/script
 format-prefix = " "
 format-foreground = ${colors.foreground-alt}
 exec = uname -r
-
-; CPU Frequency
-;
-[module/cpufreq]
-type = custom/script
-interval = 1.0
-
-format-prefix = " CPU "
-format-foreground = ${colors.foreground-alt}
-
-exec = lscpu | awk '/CPU MHz/ { print substr ($3, 1, 4) " MHz"}'
 
 ; vim:ft=dosini
