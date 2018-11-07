@@ -1,5 +1,5 @@
 # Load a resource file
-[[ -f ~/.Xresources ]] && xrdb -I$HOME ~/.Xresources
+[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 
 # Set keyboard to us-intl
 setxkbmap -layout us -model dell -variant intl
@@ -14,4 +14,4 @@ numlockx
 wal -R
 
 # Exec bspwm
-exec ck-launch-session dbus-launch --sh-syntax --exit-with-session bspwm
+exec bspwm
