@@ -6,39 +6,32 @@ sxhkd &
 # Custom applications
 xsetroot -cursor_name left_ptr &
 dunst &
-. "${HOME}/.cache/wal/colors.sh" &
+. "${HOME}/.cache/wal/colors.sh"
 ~/.config/polybar/launch.sh &
-feh --bg-scale "$(< "${HOME}/.cache/wal/wal")"
-compton -b --config ~/.compton.conf &
-blueman-applet &
-
+feh --bg-scale "$(< "${HOME}/.cache/wal/wal")" &
+# compton -b --config ~/.compton.conf &
 
 # Rules bspwm
 
-bspc monitor -d web telegram terminal files music work virtualbox
+bspc monitor -d web telegram terminal files music work remote
 
-bspc config border_width         2
-bspc config window_gap          20
+bspc config border_width        10
+bspc config window_gap          30
 
 bspc config split_ratio          0.52
-bspc config borderless_monocle   true
-bspc config gapless_monocle      true
+#bspc config split_ratio          0.52
+bspc config borderless_monocle   false
+bspc config gapless_monocle      false
 
 bspc rule -a Firefox desktop='^1' follow=on
-bspc rule -a "Pale moon" desktop='^1' follow=on state=floating center=true
-bspc rule -a TelegramDesktop desktop='^2' follow=on state=floating center=true
-bspc rule -a st-256color desktop='^3' follow=on state=floating center=true
+bspc rule -a Firefox:Places desktop='^1' follow=on state=floating follow=on
+bspc rule -a TelegramDesktop desktop='^2' follow=on 
+bspc rule -a St desktop='^3' follow=on
 bspc rule -a ranger desktop='^4' follow=on state=floating
-bspc rule -a Spotify desktop='^5' follow=on state=floating
-bspc rule -a ncmpcpp desktop='^5' follow=on state=floating center=true
-bspc rule -a org.remmina.Remmina state=floating desktop='^6' follow=on
-bspc rule -a "VirtualBox Manager" state=floating desktop='^7' follow=on
+bspc rule -a ncmpcpp desktop='^5' follow=on state=floating
 
-bspc rule -a Blueman-manager state=floating follow=on
-bspc rule -a VirtualBox state=floating follow=on
 bspc rule -a Lxappearance state=floating follow=on
 bspc rule -a Pavucontrol state=floating follow=on
-bspc rule -a Nvidia-settings state=floating follow=on
 bspc rule -a feh state=floating follow=on
 
 bspc rule -a Screenkey manage=off
