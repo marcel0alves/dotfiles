@@ -16,7 +16,7 @@ export PATH="${PATH}:${HOME}/.local/bin/"
 # cat ~/.cache/wal/sequences
 
 # To add support for TTYs this line can be optionally added.
-# source ~/.cache/wal/colors-tty.sh
+source ~/.cache/wal/colors-tty.sh
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -151,14 +151,17 @@ alias minimalist="wal -i ~/Pics/Minimalist/"
 # Synthwave scheme
 alias synthwave="wal -i ~/Pics/Synthwave/"
 
+# Abstract scheme
+alias abstract="wal -i ~/Pics/Abstract/"
+
 #
 #
 # key bindings
 
 autoload zkbd
 source ~/.zkbd/rxvt-unicode-256color-:0
-#[[ ! -f ${ZDOTDIR:-$HOME}/.zkbd/$TERM-:0 ]] && zkbd
-#source ${ZDOTDIR:-$HOME}/.zkbd/$TERM-:0
+# [[ ! -f ${ZDOTDIR:-$HOME}/.zkbd/$TERM-:0 ]] && zkbd
+# source ${ZDOTDIR:-$HOME}/.zkbd/$TERM-:0
 
 [[ -n ${key[Backspace]} ]] && bindkey "^?" backward-delete-char
 [[ -n ${key[Insert]} ]] && bindkey "^[[2~" overwrite-mode
