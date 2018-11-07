@@ -131,15 +131,15 @@ XF86AudioPrev
 
 # Volume up
 XF86AudioRaiseVolume
-	amixer -D pulse sset Master 1%+
+	amixer set Master 1%+
 
 # Volume down
 XF86AudioLowerVolume
-	amixer -D pulse sset Master 1%-
+	amixer set Master 1%-
 
 # Mute
 XF86AudioMute
-	amixer -D pulse sset Master toggle
+	amixer set Master toggle
 
 # Open Firefox
 alt + f
@@ -172,7 +172,7 @@ super + Return
 
 # program launcher
 super + @space
-	rofi -show drun -p Menu
+	rofi -show run -display-run "~ "
 
 # list open window
 alt + Tab
