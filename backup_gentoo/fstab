@@ -28,9 +28,14 @@
 #LABEL=swap		none		swap		sw		0 0
 #/dev/cdrom		/mnt/cdrom	auto		noauto,ro	0 0
 
+# /dev/mapper/vg-root
+UUID=930064fd-6531-431e-a240-7a1a5c532d39		/		ext4		noatime,nodiratime,defaults	0 1
 
-/dev/mapper/vg_gentoo-root	/		ext4		noatime,nodiratime,defaults	0 1
+# /dev/mapper/vg-home
+UUID=958ae431-7339-4e5c-84a4-9d3bd914f6f1		/home		ext4		noatime,nodiratime		0 2
 
-/dev/sda1			/boot		vfat		rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro	0 2
-	
-/dev/mapper/vg_gentoo-home	/home		ext4		noatime,nodiratime	0 2
+# /dev/sdb1
+UUID=652B-3087						/boot		vfat		noatime,errors=remount-ro	0 2
+
+# /tmp on RAM
+tmpfs 							/tmp 		tmpfs		rw,noatime,nodev,nosuid,mode=1777 	0 0
