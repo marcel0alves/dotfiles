@@ -13,7 +13,7 @@ Setup:
 - mpd + ncmpcpp
 
 
-![alt text](https://i.imgur.com/p3cTCjg.png)
+![alt text](https://i.imgur.com/rnnDr8m.png)
 
 Created by Marcelo Alves.
 
