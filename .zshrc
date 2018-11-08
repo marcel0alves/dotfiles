@@ -154,32 +154,8 @@ alias synthwave="wal -i ~/Pics/Synthwave/"
 # Abstract scheme
 alias abstract="wal -i ~/Pics/Abstract/"
 
-#
-#
-# key bindings
-
-autoload zkbd
-source ~/.zkbd/rxvt-unicode-256color-:0
-# [[ ! -f ${ZDOTDIR:-$HOME}/.zkbd/$TERM-:0 ]] && zkbd
-# source ${ZDOTDIR:-$HOME}/.zkbd/$TERM-:0
-
-[[ -n ${key[Backspace]} ]] && bindkey "^?" backward-delete-char
-[[ -n ${key[Insert]} ]] && bindkey "^[[2~" overwrite-mode
-[[ -n ${key[Home]} ]] && bindkey "^[[1~" beginning-of-line
-[[ -n ${key[PageUp]} ]] && bindkey "^[[5~" up-line-or-history
-[[ -n ${key[Delete]} ]] && bindkey "^[[3~" delete-char
-[[ -n ${key[End]} ]] && bindkey "^[[4~" end-of-line
-[[ -n ${key[PageDown]} ]] && bindkey "^[[6~" down-line-or-history
-[[ -n ${key[Up]} ]] && bindkey "^[[A" up-line-or-search
-[[ -n ${key[Left]} ]] && bindkey "^[[D" backward-char
-[[ -n ${key[Down]} ]] && bindkey "^[[B" down-line-or-search
-[[ -n ${key[Right]} ]] && bindkey "^[[C" forward-char
-
-#
-#
-#
-#
 # Functions
+#
 # Ref: https://github.com/paulmillr/dotfiles/blob/master/home/.zshrc.sh#L282
 # Show how much RAM application uses.
 # $ ram safari
