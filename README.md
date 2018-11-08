@@ -4,13 +4,11 @@ My personal config/dotfiles files for Linux. In development.
 
 Setup:
 - Gentoo Linux
-- st
-- zsh + oh-my-zsh
+- st Terminal
+- zsh with oh-my-zsh
 - bspwm
 - polybar
-- htop
-- panes
-- mpd + ncmpcpp
+- ufetch with panes
 
 
 ![alt text](https://i.imgur.com/rnnDr8m.png)
