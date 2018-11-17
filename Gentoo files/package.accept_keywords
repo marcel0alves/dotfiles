@@ -1,5 +1,16 @@
+=dev-libs/libressl-2.2*
+
 # Firefox ESR
 www-client/firefox -~amd64
 
 # Gentoo Sources LTS
 sys-kernel/gentoo-sources -~amd64
+
+# Libjpeg test
+media-libs/libjpeg-turbo -~amd64
+
+# rust 
+dev-lang/rust -~amd64
+
+# Only stable Mesa
+media-libs/mesa -~amd64
