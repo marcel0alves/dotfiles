@@ -28,14 +28,15 @@
 #LABEL=swap		none		swap		sw		0 0
 #/dev/cdrom		/mnt/cdrom	auto		noauto,ro	0 0
 
-# /dev/mapper/vg-root
-UUID=930064fd-6531-431e-a240-7a1a5c532d39		/		ext4		noatime,nodiratime,defaults	0 1
+# /dev/sdb2
+UUID=480bc123-7860-4374-9873-0a1ca8e392bd		/		ext4		noatime,nodiratime,defaults	0 1
 
-# /dev/mapper/vg-home
-UUID=958ae431-7339-4e5c-84a4-9d3bd914f6f1		/home		ext4		noatime,nodiratime		0 2
+# /dev/sdb3
+UUID=95caae14-0a32-485e-9df2-aa402c97548e		/home		ext4		noatime,nodiratime		0 2
 
 # /dev/sdb1
-UUID=652B-3087						/boot		vfat		noatime,errors=remount-ro	0 2
+UUID=9DE4-4057						/boot		vfat		noatime,errors=remount-ro	0 2
 
 # /tmp on RAM
 tmpfs 							/tmp 		tmpfs		rw,noatime,nodev,nosuid,mode=1777 	0 0
+
