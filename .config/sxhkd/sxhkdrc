@@ -157,6 +157,10 @@ alt + r
 alt + n
 	st -c ncmpcpp -n ncmpcpp -e ncmpcpp
 
+# Open cmus
+alt + c
+	st -c cmus -n cmus -e cmus
+
 # Restart Polybar
 alt + shift + p
 	~/.config/polybar/launch.sh; \
