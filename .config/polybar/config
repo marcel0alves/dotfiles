@@ -48,7 +48,7 @@ module-margin-right = 2
 font-0 = tewi:style=Regular:pixelsize=10;2
 font-1 = Material Design Icons:pixelsize=10;2
 
-modules-left = cpu memory temperature
+modules-left = cpu speed memory temperature
 modules-center = bspwm
 modules-right = eth wlan backlight-acpi alsa battery date
 
@@ -237,6 +237,15 @@ exec-if = sensors
 exec = sensors | grep Core | awk '{print substr($3, 2, 2)}' | tr '\n' ' ' | sed 's/ /°C  /g' | sed 's/  $//'
 
 format-prefix = " "
+format-foreground = ${colors.foreground-alt}
+
+; CPU MHz
+;
+[module/speed]
+type = custom/script
+interval = 1
+exec = lscpu | awk '/CPU MHz/ {printf substr ($3,1,length($3)-4)}' | sed 's/$/ MHz/'
+
 format-foreground = ${colors.foreground-alt}
 
 ; Gentoo
