@@ -73,6 +73,12 @@ alias startx="startx -- vt1"
 # Bspwm config
 alias bspconfig="vim .config/bspwm/bspwmrc"
 
+# SSH Z800 Workstation job
+alias z800="ssh gentoo@10.130.254.230"
+
+# Lemonbar
+alias bar="~/.config/lemonbar/lemonbar.sh | lemonbar -p -f 'Misc Termsynu' -f 'Material Design Icons' 2>1& /dev/null" 
+
 #
 # Functions
 #
