@@ -1,3 +1,8 @@
 #!/bin/sh
+#
+# Suspend to RAM.
+# Copyright is bullshit.
 
-echo mem > /sys/power/state
+
+notify-send 'Testing' 'Suspending to RAM...' &&
+su -c 'echo mem > /sys/power/state'
