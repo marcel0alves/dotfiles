@@ -1,12 +1,8 @@
 # Mask OpenSSL for LibreSSL works
-# dev-libs/openssl
+dev-libs/openssl
 
 # Cantarell font
 >media-fonts/cantarell-0.0.25
 
 # Palemoon Overlay
 */*::palemoon
-
-# Perl
-# =dev-lang/perl-5.26.2
-# dev-lang/perl
