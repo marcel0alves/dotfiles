@@ -1,16 +1,33 @@
-=dev-libs/libressl-2.2*
+# =dev-libs/libressl-2.2*
 
 # Firefox ESR
-www-client/firefox -~amd64
+# www-client/firefox -~amd64
 
 # Gentoo Sources LTS
-sys-kernel/gentoo-sources -~amd64
+# sys-kernel/gentoo-sources -~amd64
 
 # Libjpeg test
-media-libs/libjpeg-turbo -~amd64
+# media-libs/libjpeg-turbo -~amd64
 
 # rust 
-dev-lang/rust -~amd64
+# dev-lang/rust -~amd64
 
 # Only stable Mesa
-media-libs/mesa -~amd64
+# media-libs/mesa -~amd64
+
+# Wpa_supplicant
+# net-wireless/wpa_supplicant -~amd64
+
+# Download glibc is not supported and a sure way to destruction
+# sys-libs/glibc ~amd64
+
+# Gzip testing
+# app-arch/gzip ~amd64
+
+#=dev-lang/perl-5.26.2 ~amd64
+#=dev-lang/perl-5.24.4 ~amd64
+#=dev-lang/perl-5.26.1-r2 ~amd64
+#=dev-lang/perl-5.26.1-r1 ~amd64
+#=sys-devel/llvm-7.0.0-r1 ~amd64
+#=media-video/ffmpeg-4.1 ~amd64
+#=virtual/libffi-3.3_rc0 ~amd64
