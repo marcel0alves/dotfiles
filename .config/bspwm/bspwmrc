@@ -7,19 +7,19 @@ sxhkd &
 xsetroot -cursor_name left_ptr &
 dunst &
 . "${HOME}/.cache/wal/colors.sh"
- ~/.config/polybar/launch.sh &
+~/.config/polybar/launch.sh &
 feh --bg-scale "$(< "${HOME}/.cache/wal/wal")" &
-# compton -b --config ~/.compton.conf &
+# ~/.config/lemonbar/lemonbar.sh | lemonbar -p -f "Misc Termsynu-10" -f "Material Design Icons-10" | bash &
 
 # Rules bspwm
 
-bspc monitor -d web telegram terminal files music work
+bspc monitor -d I II III IV V VI
+#bspc monitor -d web telegram terminal files music work
 
 bspc config border_width        10
 bspc config window_gap          30
 
 bspc config split_ratio          0.52
-#bspc config split_ratio          0.52
 bspc config borderless_monocle   false
 bspc config gapless_monocle      false
 
