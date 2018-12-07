@@ -10,7 +10,7 @@
 os="$(sed -rn '/^NAME/ s/^NAME="?([a-z A-Z]+).?$/\1/p' /etc/os-release)"
 kernel="$(uname -sr)"
 hostname="$(uname -n)"
-cpu="$(uname -p)"
+cpu="$(cat /proc/cpuinfo | awk -F ': ' '/model name/ {printf $2; exit}')"
 shell="$(echo $SHELL)"
 
 mem_info() {
