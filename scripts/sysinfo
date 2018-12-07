@@ -14,10 +14,10 @@ cpu="$(uname -p)"
 shell="$(echo $SHELL)"
 
 mem_info() {
-	total=$(free -m | awk '{print $2}' | sed -n '2p')
-	used=$(free -m | awk '{print $3}' | sed -n '2p')
+	total=$(free -m | awk 'NR==2 {print $2}')
+	used=$(free -m | awk 'NR==2 {print $3}')
 	
-	printf "${used}MiB / ${total}MiB\n"
+	printf "${used} MiB / ${total} MiB\n"
 }
 
 # Clear screen
