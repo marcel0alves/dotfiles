@@ -5,7 +5,7 @@
 
 # System information
 
-os="$(cat /etc/os-release | awk '/^NAME/' | sed 's/NAME=//')"
+os="$(sed -rn '/^NAME/ s/^NAME="?([a-z A-Z]+).?$/\1/p' /etc/os-release)"
 kernel="$(uname -sr)"
 hostname="$(uname -n)"
 cpu="$(cat /proc/cpuinfo | awk -F': | @' '/model name|Processor|^cpu model|chip type|^cpu type/ {printf $2; exit}')"
@@ -17,7 +17,7 @@ shell="$(echo $SHELL)"
 # Output
 
 # Clear terminal
-clear &
+clear 
 
 cat <<EOF 
 
@@ -27,10 +27,9 @@ Let's go.
 OS:		${os}
 Hostname:	${hostname}
 Kernel:		${kernel}
-Shell:		${shell}
 Processor:	${cpu}
 Memory:		${mem_info}
-
+Shell:		${shell}
 
 EOF
 
