@@ -10,15 +10,16 @@ kernel="$(uname -sr)"
 hostname="$(uname -n)"
 cpu="$(cat /proc/cpuinfo | awk -F': | @' '/model name|Processor|^cpu model|chip type|^cpu type/ {printf $2; exit}')"
 mem_total="$(cat /proc/meminfo | awk '/MemTotal/ {printf $2}')"
-mem_usage="$(vmstat -s | awk '/used memory/ {print $1}')"
+mem_usage="$(cat /proc/meminfo | awk '/^Active/ {print $2}' | head -n 1)"
 mem_info="$(($mem_usage / 1024))MiB / $(($mem_total / 1024))MiB"
 shell="$(echo $SHELL)"
 
-# Output
 
-# Clear terminal
+
+# Clear screen
 clear 
 
+# Print sysinfo
 cat <<EOF 
 
 Well, some information about your system.
