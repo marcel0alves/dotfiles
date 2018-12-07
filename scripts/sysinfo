@@ -10,9 +10,12 @@
 os="$(sed -rn '/^NAME/ s/^NAME="?([a-z A-Z]+).?$/\1/p' /etc/os-release)"
 kernel="$(uname -sr)"
 hostname="$(uname -n)"
+host="$(cat /sys/devices/virtual/dmi/id/product_name)"
+bios="$(echo $(cat /sys/devices/virtual/dmi/id/bios_{vendor,version}))"
 cpu="$(awk -F ': ' '/model name/ {printf $2; exit}' /proc/cpuinfo)"
 cpu_bugs="$(awk -F ': ' '/bugs/ {print $2; exit}' /proc/cpuinfo)"
 mem_info="$(free -m | awk '/Mem/{print $3"MiB", $2"MiB"}' OFS=' / ')"
+shell="$(basename $SHELL)"
 
 # Clear screen
 clear 
@@ -25,11 +28,13 @@ Let's go.
 
 OS:		${os}
 Hostname:	${hostname}
+Host:		${host}
+Bios:		${bios}
 Kernel:		${kernel}
 Processor:	${cpu}
 CPU Bugs:	${cpu_bugs}
 Memory:		${mem_info}
-Shell:		$SHELL
+Shell:		${shell}
 
 EOF
 
