@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+#
+#
+# Testing sysinfo
+
+# System information
+
+os="$(cat /etc/os-release | awk '/^NAME/' | sed 's/NAME=//')"
+kernel="$(uname -sr)"
+hostname="$(uname -n)"
+cpu="$(cat /proc/cpuinfo | awk -F': | @' '/model name|Processor|^cpu model|chip type|^cpu type/ {printf $2; exit}')"
+mem_total="$(cat /proc/meminfo | awk '/MemTotal/ {printf $2}')"
+mem_usage="$(vmstat -s | awk '/used memory/ {print $1}')"
+mem_info="$(($mem_usage / 1024))MiB / $(($mem_total / 1024))MiB"
+
+# Output
+
+cat <<EOF 
+
+Well, some information about your system.
+Let's go. 
+
+OS:		${os}
+Hostname:	${hostname}
+Kernel:		${kernel}
+Processor:	${cpu}
+Memory:		${mem_info}
+
+EOF
