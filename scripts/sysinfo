@@ -2,6 +2,8 @@
 #
 #
 # Testing sysinfo
+# By: Marcelo Alves
+# No Copyright, license or any shit. Intelectual property doesn't exists.
 
 # System information
 
@@ -9,6 +11,7 @@ os="$(sed -rn '/^NAME/ s/^NAME="?([a-z A-Z]+).?$/\1/p' /etc/os-release)"
 kernel="$(uname -sr)"
 hostname="$(uname -n)"
 cpu="$(uname -p)"
+shell="$(echo $SHELL)"
 
 mem_info() {
 	total=$(free -m | awk '{print $2}' | sed -n '2p')
@@ -16,9 +19,6 @@ mem_info() {
 	
 	printf "${used}MiB / ${total}MiB\n"
 }
-shell="$(echo $SHELL)"
-
-
 
 # Clear screen
 clear 
