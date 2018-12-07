@@ -9,9 +9,13 @@ os="$(sed -rn '/^NAME/ s/^NAME="?([a-z A-Z]+).?$/\1/p' /etc/os-release)"
 kernel="$(uname -sr)"
 hostname="$(uname -n)"
 cpu="$(uname -p)"
-mem_total="$(cat /proc/meminfo | awk '/MemTotal/ {printf $2}')"
-mem_usage="$(cat /proc/meminfo | awk '/Active/ {print $2}' | head -n 1)"
-mem_info="$(($mem_usage / 1024))MiB / $(($mem_total / 1024))MiB"
+
+mem_info() {
+	total=$(free -m | awk '{print $2}' | sed -n '2p')
+	used=$(free -m | awk '{print $3}' | sed -n '2p')
+	
+	printf "${used}MiB / ${total}MiB\n"
+}
 shell="$(echo $SHELL)"
 
 
@@ -29,15 +33,20 @@ OS:		${os}
 Hostname:	${hostname}
 Kernel:		${kernel}
 Processor:	${cpu}
-Memory:		${mem_info}
+Memory:		$(mem_info)
 Shell:		${shell}
 
 EOF
 
 
 
+
+
+
+
+# Testing area
 #
-#
-#
-# Some bloat and trash
 # userandhost="$(echo $(whoami)@$(uname -n))"
+# mem_total="$(cat /proc/meminfo | awk '/MemTotal/ {printf $2}')"
+# mem_usage="$(cat /proc/meminfo | awk '/Active/ {print $2}' | head -n 1)"
+# mem_info="$(($mem_usage / 1024))MiB / $(($mem_total / 1024))MiB"
