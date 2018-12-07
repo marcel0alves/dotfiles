@@ -11,7 +11,6 @@ os="$(sed -rn '/^NAME/ s/^NAME="?([a-z A-Z]+).?$/\1/p' /etc/os-release)"
 kernel="$(uname -sr)"
 hostname="$(uname -n)"
 cpu="$(cat /proc/cpuinfo | awk -F ': ' '/model name/ {printf $2; exit}')"
-shell="$(echo $SHELL)"
 
 mem_info() {
 	total=$(free -m | awk 'NR==2 {print $2}')
@@ -34,7 +33,7 @@ Hostname:	${hostname}
 Kernel:		${kernel}
 Processor:	${cpu}
 Memory:		$(mem_info)
-Shell:		${shell}
+Shell:		$SHELL
 
 EOF
 
