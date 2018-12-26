@@ -176,7 +176,7 @@ super + Return
 
 # program launcher
 super + @space
-	rofi -show run -display-run "~ "
+	rofi -show drun -show-icons
 
 # list open window
 alt + Tab

@@ -14,27 +14,33 @@ if [[ $- != *i* ]] ; then
 	return
 fi
 
+# Put your fun stuff here
 
-# Put your fun stuff here.
-#
-#
+
 
 # Add local 'pip' to PATH:
-export PATH="${PATH}:${HOME}/.local/bin/"
+export PATH="${PATH}:${HOME}/.local/bin"
 
-# Import colorscheme from 'wal' asynchronously
+# Import colorscheme from pywal - TTYs too
 (cat ~/.cache/wal/sequences &)
-
-# To add support for TTYs this line can be optionally added.
 source ~/.cache/wal/colors-tty.sh
 
 # Default editor for $USER
 export EDITOR=${EDITOR:-/usr/bin/vim}
 
-# Fix cedilha character
+# Fix Brazil lang
 export LC_CTYPE=pt_BR.utf8
 
+
+
 # Aliases
+
+# Ls
+alias ll="ls -l"
+alias la="ls -la"
+
+# Start X
+alias startx="startx -- vt1"
 
 # Emerge functions
 alias updatesystem="sudo emerge --sync && sudo emerge -auvND @world"
@@ -47,6 +53,8 @@ alias emergeworld="sudo emerge -auvND @world"
 # Portage files
 alias make.conf="sudo vim /etc/portage/make.conf"
 alias package.use="sudo vim /etc/portage/package.use"
+alias package.mask="sudo vim /etc/portage/package.mask"
+alias package.accept_keywords="sudo vim /etc/portage/package.accept_keywords"
 
 # Bspwm config
 alias bspconfig="vim ~/.config/bspwm/bspwmrc"
@@ -63,25 +71,14 @@ alias synthwave="wal -i ~/Pics/Synthwave/"
 # Abstract scheme
 alias abstract="wal -i ~/Pics/Abstract/"
 
-# ls
-alias ls="ls -l"
-alias la="ls -la"
-
-# Start X
-alias startx="startx -- vt1"
-
-# Bspwm config
-alias bspconfig="vim .config/bspwm/bspwmrc"
-
-# SSH Z800 Workstation job
+# Z800 Workstation Job
 alias z800="ssh gentoo@10.130.254.230"
 
-# Lemonbar
-alias bar="~/.config/lemonbar/lemonbar.sh | lemonbar -p -f 'Misc Termsynu' -f 'Material Design Icons' 2>1& /dev/null" 
 
-#
+
+
 # Functions
-#
+
 # Show how much RAM application uses
 ram () {
 	local sum
@@ -94,7 +91,6 @@ ram () {
 		for i in `ps aux | grep -i "$app" | grep -v "grep" | awk '{print $6}'`; do
 			sum=$(($i + $sum))
 		done
-		
 		sum=$(echo "scale=2; $sum / 1024.0" | bc)
 		if [[ $sum != "0" ]]; then
 			echo "${fg[blue]}${app}${reset_color} uses ${fg[green]}${sum}${reset_color} MBs of RAM."
