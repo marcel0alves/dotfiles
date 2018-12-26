@@ -1,0 +1,14 @@
+# Root /dev/mapper/vg-root
+UUID=0a7cdfc8-4a69-4231-9308-b030cac78057               /               ext4            noatime,nodiratime,defaults     0 1
+
+# Boot /dev/sda1
+UUID=5eaa7def-2b31-451b-a77e-2b41730258a2               /boot           ext2            noatime,errors=remount-ro       0 2
+
+# Home /dev/mapper/vg-home
+UUID=e659d891-3074-4988-ad82-1508377231a2               /home           ext4            noatime,nodiratime      0 2
+
+# Swap /dev/mapper/vg-swap
+UUID=8e1fa0f7-1fd5-4d84-8e61-18c5e3f7676b               none            swap            sw      0 0
+
+# /tmp on RAM
+# tmpfs                                                 /var/tmp/portage                tmpfs           rw,noatime,nodev,nosuid,mode=1777       0 0
