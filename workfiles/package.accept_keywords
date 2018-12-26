@@ -1,0 +1,10 @@
+# Firefox ESR
+www-client/firefox -~amd64
+
+# Gentoo Sources 4.14 LTS
+sys-kernel/gentoo-sources -~amd64
+
+# LibreSSL
+=dev-libs/libressl-2.2*
+
+

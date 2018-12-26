@@ -1,0 +1,9 @@
+# Cantarell
+>=media-fonts/cantarell-0.101
+
+# Mask all Palemoon overlay for security propuses
+*/*::palemoon
+
+# Mask OpenSSL for LibreSSL
+dev-libs/openssl
+
