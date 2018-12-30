@@ -4,16 +4,15 @@ My personal config/dotfiles files for Linux. In development.
 
 Setup:
 - Gentoo Linux
-- st Terminal
+- st
 - bash
 - bspwm
 - polybar
-- ufetch with panes
-- htop
+- sysinfo
 
 
-![alt text](https://i.imgur.com/Z2lwJNj.png)
+![alt text](https://i.postimg.cc/tyvTwJ92/30-12-2018-19-08-38.png)
 
 Created by Marcelo Alves.
 
-Last Update: Nov 13, 2018
+Last Update: Dec 30, 2018
