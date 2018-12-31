@@ -1,0 +1,255 @@
+; Polybar Setup
+; Made by: Marcelo Alves
+; Allright reserved. Or not. Intelectual propriety does not exist
+
+; Global Settings
+;
+;margin-top = 10
+
+; Colors
+;
+
+[colors]
+;background = ${xrdb:color0} 
+background = ${xrdb:background} 
+;foreground = ${xrdb:color7}
+foreground = ${xrdb:foreground}
+foreground-alt = ${xrdb:color7}
+primary = ${xrdb:color1}
+
+secondary = ${xrdb:color6}
+alert = ${xrdb:color3}
+
+verde = #8A9B0F
+
+; Topbar
+;
+[bar/top]
+bottom = true
+
+monitor = eDP-1
+
+width = 90%
+height = 30
+offset-x = 5%
+offset-y = 10
+
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+padding-left = 2
+padding-right = 2
+
+module-margin-left = 2
+module-margin-right = 2
+
+font-0 = Misc Termsynu:style=Regular:pixelsize=10;2
+font-1 = Material Design Icons:pixelsize=10;2
+
+modules-left = memory cpu speed temperature
+modules-center = bspwm
+modules-right = eth wlan backlight-acpi alsa battery date
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+wm-restack = bspwm
+
+; Modules
+;
+
+; Bspwm
+;
+[module/bspwm]
+type = internal/bspwm
+
+label-focused = %name%
+label-focused-background = ${colors.secondary}
+label-focused-foreground = ${colors.foreground}
+label-focused-padding = 2
+
+label-occupied = %name%
+label-occupied-foreground = ${colors.foreground-alt}
+label-occupied-padding = 2
+
+label-urgent = %name%
+label-urgent-foreground = ${colors.alert}
+label-urgent-padding = 2
+
+label-empty = %name%
+label-empty-foreground = ${colors.primary}
+label-empty-padding = 2
+
+; Wireless
+;
+[module/wlan]
+type = internal/network
+interface = wlp3s0
+interval = 1.0
+
+format-connected = <label-connected>
+
+label-connected = "蠟 %local_ip%"
+label-connected-foreground = ${colors.foreground-alt}
+
+; Ethernet
+;
+[module/eth]
+type = internal/network
+interface = enp2s0
+interval = 1.0
+
+format-connected = <label-connected>
+
+label-connected = " %local_ip%"
+label-connected-foregrond = ${colors.foreground-alt}
+
+;Date
+;
+[module/date]
+type = custom/script
+interval = 1.0
+
+format-foreground = ${colors.foreground-alt}
+
+exec = date +'%A, %b %d %H:%M'
+
+; Backlight-acpi
+;
+[module/backlight-acpi]
+inherit = module/xbacklight
+type = internal/backlight
+card = intel_backlight
+
+; Xbacklight
+;
+[module/xbacklight]
+type = internal/xbacklight
+
+format = <label>
+format-foreground = ${colors.foreground-alt}
+label = " %percentage%%"
+
+; ALSA
+;
+[module/alsa]
+type = internal/alsa
+
+master-soundcard = default
+master-mixer = Master
+mapped = true
+
+interval = 1
+
+format-volume = <ramp-volume> <label-volume>
+
+label-volume =  %percentage%%
+label-volume-foreground = ${colors.foreground-alt}
+
+label-muted = " Mute"
+label-muted-foreground = ${colors.secondary}
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+; Battery
+;
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+
+format-discharging = <ramp-capacity><label-discharging>
+
+label-discharging = %percentage%%
+label-full = " %percentage%%"
+label-discharging-foreground = ${colors.foreground-alt}
+
+ramp-capacity-0 = " "
+ramp-capacity-1 = " "
+ramp-capacity-2 = " "
+ramp-capacity-3 = " "
+ramp-capacity-4 = " "
+ramp-capacity-0-foreground = ${colors.secondary}
+
+animation-charging-0 = ""
+animation-charging-1 = ""
+animation-charging-2 = ""
+animation-charging-3 = ""
+animation-charging-4 = ""
+animation-charging-framerate = 350
+
+; CPU
+;
+[module/cpu]
+type = internal/cpu
+interval = 0.5
+
+format = <label> <bar-load>
+
+label = "CPU"
+label-foreground = ${colors.foreground-alt}
+
+bar-load-indicator = |
+bar-load-width = 15
+bar-load-foreground-0 = ${colors.secondary}
+bar-load-foreground-1 = ${colors.secondary}
+bar-load-foreground-2 = ${colors.secondary}
+bar-load-foreground-3 = ${colors.secondary}
+bar-load-fill = ─
+bar-load-empty = ─
+bar-load-empty-foreground = ${colors.primary}
+
+; Memory
+;
+[module/memory]
+type = internal/memory
+interval = 2
+
+format = <label> <bar-used>
+
+label = "RAM"
+label-foreground = ${colors.foreground-alt}
+
+bar-used-indicator = |
+bar-used-width = 20
+bar-used-foreground-0 = ${colors.secondary}
+bar-used-foreground-1 = ${colors.secondary}
+bar-used-foreground-2 = ${colors.secondary}
+bar-used-foreground-3 = ${colors.secondary}
+bar-used-fill = ─
+bar-used-empty = ─
+bar-used-empty-foreground = ${colors.primary}
+
+; Temperature
+;
+[module/temperature]
+type = custom/script
+interval = 1.5
+exec = sensors | awk '/Core/ {print substr($3, 2, 2) " C"}' | tr '\n' ' '
+format-foreground = ${colors.foreground-alt}
+
+; CPU MHz
+;
+[module/speed]
+type = custom/script
+interval = 1
+exec = lscpu | awk '/CPU MHz/ {printf substr ($3,1,length($3)-4)}' | sed 's/$/ MHz/'
+
+format-foreground = ${colors.foreground-alt}
+
+; Gentoo
+;
+[module/gentoo]
+type = custom/script
+format-prefix = " "
+format-foreground = ${colors.foreground-alt}
+exec = uname -r
+
+; vim:ft=dosini
