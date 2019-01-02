@@ -11,7 +11,7 @@ Setup:
 - sysinfo
 - panes
 
-![alt text](https://i.postimg.cc/ysmft1ZN/02-01-2019-10-32-50.png)
+![alt text](https://i.postimg.cc/Nsx6bMVh/02-01-2019-10-48-32.png)
 
 Created by Marcelo Alves.
 
