@@ -9,9 +9,9 @@ Setup:
 - bspwm
 - polybar
 - sysinfo
+- panes
 
-
-![alt text](https://i.postimg.cc/tyvTwJ92/30-12-2018-19-08-38.png)
+![alt text](https://i.postimg.cc/ysmft1ZN/02-01-2019-10-32-50.png)
 
 Created by Marcelo Alves.
 
