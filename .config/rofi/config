@@ -5,7 +5,7 @@ configuration {
 /*	width: 50;*/
 /*	lines: 15;*/
 /*	columns: 1;*/
-/*	font: "mono 12";*/
+/*	font: "Iosevka 12";*/
 /*	bw: 1;*/
 /*	location: 0;*/
 /*	yoffset: 0;*/
