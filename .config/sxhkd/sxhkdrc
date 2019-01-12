@@ -163,7 +163,7 @@ alt + c
 
 # Restart Polybar
 alt + shift + p
-	~/.config/polybar/launch.sh; \
+	~/.config/polybar/launch.sh && \
 	notify-send 'Polybar' 'Config reloaded'
 
 # Lock screen
@@ -176,15 +176,16 @@ super + Return
 
 # program launcher
 super + @space
-	rofi -show drun -show-icons
-
-# list open window
-alt + Tab
-	rofi -show window
+	rofi -modi drun,run,window -show drun -show-icons
 
 # Screenshot
-{Print, alt + Print}
-	{scrot, scrot -s} '%d-%m-%Y-%T.png' -e 'xclip -selection clipboard -t "image/png" < $f &&\
+Print
+	scrot '%d-%m-%Y-%T.png' -e 'xclip -selection clipboard -t "image/png" < $f && \
+	mv $f ~/Pics/Screenshots/' && notify-send 'Scrot' 'Screenshot salva em \n~/Pics/Screenshots/'
+
+# Screenshoot cropped
+alt + Print
+	scrot -s '%d-%m-%Y-%T.png' -e 'xclip -selection clipboard -t "image/png" < $f && \
 	mv $f ~/Pics/Screenshots/' && notify-send 'Scrot' 'Screenshot salva em \n~/Pics/Screenshots/'
 
 # make sxhkd reload its configuration files:
