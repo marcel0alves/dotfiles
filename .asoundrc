@@ -10,18 +10,11 @@ ctl.!default {
 	card 0
 }
 
-#pcm.!default {
-#	type plug
-#	slave.pcm "dmix"
-#}
-
-# defaults.pcm.rate_converter "speexrate_best"
-
 # Alsaequal
 #
 ctl.equal { 
 	type equal
-	controls "/home/gentoo/.alsaequal.bin"
+	controls "/home/unknow/.alsaequal.bin"
 }
 
 pcm.plugequal {
