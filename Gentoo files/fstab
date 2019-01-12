@@ -28,14 +28,14 @@
 #LABEL=swap		none		swap		sw		0 0
 #/dev/cdrom		/mnt/cdrom	auto		noauto,ro	0 0
 
-# /dev/sdb2
-UUID=480bc123-7860-4374-9873-0a1ca8e392bd		/		ext4		noatime,nodiratime,defaults	0 1
+# /dev/mapper/gentoo-root
+UUID=bbbd8881-ed5f-47d0-83d6-30141fe70e62		/		ext4		noatime,nodiratime,defaults	0 1
 
-# /dev/sdb3
-UUID=95caae14-0a32-485e-9df2-aa402c97548e		/home		ext4		noatime,nodiratime		0 2
+# /dev/mapper-gentoo-home
+UUID=56af7e3c-d4b6-4074-b8e1-5035f77f6697		/home		ext4		noatime,nodiratime		0 2
 
 # /dev/sdb1
-UUID=9DE4-4057						/boot		vfat		noatime,errors=remount-ro	0 2
+UUID=14AB-66E7						/boot		vfat		noatime,errors=remount-ro	0 2
 
 # /tmp on RAM
 tmpfs 							/var/tmp/portage		tmpfs		rw,noatime,nodev,nosuid,mode=1777 	0 0

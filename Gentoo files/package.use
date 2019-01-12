@@ -1,7 +1,9 @@
 # Xorg, Drivers, Hardware ... 
-x11-base/xorg-server -minimal -suid
+sys-kernel/genkernel-next cryptsetup
+sys-boot/grub device-mapper
+x11-base/xorg-server -minimal suid
 x11-libs/libva utils
-x11-drivers/xf86-video-intel dri3
+>=sys-fs/dosfstools-4.1 compat
 
 # Editors
 app-editors/vim python terminal -minimal
@@ -9,7 +11,8 @@ app-editors/vim-core -minimal
 
 # Personalization
 x11-misc/rofi windowmode
-x11-misc/polybar alsa curl ipc network mpd
+x11-misc/polybar alsa curl ipc network
+x11-misc/compton opengl
 
 # Multimedia 
 #media-sound/mpd -network
@@ -25,9 +28,9 @@ www-client/w3m imlib
 >=x11-libs/cairo-1.14.12 xcb
 >=x11-libs/libxcb-1.13.1 xkb
 >=virtual/ffmpeg-9-r2 x264
->=media-video/ffmpeg-3.4.4 x264
+>=media-video/ffmpeg-3.3.6 x264
 >=media-libs/libpng-1.6.35-r1 apng
->=dev-lang/python-3.6.6:3.6 sqlite
+>=dev-lang/python-3.6.5 sqlite
 
 # Android
 sys-fs/mtpfs mad

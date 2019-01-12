@@ -1,0 +1,5 @@
+CFLAGS="-march=skylake -O3 -pipe -fstack-protector-strong"
+CXXFLAGS="${CFLAGS}"
+LDFLAGS="${LDFLAGS} -Wl,--hash-style=gnu"
+
+CMAKE_MAKEFILE_GENERATOR=emake
