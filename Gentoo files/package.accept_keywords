@@ -8,3 +8,5 @@ media-fonts/iosevka ~amd64
 x11-wm/bspwm ~amd64
 x11-misc/sxhkd ~amd64
 
+# Android-tools
+dev-util/android-tools ~amd64
