@@ -1,6 +1,4 @@
 # Xorg, Drivers, Hardware ... 
-sys-kernel/genkernel-next cryptsetup
-sys-boot/grub device-mapper
 x11-base/xorg-server -minimal suid
 x11-libs/libva utils
 >=sys-fs/dosfstools-4.1 compat
@@ -15,8 +13,6 @@ x11-misc/polybar alsa curl ipc network
 x11-misc/compton opengl
 
 # Multimedia 
-#media-sound/mpd -network
-#media-sound/ncmpcpp clock outputs visualizer
 media-plugins/alsa-plugins ffmpeg
 media-sound/cmus ffmpeg opus
 
