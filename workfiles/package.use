@@ -1,30 +1,25 @@
 # Kernel
 sys-kernel/genkernel-next cryptsetup
 
-# Grub
-sys-boot/grub:2 device-mapper
+# Lilo
+sys-boot/lilo device-mapper
 
 # Xorg, Hardware, etc
-x11-base/xorg-server glamor xorg suid
+x11-base/xorg-server -minimal glamor suid xorg
 x11-drivers/xf86-video-ati glamor
 
 # Personalization
 x11-misc/rofi windowmode
 x11-misc/polybar curl ipc network
-x11-terms/rxvt-unicode 256-color blink fading-colors font-styles iso14755 mousewheel perl pixbuf unicode3 xft
-x11-wm/bspwm examples
-x1-themes/arc-theme gtk2 gtk3
-media-gfx/imagemagick jpeg png tiff
+x11-misc/compton opengl
 
 # Editors
-app-editors/vim python terminal
+app-editors/vim python terminal -minimal
+app-editors/vim-core -minimal
 
 # Browsers
-www-client/firefox-bin -pulseaudio
+www-client/firefox custom-optimization hwaccel
 www-client/w3m imlib
-
-# Rsyslog
-app-admin/rsyslog openssl
 
 # Libs
 >=dev-lang/python-3.6.6:3.6 sqlite
@@ -33,6 +28,7 @@ app-admin/rsyslog openssl
 >=x11-libs/cairo-1.14.12 xcb
 >=dev-libs/libpcre2-10.32 pcre16
 >=dev-libs/libxml2-2.9.8 python
+>=dev-lang/python-2.7.15:2.7 sqlite
 
 # QEMU
 app-emulation/qemu curl fdt gnutls jpeg ncurses nfs png spice ssh usb usbredir vhost-net vnc
@@ -41,4 +37,6 @@ app-emulation/virt-manager gtk
 
 # ffmpeg for palemoon
 >=virtual/ffmpeg-9-r2 x264
->=media-video/ffmpeg-4.1 x264
+>=media-video/ffmpeg-3.3.6 x264
+
+# KDE Plasm

@@ -1,10 +1,15 @@
-# Firefox ESR
-www-client/firefox -~amd64
-
-# Gentoo Sources 4.14 LTS
-sys-kernel/gentoo-sources -~amd64
-
 # LibreSSL
 =dev-libs/libressl-2.2*
 
+# Bspwm
+x11-misc/sxhkd ~amd64
+x11-wm/bspwm ~amd64
 
+# Palemoon
+www-client/palemoon ~amd64
+
+# Arc-theme
+=x11-themes/arc-theme-20181022 ~amd64
+
+# Iosevka font
+=media-fonts/iosevka-1.14.1 ~amd64
