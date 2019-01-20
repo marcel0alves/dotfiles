@@ -71,6 +71,8 @@ alias abstract="wal -i ~/Pics/Abstract/"
 # Z800 Workstation Job
 alias z800="ssh unknow@10.130.254.230"
 
+# Youtube-dl
+alias ytmusic="youtube-dl -x"
 
 # Functions
 
