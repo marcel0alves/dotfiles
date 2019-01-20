@@ -28,7 +28,7 @@ bspc rule -a "Firefox":"Browser" state=floating follow=on center=true
 bspc rule -a TelegramDesktop desktop='^2' follow=on 
 bspc rule -a St desktop='^3' follow=on
 bspc rule -a ranger desktop='^4' follow=on state=tiled
-bspc rule -a cmus desktop='^5' follow=on state=floating center=true
+bspc rule -a ncmpcpp desktop='^5' follow=on state=floating center=true
  
 bspc rule -a Lxappearance state=floating follow=on center=true
 bspc rule -a feh state=floating follow=on
