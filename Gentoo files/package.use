@@ -14,7 +14,8 @@ x11-misc/compton opengl
 
 # Multimedia 
 media-plugins/alsa-plugins ffmpeg
-media-sound/cmus ffmpeg opus
+media-sound/mpd -network
+media-sound/ncmpcpp clock visualizer
 
 # Browsers
 www-client/firefox custom-optimization hwaccel
@@ -27,6 +28,3 @@ www-client/w3m imlib
 >=media-video/ffmpeg-3.3.6 x264
 >=media-libs/libpng-1.6.35-r1 apng
 >=dev-lang/python-3.6.5 sqlite
-
-# Android
-sys-fs/mtpfs mad
