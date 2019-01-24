@@ -1,0 +1,66 @@
+# These settings was created by Marcelo Alves.
+# Don't worry about copy and paste. Intelectual property doesn't exists. 
+# Day after day, I'm looking for better optimizations about my Gentoo system.
+# Enjoy it.
+
+# NOTE: This stage was built with the bindist Use flag enabled
+PORTDIR="/usr/portage"
+DISTDIR="/usr/portage/distfiles"
+PKGDIR="/usr/portage/packages"
+
+# This sets the language of build output to English.
+# Please keep this setting intact when reporting bugs.
+LC_MESSAGES=C
+
+# DEVICES
+INPUT_DEVICES="libinput"
+VIDEO_CARDS="intel i965"
+
+# GCC OPTIMIZATION
+CFLAGS="-march=skylake -Os -pipe -fstack-protector-strong"
+CXXFLAGS="${CFLAGS}"
+CHOST="x86_64-pc-linux-gnu"
+LDFLAGS="-Wl,-z,now -Wl,-z,relro"
+CPU_FLAGS_X86="aes avx avx2 f16c fma3 mmx mmxext pclmul popcnt sse sse2 sse3 sse4_1 sse4_2 ssse3"
+MAKEOPTS="-j8"
+
+# DEFAULT OPTIONS
+EMERGE_DEFAULT_OPTS="--jobs"
+
+# CLEAN DISTFILES FOR EVERY MERGE
+DARKELF_FEATURES="postmerge_distclean"
+
+# FEATURES
+FEATURES="keepwork parallel-install collision-protect"
+
+# USE FLAGS
+USE="aes avx avx2 f16c fma3 mmx mmxext pclmul popcnt sse sse2 sse3 sse4_1 sse4_2 ssse3"
+
+# GENERAL FLAGS
+USE="$USE X alsa usb acpi dbus lm_sensors vaapi dri opengl glamor minimal"
+
+# MEDIA FLAGS
+USE="$USE flac jpeg mpeg mp3 png"
+
+# NETWORK FLAGS
+USE="$USE ssl rdp networkmanager"
+
+# BLOAT FLAGS
+USE="$USE consolekit policykit pulseaudio udisks mtp zsh-completion"
+
+# NO USE FLAGS
+USE="$USE -bindist -ipv6 -sendmail -systemd -multilib -gnome-keyring -bluetooth -gnome -opengl -netifrc -vnc -clang -llvm -cups -scanner"
+
+#GENTOO MIRRORS
+GENTOO_MIRRORS="http://gentoo.c3sl.ufpr.br/ ftp://gentoo.c3sl.ufpr.br/gentoo/ rsync://gentoo.c3sl.ufpr.br/gentoo/"
+
+# Accept License
+ACCEPT_LICENSE="*"
+
+# Logging
+PORTAGE_ELOG_CLASSES="warn error info log qa"
+PORTAGE_ELOG_SYSTEM="save"
+PORT_LOGDIR="/var/log/portage"
+
+# tmpfs on RAM
+# PORTAGE_TMPDIR="/var/tmp/portage"
