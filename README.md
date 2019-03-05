@@ -6,13 +6,13 @@ Setup:
 - Gentoo Linux
 - st
 - bash
-- bspwm
+- openbox
 - polybar
 - sysinfo
-- panes
+- ncmpcpp 
 
-![alt text](https://i.postimg.cc/Nsx6bMVh/02-01-2019-10-48-32.png)
+![alt text](https://i.postimg.cc/Wjsy1txH/04-03-2019-22-54-52.png)
 
 Created by Marcelo Alves.
 
-Last Update: Jan 02, 2019
+Last Update: Mar 04, 2019
