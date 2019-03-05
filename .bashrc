@@ -24,11 +24,12 @@ fi
 export PATH="${PATH}:${HOME}/.local/bin"
 
 # Import colorscheme from pywal - TTYs too
-(cat ~/.cache/wal/sequences &)
-source ~/.cache/wal/colors-tty.sh
+# (cat ~/.cache/wal/sequences &)
+# source ~/.cache/wal/colors-tty.sh
 
 # Default editor for $USER
-export EDITOR=${EDITOR:-/usr/bin/vim}
+# export EDITOR=${EDITOR:-/usr/bin/vim}
+export EDITOR=/usr/bin/vim
 
 # Fix Brazil lang
 export LC_CTYPE=pt_BR.utf8
@@ -53,8 +54,10 @@ alias package.use="sudo vim /etc/portage/package.use"
 alias package.mask="sudo vim /etc/portage/package.mask"
 alias package.accept_keywords="sudo vim /etc/portage/package.accept_keywords"
 
-# Bspwm config
-alias bspconfig="vim ~/.config/bspwm/bspwmrc"
+# Openbox
+alias obmenu="vim ~/.config/openbox/menu.xml"
+alias obrc="vim ~/.config/openbox/rc.xml"
+alias obstart="vim ~/.config/openbox/autostart"
 
 # Polybar config
 alias barconfig="vim ~/.config/polybar/config"
