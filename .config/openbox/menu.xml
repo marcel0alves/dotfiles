@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openbox_menu xmlns="http://openbox.org/3.4/menu">
+
+<menu id="root-menu" title="Menu" label="Openbox 3">
+	<separator label="Programs" />
+	<item label="Terminal">
+		<action name="Execute">
+			<command>st</command>
+		</action>
+	</item>
+	<item label="Firefox">
+		<action name="Execute">
+			<command>firefox</command>
+		</action>
+	</item>
+	<item label="Telegram">
+		<action name="Execute">
+			<command>~/Telegram/Telegram</command>
+		</action>
+	</item>
+	<item label="File Manager">
+		<action name="Execute">
+			<command>thunar</command>
+		</action>
+	</item>
+	<item label="Music">
+		<action name="Execute">
+			<command>st -c ncmpcpp -n ncmpcpp -e ncmpcpp</command>
+		</action>
+	</item>
+	<item label="Android File">
+		<action name="Execute">
+			<command>android-file-transfer</command>
+		</action>
+	</item>
+
+	<separator label="Settings" />
+	<item label="Obconf">
+		<action name="Execute">
+			<command>obconf</command>
+		</action>
+	</item>
+	<item label="Lxappearance">
+		<action name="Execute">
+			<command>lxappearance</command>
+		</action>
+	</item>
+
+	<separator label="Config" />
+	<menu id="configs-openbox" label="Openbox">
+		<item label="Reconfigure">
+			<action name="Reconfigure" />
+		</item>
+
+		<item label="Menu">
+			<action name="Execute">
+				<command>st -c vim -n vim -e vim ~/.config/openbox/menu.xml</command>
+			</action>
+		</item>
+		<item label="Rc">
+			<action name="Execute">
+				<command>st -c vim -n vim -e vim ~/.config/openbox/rc.xml</command>
+			</action>
+		</item>
+	</menu>
+	<menu id="config-polybar" label="Polybar">
+		<item label="Config">
+			<action name="Execute">
+				<command>st -c vim -n vim -e vim ~/.config/polybar/config</command>
+			</action>
+		</item>
+		<item label="Reload">
+			<action name="Execute">
+				<command>~/.config/polybar/launch.sh</command>
+			</action>
+		</item>
+	</menu>
+	
+	<separator label />
+	<item label="Logout">
+		<action name="Exit">
+			<prompt>yes</prompt>
+		</action>
+	</item>
+</menu>
+
+</openbox_menu>
+
