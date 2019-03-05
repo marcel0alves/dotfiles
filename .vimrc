@@ -14,7 +14,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-Plug 'dylanaraps/wal.vim'
+Plug 'dracula/vim'
 call plug#end()
 
 " Enable syntax colors
@@ -27,4 +27,4 @@ set number
 set ttyfast
 
 " Color scheme
-"colorscheme 
+" colorscheme dracula 
