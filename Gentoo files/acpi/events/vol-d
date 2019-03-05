@@ -1,0 +1,2 @@
+event=button/volumedown
+action=amixer set Master 1-
