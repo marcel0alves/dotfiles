@@ -1,30 +1,42 @@
-# Xorg, Drivers, Hardware ... 
+# Genkernel
+sys-kernel/genkernel-next cryptsetup
+
+# Xorg and Hardware
 x11-base/xorg-server -minimal suid
-x11-libs/libva utils
->=sys-fs/dosfstools-4.1 compat
 
 # Editors
-app-editors/vim python terminal -minimal
 app-editors/vim-core -minimal
+app-editors/vim python terminal -minimal
+app-editors/gvim gtk gtk3
 
 # Personalization
 x11-misc/rofi windowmode
-x11-misc/polybar alsa curl ipc network
+x11-misc/polybar alsa curl ipc network mpd
 x11-misc/compton opengl
+x11-wm/openbox xdg
+xfce-base/thunar -pcre -trash-panel-plugin
 
-# Multimedia 
+# Multimedia
 media-plugins/alsa-plugins ffmpeg
 media-sound/mpd -network
 media-sound/ncmpcpp clock visualizer
 
-# Browsers
+# Firefox
 www-client/firefox custom-optimization hwaccel
-www-client/w3m imlib
 
-# Libs
+# Android tools
+sys-fs/android-file-transfer-linux fuse qt5
+
+# Qt
+dev-qt/qtwidgets gtk
+dev-python/PyQt5 gui widgets
+
+# Network
+net-misc/rdesktop -alsa kerberos
+
+# Other
 >=x11-libs/cairo-1.14.12 xcb
 >=x11-libs/libxcb-1.13.1 xkb
->=virtual/ffmpeg-9-r2 x264
->=media-video/ffmpeg-3.3.6 x264
 >=media-libs/libpng-1.6.35-r1 apng
 >=dev-lang/python-3.6.5 sqlite
+>=dev-libs/libpcre2-10.30 pcre16

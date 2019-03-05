@@ -1,3 +1,2 @@
-# Fonts
-=media-fonts/cantarell-0.101
->=media-fonts/fontawesome-5.0.6
+# Only 4.14 kernel
+>=sys-kernel/gentoo-sources-4.19.23
