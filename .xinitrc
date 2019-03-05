@@ -10,8 +10,5 @@ xrandr --output eDP-1 --mode 1920x1080 --rate 60.01
 # Enable Num Lock at Startx
 numlockx 
 
-# Restore last colorscheme wal
-wal -R
-
-# Exec bspwm
-exec bspwm
+# Start Openbox
+exec openbox
