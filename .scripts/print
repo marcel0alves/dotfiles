@@ -1,0 +1,4 @@
+#!/bin/sh
+# Screenshot
+
+scrot '%d-%m-%Y-%T.png' -e 'xclip -selection clipboard -t "image/png" < $f && mv $f ~/Pics/Screenshots/' && notify-send 'Scrot' 'Screenshot salva em \n~/Pics/Screenshots/'
