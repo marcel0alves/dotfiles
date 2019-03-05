@@ -1,4 +1,4 @@
-sw_volume: 72
+sw_volume: 98
 audio_device_state:1:equal
 audio_device_state:1:my_fifo
 state: stop
@@ -10,4 +10,8 @@ crossfade: 0
 mixrampdb: 0.000000
 mixrampdelay: -1.000000
 playlist_begin
+0:Synthwave, Retrowave/Kotovsky86 - Crystal Dreams.opus
+1:Synthwave, Retrowave/Kavinsky - Nightcall.opus
+2:Synthwave, Retrowave/Miami Nights 1984 - Ocean Drive.mp3
+3:Synthwave, Retrowave/Quixotic - Palms.mp3
 playlist_end
