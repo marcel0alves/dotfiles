@@ -1,9 +1,13 @@
-# These things are run when an Openbox X Session is started.
-# You may place a similar script in $HOME/.config/openbox/autostart
-# to run user-specific things.
+# Programs that will run after Openbox has started
 
-dunst &
-. "${HOME}/.cache/wal/colors.sh"
-~/.config/polybar/launch.sh
+# Set the wallpaper
 feh --bg-scale ~/Pics/Gentoo/gentoo_linux.png &
-compton -b --config ~/.compton.conf &
+
+# Run dunst
+dunst &
+
+# Start polybar
+~/.config/polybar/launch.sh &
+
+# Start compton
+compton -b --config ~/.compton.conf

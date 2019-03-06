@@ -80,7 +80,7 @@
 	<separator label />
 	<item label="Logout">
 		<action name="Exit">
-			<prompt>yes</prompt>
+			<prompt>no</prompt>
 		</action>
 	</item>
 </menu>

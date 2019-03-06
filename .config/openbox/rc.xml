@@ -42,7 +42,7 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>Raven-Crimson</name>
+    <name>Triste-Froly</name>
     <titleLayout>NLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -341,6 +341,11 @@
       <action name="Execute">
         <command>~/.scripts/print</command>
       </action>
+    </keybind>
+    <keybind key="A-Print">
+	    <action name="Execute">
+		    <command>~/.scripts/crop_print</command>
+	    </action>
     </keybind>
   </keyboard>
   <mouse>
