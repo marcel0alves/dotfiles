@@ -34,6 +34,11 @@
 			<command>android-file-transfer</command>
 		</action>
 	</item>
+	<item label="Virt Manager">
+		<action name="Execute">
+			<command>virt-manager</command>
+		</action>
+	</item>
 
 	<separator label="Settings" />
 	<item label="Obconf">
@@ -46,7 +51,7 @@
 			<command>lxappearance</command>
 		</action>
 	</item>
-
+	
 	<separator label="Config" />
 	<menu id="configs-openbox" label="Openbox">
 		<item label="Reconfigure">

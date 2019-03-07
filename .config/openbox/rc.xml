@@ -120,13 +120,14 @@
 
        use obconf if you want to change these without having to log out
        and back in -->
-    <number>4</number>
+    <number>5</number>
     <firstdesk>1</firstdesk>
     <names>
       <name>web</name>
       <name>telegram</name>
       <name>terminal</name>
       <name>files</name>
+      <name>workjob</name>
     </names>
     <popupTime>0</popupTime>
     <!-- The number of milliseconds to show the popup for when switching
@@ -343,9 +344,9 @@
       </action>
     </keybind>
     <keybind key="A-Print">
-	    <action name="Execute">
-		    <command>~/.scripts/crop_print</command>
-	    </action>
+      <action name="Execute">
+        <command>~/.scripts/crop_print</command>
+      </action>
     </keybind>
   </keyboard>
   <mouse>
