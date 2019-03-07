@@ -84,6 +84,7 @@ icon-0 = web;
 icon-1 = telegram;
 icon-2 = terminal;
 icon-3 = files;
+icon-4 = workjob;
 
 label-active = %icon%
 label-active-background = ${bright_colors.black}
@@ -234,6 +235,18 @@ bar-used-fill = 
 bar-used-empty = 
 bar-used-empty-foreground = ${colors.primary}
 
+; MPD
+;
+[module/mpd]
+type = internal/mpd
+
+host = 127.0.0.1
+port = 6600
+
+interval = 1
+
+format-prefix = "  "
+
 
 ; Custom modules
 ;
@@ -277,6 +290,6 @@ interval = 1.0
 format-foreground = ${bright_colors.green}
 format-prefix = "  "
 
-exec = mpc current
+exec = ~/.config/polybar/scripts/nowplaying
 
 ; vim:ft=dosini
