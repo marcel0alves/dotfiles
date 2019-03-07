@@ -34,9 +34,16 @@ dev-python/PyQt5 gui widgets
 # Network
 net-misc/rdesktop -alsa kerberos
 
+# QEMU/KVM
+app-emulation/qemu curl ncurses spice usb usbredir vhost-net
+app-emulation/virt-manager gtk
+net-misc/spice-gtk usbredir
+
 # Other
 >=x11-libs/cairo-1.14.12 xcb
 >=x11-libs/libxcb-1.13.1 xkb
 >=media-libs/libpng-1.6.35-r1 apng
 >=dev-lang/python-3.6.5 sqlite
 >=dev-libs/libpcre2-10.30 pcre16
+>=dev-libs/libxml2-2.9.9 python
+
