@@ -6,14 +6,13 @@ sxhkd &
 # Custom applications
 xsetroot -cursor_name left_ptr &
 dunst &
-. "${HOME}/.cache/wal/colors.sh"
 ~/.config/polybar/launch.sh &
-feh --bg-scale "$(< "${HOME}/.cache/wal/wal")" &
+feh --bg-scale ~/Pics/boogeyman.jpg &
 # ~/.config/lemonbar/lemonbar.sh | lemonbar -p -f "Misc Termsynu-10" -f "Material Design Icons-10" | bash &
 
 # Rules bspwm
 
-bspc monitor -d 1 2 3 4 5 6
+bspc monitor -d I II III IV V VI
 
 bspc config border_width        10
 bspc config window_gap          40
@@ -26,8 +25,8 @@ bspc rule -a "Firefox" desktop='^1' follow=on
 bspc rule -a "Firefox":"Places" state=floating follow=on center=true
 bspc rule -a "Firefox":"Browser" state=floating follow=on center=true
 bspc rule -a TelegramDesktop desktop='^2' follow=on 
-bspc rule -a St desktop='^3' follow=on
-bspc rule -a ranger desktop='^4' follow=on state=tiled
+bspc rule -a st-256color desktop='^3' follow=on
+bspc rule -a Thunar  desktop='^4' follow=on state=floating
 bspc rule -a ncmpcpp desktop='^5' follow=on state=floating center=true
  
 bspc rule -a Lxappearance state=floating follow=on center=true

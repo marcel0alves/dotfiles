@@ -108,39 +108,6 @@ super + {Left,Down,Up,Right}
 # Custom keybinds
 #
 
-# Brightness up
-XF86MonBrightnessUp
-	xbacklight -inc 5
-
-
-# Brightness down
-XF86MonBrightnessDown
-	xbacklight -dec 5
-
-# Play/Pause
-XF86AudioPlay
-	playerctl play-pause
-
-# Next
-XF86AudioNext
-	playerctl next
-
-# Previous
-XF86AudioPrev
-	playerctl previous
-
-# Volume up
-XF86AudioRaiseVolume
-	amixer set Master 1%+
-
-# Volume down
-XF86AudioLowerVolume
-	amixer set Master 1%-
-
-# Mute
-XF86AudioMute
-	amixer set Master toggle
-
 # Open Firefox
 alt + f
 	firefox
@@ -149,9 +116,9 @@ alt + f
 alt + t
 	./Telegram/Telegram
 
-# Open Ranger
-alt + r
-	st -c ranger -n ranger -e ranger
+# Open Thunar
+super + e
+	thunar
 
 # Open ncmpcpp
 alt + n
@@ -185,7 +152,7 @@ Print
 
 # Screenshoot cropped
 alt + Print
-	scrot -s '%d-%m-%Y-%T.png' -e 'xclip -selection clipboard -t "image/png" < $f && \
+	sleep 1; scrot -s '%d-%m-%Y-%T.png' -e 'xclip -selection clipboard -t "image/png" < $f && \
 	mv $f ~/Pics/Screenshots/' && notify-send 'Scrot' 'Screenshot salva em \n~/Pics/Screenshots/'
 
 # make sxhkd reload its configuration files:
