@@ -1,15 +1,13 @@
+# Unmasking amd64 sakaki's
+*/*::sakaki-tools ~amd64
+
+# All versions of efitools curently marked as ~ in Gentoo tree
+app-crypt/efitools ~amd64
+
 # Personalization
-media-fonts/iosevka ~amd64
 =media-fonts/fontawesome-4.7.0 ~amd64
-=x11-themes/arc-theme-20181022 ~amd64
-x11-wm/bspwm ~amd64
-x11-misc/sxhkd ~amd64
-=lxde-base/lxappearance-obconf-0.2.3 ~amd64
-x11-misc/tint2 ~amd64
+media-fonts/iosevka ~amd64
+x11-themes/arc-theme ~amd64
+=x11-misc/sxhkd-0.6.0 ~amd64
+=x11-wm/bspwm-0.9.7 ~amd64
 
-# Android tools
-dev-util/android-tools ~amd64
-=sys-fs/android-file-transfer-linux-3.6 ~amd64
-
-# Telegram
-net-im/telegram-desktop-bin ~amd64

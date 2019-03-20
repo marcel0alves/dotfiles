@@ -1,18 +1,16 @@
 # Genkernel
 sys-kernel/genkernel-next cryptsetup
 
-# Xorg and Hardware
+# Xorg/Hardware
 x11-base/xorg-server -minimal suid
 
 # Editors
 app-editors/vim-core -minimal
 app-editors/vim python terminal -minimal
-app-editors/gvim gtk gtk3
 
 # Personalization
-x11-misc/rofi windowmode
-x11-misc/polybar alsa curl ipc network mpd
 x11-misc/compton opengl
+x11-misc/polybar alsa curl ipc network mpd
 x11-wm/openbox xdg
 xfce-base/thunar -pcre -trash-panel-plugin
 
@@ -22,28 +20,23 @@ media-sound/mpd -network
 media-sound/ncmpcpp clock visualizer
 
 # Firefox
-www-client/firefox custom-optimization hwaccel
+www-client/firefox hwaccel
 
-# Android tools
-sys-fs/android-file-transfer-linux fuse qt5
+# DNSMASQ 
+net-dns/dnsmasq dhcp-tools dnssec tftp
 
-# Qt
-dev-qt/qtwidgets gtk
-dev-python/PyQt5 gui widgets
+# Static libs for LVM2
+>=sys-fs/eudev-3.2.5 static-libs
+>=sys-apps/util-linux-2.33-r1 static-libs
 
-# Network
-net-misc/rdesktop -alsa kerberos
-
-# QEMU/KVM
-app-emulation/qemu curl ncurses spice usb usbredir vhost-net
-app-emulation/virt-manager gtk
-net-misc/spice-gtk usbredir
+# Static libs for CryptSetup
+>=dev-libs/libgpg-error-1.29 static-libs
+>=dev-libs/popt-1.16-r2 static-libs
+>=dev-libs/nettle-3.4 static-libs
 
 # Other
->=x11-libs/cairo-1.14.12 xcb
+>=x11-libs/cairo-1.16.0-r2 xcb
 >=x11-libs/libxcb-1.13.1 xkb
 >=media-libs/libpng-1.6.35-r1 apng
 >=dev-lang/python-3.6.5 sqlite
->=dev-libs/libpcre2-10.30 pcre16
 >=dev-libs/libxml2-2.9.9 python
-
