@@ -124,10 +124,6 @@ super + e
 alt + n
 	st -c ncmpcpp -n ncmpcpp -e ncmpcpp
 
-# Open cmus
-alt + c
-	st -c cmus -n cmus -e cmus
-
 # Restart Polybar
 alt + shift + p
 	~/.config/polybar/launch.sh && \
@@ -143,7 +139,7 @@ super + Return
 
 # program launcher
 super + @space
-	rofi -modi drun,run,window -show drun -show-icons
+	dmenu_run
 
 # Screenshot
 Print
@@ -152,7 +148,7 @@ Print
 
 # Screenshoot cropped
 alt + Print
-	sleep 1; scrot -s '%d-%m-%Y-%T.png' -e 'xclip -selection clipboard -t "image/png" < $f && \
+	sleep 1 ; scrot -s '%d-%m-%Y-%T.png' -e 'xclip -selection clipboard -t "image/png" < $f && \
 	mv $f ~/Pics/Screenshots/' && notify-send 'Scrot' 'Screenshot salva em \n~/Pics/Screenshots/'
 
 # make sxhkd reload its configuration files:

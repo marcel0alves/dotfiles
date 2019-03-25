@@ -62,37 +62,36 @@ module-margin-right = 1
 font-0 = Iosevka:style=Bold:pixelsize=8;2
 font-1 = FontAwesome:pixelsize=10;3
 
-modules-left = xworkspaces mpc
+modules-left = bspwm mpc
 modules-center = date
 modules-right = temperature eth wlan backlight-acpi battery alsa
 
 cursor-click = pointer
 cursor-scroll = ns-resize
 
+wm-restack = bspwm
+
 ; Modules
 ;
 
-; Xworkspaces
+; bspwm
 ;
-[module/xworkspaces]
-type = internal/xworkspaces
+[module/bspwm]
+type = internal/bspwm
 
 format = <label-state>
 label-monitor = %name%
 
-icon-0 = web;
-icon-1 = telegram;
-icon-2 = terminal;
-icon-3 = files;
-icon-4 = workjob;
+label-focused = %name%
+label-focused-background = ${bright_colors.black}
+label-focused-foreground = ${colors.red}
+label-focused-padding = 2
 
-label-active = %icon%
-label-active-background = ${bright_colors.black}
-label-active-foreground = ${colors.red}
-label-active-padding = 2
+label-occupied = %name%
+label-occupied-foreground = ${colors.red}
+label-occupied-padding = 2
 
-label-empty = %icon%
-label-empty-foreground = ${colors.foreground}
+label-empty = %name%
 label-empty-padding = 2
 
 ; Wireless
