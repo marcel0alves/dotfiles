@@ -1,11 +1,13 @@
-# /dev/mapper/gentoo-root
-UUID=09b9220a-60ed-4bd7-b00b-3b783c3cd7d5		/		ext4		noatime,nodiratime,defaults	0 1
+# FSTAB of Gentoo Linux
+# Installed on SSD with EXT4 on LUKS
+# ESP are on USB flash drive
 
-# /dev/sdb1
-UUID=CDF9-E648						/boot		vfat		noatime,errors=remount-ro	0 2
+
+# Rootfs on LUKS
+UUID=734449bc-c50a-4f55-804d-89fa3dc77e3b 		/				ext4		noatime,nodiratime,defaults		0 1
+
+# Boot on USB stick
+UUID=6325-46BB						/boot				vfat		noatime,errors=remount-ro		0 2
 
 # /tmp on RAM
 tmpfs 							/var/tmp/portage		tmpfs		rw,noatime,nodev,nosuid,mode=1777 	0 0
-
-# /dev/sdb3 
-UUID=07c1a829-75c7-4fdb-87d0-9dbdb8232b16		/mnt/gentoo_files	ext4	noatime,user		0 2
