@@ -1,5 +1,2 @@
 # Only 4.14 kernel
->=sys-kernel/gentoo-sources-4.19.23
-
-# Masking everything of Sakaki's ebuild
-*/*::sakaki-tools
+>=sys-kernel/gentoo-sources-4.19

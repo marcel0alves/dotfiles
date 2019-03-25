@@ -1,9 +1,3 @@
-# Unmasking amd64 sakaki's
-*/*::sakaki-tools ~amd64
-
-# All versions of efitools curently marked as ~ in Gentoo tree
-app-crypt/efitools ~amd64
-
 # Personalization
 =media-fonts/fontawesome-4.7.0 ~amd64
 media-fonts/iosevka ~amd64

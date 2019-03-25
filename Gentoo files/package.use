@@ -1,6 +1,3 @@
-# Genkernel
-sys-kernel/genkernel-next cryptsetup
-
 # Xorg/Hardware
 x11-base/xorg-server -minimal suid
 
@@ -11,7 +8,6 @@ app-editors/vim python terminal -minimal
 # Personalization
 x11-misc/compton opengl
 x11-misc/polybar alsa curl ipc network mpd
-x11-wm/openbox xdg
 xfce-base/thunar -pcre -trash-panel-plugin
 
 # Multimedia
@@ -22,21 +18,19 @@ media-sound/ncmpcpp clock visualizer
 # Firefox
 www-client/firefox hwaccel
 
-# DNSMASQ 
-net-dns/dnsmasq dhcp-tools dnssec tftp
-
-# Static libs for LVM2
->=sys-fs/eudev-3.2.5 static-libs
->=sys-apps/util-linux-2.33-r1 static-libs
-
-# Static libs for CryptSetup
->=dev-libs/libgpg-error-1.29 static-libs
->=dev-libs/popt-1.16-r2 static-libs
->=dev-libs/nettle-3.4 static-libs
-
 # Other
 >=x11-libs/cairo-1.16.0-r2 xcb
 >=x11-libs/libxcb-1.13.1 xkb
 >=media-libs/libpng-1.6.35-r1 apng
 >=dev-lang/python-3.6.5 sqlite
 >=dev-libs/libxml2-2.9.9 python
+
+# Static libs for LVM2
+# >=sys-fs/eudev-3.2.5 static-libs
+# >=sys-apps/util-linux-2.33-r1 static-libs
+
+# Static libs for CryptSetup
+# >=dev-libs/libgpg-error-1.29 static-libs
+# >=dev-libs/popt-1.16-r2 static-libs
+# >=dev-libs/nettle-3.4 static-libs
+
