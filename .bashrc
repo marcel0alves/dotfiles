@@ -23,10 +23,6 @@ fi
 # Add local 'pip' to PATH:
 export PATH="${PATH}:${HOME}/.local/bin"
 
-# Import colorscheme from pywal - TTYs too
-# (cat ~/.cache/wal/sequences &)
-# source ~/.cache/wal/colors-tty.sh
-
 # Default editor for $USER
 # export EDITOR=${EDITOR:-/usr/bin/vim}
 export EDITOR=/usr/bin/vim
@@ -54,25 +50,11 @@ alias package.use="sudo vim /etc/portage/package.use"
 alias package.mask="sudo vim /etc/portage/package.mask"
 alias package.accept_keywords="sudo vim /etc/portage/package.accept_keywords"
 
-# Openbox
-alias obmenu="vim ~/.config/openbox/menu.xml"
-alias obrc="vim ~/.config/openbox/rc.xml"
-alias obstart="vim ~/.config/openbox/autostart"
-
 # Polybar config
 alias barconfig="vim ~/.config/polybar/config"
 
-# Minimalist scheme
-alias minimalist="wal -i ~/Pics/Minimalist/"
-
-# Synthwave scheme
-alias synthwave="wal -i ~/Pics/Synthwave/"
-
-# Abstract scheme
-alias abstract="wal -i ~/Pics/Abstract/"
-
-# Z800 Workstation Job
-alias z800="ssh unknow@10.130.254.230"
+# Bspwm config
+alias bspconfig="vim ~/.config/bspwm/bspwmrc"
 
 # Youtube-dl
 alias ytmusic="youtube-dl -x"
