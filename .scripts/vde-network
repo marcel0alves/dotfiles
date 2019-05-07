@@ -1,0 +1,118 @@
+#!/bin/sh
+# QEMU VDE network environment preparation script
+
+# TAP device
+TAP=mytap0
+
+# Network information
+NETWORK=172.16.0.0
+NETMASK=16
+GATEWAY=172.16.1.1
+DHCP_RANGE=172.16.2.10,172.16.2.50
+
+# Host interface
+WIRELESS=wlp3s0
+ETHERNET=enp2s0
+
+
+case "$1" in
+	start)
+		
+		# Start tap switch
+		echo -e "\nStarting VDE network" ; sleep 0.5
+
+		vde_switch -tap "$TAP" -daemon -mod 660 -group users
+
+		# Flush old config
+		echo -e "\nFlushing old config" ; sleep 0.5
+		ip addr flush dev $TAP scope global
+
+		# Bring tap interface up
+		echo -e "\nConfiguring TAP device" ; sleep 0.5
+		ip addr add "$GATEWAY"/"$NETMASK" dev "$TAP"
+		ip link set "$TAP" up
+
+		# Start ip forwarding
+		echo -e "\nEnabling IP Forwarding" ; sleep 0.5
+		echo 1 > /proc/sys/net/ipv4/ip_forward
+
+		# Check which network nic is connected
+		WIRELESS_INET=$(ifconfig $WIRELESS | awk '/inet/ {print $2}')
+		ETHERNET_INET=$(ifconfig $ETHERNET | awk '/inet/ {print $2}')
+
+		if [ -z "$ETHERNET_INET" ]; then
+			iptables -t nat -A POSTROUTING -s "$NETWORK"/"$NETMASK" -o "$WIRELESS" -j MASQUERADE
+		else
+			iptables -t nat -A POSTROUTING -s "$NETWORK"/"$NETMASK" -o "$ETHERNET" -j MASQUERADE
+		fi
+
+		# Select if dnsmasq create DHCP range or no
+		echo -e "\nSet up DNSMASQ?"
+		read question
+		if [ $question == "yes" ]; then
+			# Start DHCP server (DNSMASQ)
+			echo -e "\nStarting DHCP server" ; sleep 0.5
+			dnsmasq \
+				--strict-order \
+				--interface="$TAP" \
+				--listen-address="$GATEWAY" \
+				--bind-interface  \
+				--dhcp-range="$DHCP_RANGE" \
+				--dhcp-no-override \
+				--log-queries \
+				--pid-file=/var/run/qemu-dnsmasq-"$TAP".pid
+				
+			echo "DNSMASQ started."
+		fi			
+				
+		echo -e "\nDone!" ; sleep 0.5
+		;;
+
+	stop)
+		# Delete all NAT rules
+		echo -e "\nResetting iptables" ; sleep 0.5
+		iptables -t nat -F
+		iptables -t nat -X
+
+		# Disable IP Forwarding
+		echo 0 > /proc/sys/net/ipv4/ip_forward
+
+		# Bring tap interface down
+		echo -e "\nDisabling tap device" ; sleep 0.5
+		ip link set "$TAP" down
+
+		# Remove all IPv4/IPv6 address
+		echo -e "\nRemoving all IPv4 address" ; sleep 0.5
+		ip addr flush dev "$TAP" scope global
+
+		# Kill VDE switch
+		VDEPID=$(pgrep vde_switch)
+		if [ -z "$VDEPID" ]; then
+			exit 0
+		else
+			echo -e "\nKilling VDE switch..." ; sleep 0.5
+			kill $VDEPID && echo "VDE switch terminated."
+		fi
+
+		# Kill dnsmasq
+		DNSMASQPID=$(cat "/var/run/qemu-dnsmasq-$TAP.pid")
+		if [ -z "$DNSMASQPID" ]; then
+			exit 0
+		else
+			echo -e "\nKilling DNSMASQ..." ; sleep 0.5			
+			kill $DNSMASQPID && echo "DNSMASQ terminated."
+		fi
+
+		;;
+
+	restart)
+		$0 stop
+		sleep 1
+		$0 start
+		;;
+	
+	*)
+		echo "Usage: $0 {start|stop|restart}"
+		exit 1
+esac
+exit 0
