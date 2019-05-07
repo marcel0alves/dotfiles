@@ -11,47 +11,34 @@
 
 ; Normal colors
 [colors]
-background = #282a36
+;background = #282a36
+background = #26283F
 foreground = #f8f8f2
 
-black = #000000
-red = #ff5555
-green = #50fa7b
-yellow = #f1fa8c
-blue = #bd93f9
-magenta = #ff79c6
-cyan = #8be9fd
-white = #bbbbbb
+black = #26283F
+red = #9E534E
+;red = #ff5555
 
 ; Bright colors
 [bright_colors]
 black  = #44475a
-red = #ff5555
-green = #50fa7b
-yellow = #f1fa8c
-blue = #bd93f9 
-magenta = #ff79c6
-cyan = #8be9fd
-white = #ffffff
+red = #69364F
 
 ; Bar
 ;
 [bar/bar]
 monitor = eDP-1
-bottom = true
+bottom = false
 
-width = 100%
+width = 90%
 height = 26
-;offset-x = 5%
-;offset-y = 0
+offset-x = 5%
+offset-y = 5
 
 fixed-center = true
 
 background = ${colors.background}
 foregronud = ${colors.foreground}
-
-border-top-size = 1
-border-color = #000000
 
 padding-left = 2
 padding-right = 2
@@ -59,7 +46,7 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = Iosevka:style=Bold:pixelsize=8;2
+font-0 = lucy tewi:style=Regular:pixelsize=8;2
 font-1 = FontAwesome:pixelsize=10;3
 
 modules-left = bspwm mpc
@@ -83,15 +70,16 @@ format = <label-state>
 label-monitor = %name%
 
 label-focused = %name%
-label-focused-background = ${bright_colors.black}
-label-focused-foreground = ${colors.red}
+label-focused-background = ${colors.red}
+label-focused-foreground = ${colors.foreground}
 label-focused-padding = 2
 
 label-occupied = %name%
-label-occupied-foreground = ${colors.red}
+label-occupied-foreground = ${colors.foreground}
 label-occupied-padding = 2
 
 label-empty = %name%
+label-empty-foreground = ${colors.red}
 label-empty-padding = 2
 
 ; Wireless
@@ -103,7 +91,7 @@ interval = 1.0
 
 format-connected = <label-connected>
 
-label-connected = " %local_ip%  "
+label-connected = "%{F#9E534E}%{F-} %local_ip%  "
 label-connected-foreground = ${colors.foreground}
 
 ; Ethernet
@@ -115,7 +103,7 @@ interval = 1.0
 
 format-connected = <label-connected>
 
-label-connected = " %local_ip%  "
+label-connected = "%{F#9E534E}%{F-} %local_ip%  "
 label-connected-foreground = ${colors.foreground}
 
 ; Backlight-acpi
@@ -132,7 +120,7 @@ type = internal/xbacklight
 
 format = <label>
 format-foreground = ${colors.foreground}
-label = " %percentage%%  "
+label = "%{F#9E534E}%{F-} %percentage%%  "
 
 ; ALSA
 ;
@@ -157,7 +145,8 @@ ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
 
-ramp-volume-foreground = ${colors.foreground}
+ramp-volume-foreground = ${colors.red}
+
 ; Battery
 ;
 [module/battery]
@@ -170,7 +159,7 @@ format-charging = <animation-charging><label-charging>
 format-discharging = <ramp-capacity><label-discharging>
 
 label-discharging = "%percentage%%  "
-label-full = " %percentage%%  "
+label-full = "%{F#9E534E}%{F-} %percentage%%  "
 label-charging = "%percentage%%  "
 label-discharging-foreground = ${colors.foreground}
 label-full-foreground = ${colors.foreground}
@@ -181,7 +170,7 @@ ramp-capacity-1 = " "
 ramp-capacity-2 = " "
 ramp-capacity-3 = " "
 ramp-capacity-4 = " "
-ramp-capacity-foreground = ${colors.foreground}
+ramp-capacity-foreground = ${colors.red}
 
 animation-charging-0 = " "
 animation-charging-1 = " "
@@ -189,7 +178,7 @@ animation-charging-2 = " "
 animation-charging-3 = " "
 animation-charging-4 = " "
 animation-charging-framerate = 350
-animation-charging-foreground = ${colors.foreground}
+animation-charging-foreground = ${colors.red}
 
 ; CPU
 ;
@@ -234,19 +223,6 @@ bar-used-fill = 
 bar-used-empty = 
 bar-used-empty-foreground = ${colors.primary}
 
-; MPD
-;
-[module/mpd]
-type = internal/mpd
-
-host = 127.0.0.1
-port = 6600
-
-interval = 1
-
-format-prefix = "  "
-
-
 ; Custom modules
 ;
 
@@ -255,11 +231,12 @@ format-prefix = "  "
 [module/temperature]
 type = custom/script
 interval = 1.5
-exec = sensors | awk '/Core/ {print substr($3, 2, 2) " C"}' | tr '\n' ' '
+exec = sensors | awk '/Core/ {print substr ($3, 2, 2) " C"}' | tr '\n' ' '
+;exec = sensors | awk '/CPU/ {print substr($2, 2, 7)}'
 
-format-prefix = " "
+format-prefix = "%{F#9E534E}%{F-} CPU "
 format-foreground = ${colors.foreground}
-format-suffix = " "
+format-suffix = "  "
 
 ; CPU MHz
 ;
@@ -286,8 +263,9 @@ exec = echo "[  $(date +'%A, %b %d %H:%M')  ]"
 [module/mpc]
 type = custom/script
 interval = 1.0
-format-foreground = ${bright_colors.green}
+format-foreground = ${colors.foreground}
 format-prefix = "  "
+format-prefix-foreground = ${colors.red}
 
 exec = ~/.config/polybar/scripts/nowplaying
 

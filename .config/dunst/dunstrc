@@ -1,16 +1,16 @@
 [global]
 monitor = 0
 follow = mouse
-geometry = "300x60-20+48"
+geometry = "250x60-20+48"
 indicate_hidden = yes
 shrink = no
 separator_height = 0
-padding = 32
-horizontal_padding = 32
+padding = 20
+horizontal_padding = 20
 frame_width = 2
 sort = no
 idle_threshold = 120
-font = rissole 10
+font = Misc Termsynu 10
 line_height = 4
 markup = full
 format = "<b>%s</b>\n%b"
