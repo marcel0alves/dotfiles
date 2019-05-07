@@ -1,5 +1,0 @@
-# Unmasking some packages
-app-portage/showem::sakaki-tools
-sys-kernel/buildkernel::sakaki-tools
-app-portage/genup::sakaki-tools
-app-crypt/staticgpg::sakaki-tools
