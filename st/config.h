@@ -6,9 +6,8 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 
-/* static char *font = "Iosevka Term:pixelsize=14:style=Bold:antialias=true:autohint=true"; */
 static char *font = "Misc Termsynu:pixelsize=14:style=Regular:antialias=true:autohint=true";
-static int borderpx = 20;
+static int borderpx = 50;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -107,7 +106,7 @@ static const char *colorname[] = {
 	[15] = "#ffffff", /* white   */
 	
 	/* special colors */
-	[256] = "#282a36", /* background */
+	[256] = "#26283F" , /* background "#282a36" */
 	[257] = "#f8f8f2", /* foreground */
 };
 
@@ -191,7 +190,6 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_V,           clippaste,      {.i =  0} },
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
-	{ TERMMOD,              XK_I,           iso14755,       {.i =  0} },
 	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
 	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
 };
