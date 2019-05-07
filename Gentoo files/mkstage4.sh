@@ -40,7 +40,7 @@ split_options="--suffix-length=1 --bytes=685m"
 tarOptions=" --preserve-permissions --create --absolute-names --totals --ignore-failed-read"
 
 # where to put the stage4
-stage4Location=/mnt/backups/stage4_gentoo
+stage4Location=/mnt/backups/stage4
 
 # name prefix
 stage4prefix=`hostname`-stage4-`date +\%Y.\%m.\%d`
@@ -95,7 +95,8 @@ default_include_folders="
 # IMPORTANT: A minimal backup will EXCLUDE files/folders listed here. A custom backup will
 # include/exclude these files/folders depening on your answer.
 custom_include_list="
-/home/*"
+/home/*
+/usr/src/*"
 
 # add files/folders here which are subfolders of a folder listed in $custom_include_list which should NOT
 # be backed up. eg.
