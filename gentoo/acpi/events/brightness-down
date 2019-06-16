@@ -1,0 +1,2 @@
+event=video/brightnessdown
+action=/etc/acpi/actions/backlight -
