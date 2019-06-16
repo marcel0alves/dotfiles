@@ -2,19 +2,22 @@
 # Backup Gentoo and home configs.
 
 portage=/etc/portage/
+xorg=/etc/X11/xorg.conf.d
 
-dotfiles=$HOME/dotfiles/
-gentoo_dotfiles=$dotfiles/gentoo/
+dotfiles=$HOME/dotfiles
+gentoo_dotfiles=$dotfiles/gentoo
 
 # Backup Gentoo configs.
-cp -v $portage/{bashrc,make.conf,package.accept_keywords,package.license,package.mask,package.use} $gentoo_dotfiles
+cp $portage/{bashrc,make.conf,package.accept_keywords,package.license,package.mask,package.use} $gentoo_dotfiles
+cp -r $xorg $gentoo_dotfiles/
+zcat /proc/config.gz > $gentoo_dotfiles/config_kernel
 
 # Backup home configs.
-cp -vr $HOME/{.asoundrc,.bash_profile,.bash_logout,.vimrc,.xinitrc} $dotfiles
-cp -vr $HOME/.config/{bspwm,dunst,mpd,polybar,rofi,sxhkd} $dotfiles/.config/
-cp -vr $HOME/.scripts/ $dotfiles
-cp -vr $HOME/.local/share/fonts/* $dotfiles/fonts
-cp -vr $HOME/.ncmpcpp $dotfiles
-cp -vr $HOME/packages $dotfiles
+cp -r $HOME/{.asoundrc,.bash_profile,.bash_logout,.vimrc,.xinitrc} $dotfiles
+cp -r $HOME/.config/{bspwm,dunst,mpd,polybar,rofi,sxhkd} $dotfiles/.config
+cp -r $HOME/.scripts/ $dotfiles
+cp -r $HOME/.local/share/fonts/* $dotfiles/fonts
+cp -r $HOME/.ncmpcpp $dotfiles
+cp -r $HOME/packages $dotfiles
 
 echo "Done."
