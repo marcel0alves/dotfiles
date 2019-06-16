@@ -49,6 +49,8 @@ net-dns/dnsmasq conntrack dhcp-tools dnssec script tftp
 >=sys-fs/lvm2-2.02.145-r2 static-libs
 >=virtual/libudev-232 static-libs
 >=sys-fs/eudev-3.2.5 static-libs
+>=dev-libs/json-c-0.13.1-r1 static-libs
+>=app-crypt/argon2-20171227-r1 static-libs
 
 # Required by static LVM
 >=dev-libs/libaio-0.3.110 static-libs

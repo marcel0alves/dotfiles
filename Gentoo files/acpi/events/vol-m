@@ -1,2 +1,0 @@
-event=button/mute
-action=amixer set Master toggle

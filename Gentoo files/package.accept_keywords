@@ -1,7 +1,0 @@
-=x11-wm/bspwm-0.9.7 ~amd64
-=x11-misc/sxhkd-0.6.0 ~amd64
-x11-themes/arc-theme ~amd64
-dev-util/android-tools ~amd64
-=media-fonts/fira-mono-3.205 ~amd64
-=media-fonts/fontawesome-4.7.0 ~amd64
-=x11-misc/xdo-0.5.7 ~amd64

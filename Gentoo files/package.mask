@@ -1,5 +1,0 @@
-# Only 4.14 LTS kernel
->=sys-kernel/gentoo-sources-4.19
-
-# Install QEMU 3.1.0-r1
->=app-emulation/qemu-3.1.0-r4

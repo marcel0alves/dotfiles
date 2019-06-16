@@ -1,2 +1,0 @@
-event=button/volumeup
-action=amixer set Master 1+

@@ -10,4 +10,4 @@ fi
 devmon 2>&1 > /dev/null &
 
 # Start MPD daemon
-mpd &
+# mpd &

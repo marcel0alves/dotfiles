@@ -4,7 +4,7 @@ export PATH="${PATH}:$HOME/.scripts"
 export PATH="${PATH}:$HOME/.config/bspwm"
 
 # Autostart
-hsetroot -fill ~/Pictures/Wallpapers/Synthwave/minimalist_retrowave.png &
+hsetroot -fill ~/Pictures/Wallpapers/johnwick_3.png
 
 killall -q -9 sxhkd dunst poly
 

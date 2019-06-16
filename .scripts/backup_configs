@@ -1,0 +1,20 @@
+#!/bin/sh
+# Backup Gentoo and home configs.
+
+portage=/etc/portage/
+
+dotfiles=$HOME/dotfiles/
+gentoo_dotfiles=$dotfiles/gentoo/
+
+# Backup Gentoo configs.
+cp -v $portage/{bashrc,make.conf,package.accept_keywords,package.license,package.mask,package.use} $gentoo_dotfiles
+
+# Backup home configs.
+cp -vr $HOME/{.asoundrc,.bash_profile,.bash_logout,.vimrc,.xinitrc} $dotfiles
+cp -vr $HOME/.config/{bspwm,dunst,mpd,polybar,rofi,sxhkd} $dotfiles/.config/
+cp -vr $HOME/.scripts/ $dotfiles
+cp -vr $HOME/.local/share/fonts/* $dotfiles/fonts
+cp -vr $HOME/.ncmpcpp $dotfiles
+cp -vr $HOME/packages $dotfiles
+
+echo "Done."

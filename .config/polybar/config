@@ -236,7 +236,7 @@ exec = sensors | awk '/Core/ {print substr ($3, 2, 2) " C"}' | tr '\n' ' '
 
 format-prefix = "%{F#9E534E}%{F-} CPU "
 format-foreground = ${colors.foreground}
-format-suffix = "  "
+format-suffix = " "
 
 ; CPU MHz
 ;
