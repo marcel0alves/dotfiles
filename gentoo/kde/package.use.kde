@@ -1,0 +1,46 @@
+# KDE BLOATS
+
+# required by dev-qt/qtcore-5.12.3::gentoo
+# required by kde-frameworks/attica-5.57.0::gentoo
+# required by kde-frameworks/knewstuff-5.57.0::gentoo
+# required by kde-plasma/kwin-5.15.5::gentoo
+# required by kde-plasma/plasma-workspace-5.15.5::gentoo
+# required by kde-plasma/plasma-desktop-5.15.5::gentoo
+# required by plasma-desktop (argument)
+>=dev-libs/libpcre2-10.32 pcre16
+# required by x11-misc/xdg-utils-1.1.3-r1::gentoo
+# required by kde-frameworks/kf-env-5::gentoo
+# required by kde-frameworks/attica-5.57.0::gentoo
+# required by kde-frameworks/knewstuff-5.57.0::gentoo
+# required by kde-plasma/kwin-5.15.5::gentoo
+# required by kde-plasma/plasma-workspace-5.15.5::gentoo
+# required by kde-plasma/plasma-desktop-5.15.5::gentoo
+# required by plasma-desktop (argument)
+>=app-text/xmlto-0.0.28-r1 text
+# required by kde-plasma/plasma-workspace-5.15.5::gentoo
+# required by kde-plasma/plasma-desktop-5.15.5::gentoo
+# required by plasma-desktop (argument)
+>=dev-qt/qtdeclarative-5.12.3 widgets
+# required by kde-plasma/plasma-workspace-5.15.5::gentoo
+# required by kde-plasma/plasma-desktop-5.15.5::gentoo
+# required by plasma-desktop (argument)
+>=dev-qt/qtquickcontrols-5.12.3 widgets
+# required by dev-qt/qtwayland-5.12.3::gentoo
+# required by kde-frameworks/kwayland-5.57.0::gentoo
+# required by kde-plasma/kwin-5.15.5::gentoo
+# required by kde-plasma/plasma-workspace-5.15.5::gentoo
+# required by kde-plasma/plasma-desktop-5.15.5::gentoo
+# required by plasma-desktop (argument)
+>=dev-qt/qtgui-5.12.3-r1 egl
+# required by kde-plasma/kwin-5.15.5::gentoo
+# required by kde-plasma/plasma-workspace-5.15.5::gentoo
+# required by kde-plasma/plasma-desktop-5.15.5::gentoo
+# required by plasma-desktop (argument)
+>=media-libs/mesa-18.3.6 wayland
+# required by kde-frameworks/kcoreaddons-5.57.0::gentoo
+# required by kde-plasma/kactivitymanagerd-5.15.5::gentoo
+# required by kde-frameworks/kactivities-5.57.0::gentoo
+# required by kde-frameworks/kactivities-stats-5.57.0::gentoo
+# required by kde-plasma/plasma-desktop-5.15.5::gentoo
+# required by plasma-desktop (argument)
+>=dev-qt/qtcore-5.12.3 icu
