@@ -2,9 +2,10 @@
 
 export PATH="${PATH}:$HOME/.scripts"
 export PATH="${PATH}:$HOME/.config/bspwm"
+WALLPAPERS=$HOME/Pictures/Wallpapers
 
 # Autostart
-hsetroot -fill ~/Pictures/Wallpapers/johnwick_3.png
+hsetroot -fill $WALLPAPERS/defend_the_west.jpg
 
 killall -q -9 sxhkd dunst poly
 
@@ -14,7 +15,7 @@ poly &
 
 # Configuration
 bspc monitor -d I II III IV V VI VII VIII 
-bspc config border_width		5
+bspc config border_width		1
 bspc config window_gap			10
 bspc config split_ratio			0.5
 bspc config borderless_monocle		true

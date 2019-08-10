@@ -30,10 +30,10 @@ red = #69364F
 monitor = eDP-1
 bottom = false
 
-width = 90%
+width = 100%
 height = 26
-offset-x = 5%
-offset-y = 5
+;offset-x = 5%
+;offset-y = 5
 
 fixed-center = true
 
@@ -46,7 +46,8 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = lucy tewi:style=Regular:pixelsize=8;2
+;font-0 = lucy tewi:style=Regular:pixelsize=8;2
+font-0 = Misc Termsynu:style=Regular:pixelsize=10;2
 font-1 = FontAwesome:pixelsize=10;3
 
 modules-left = bspwm mpc

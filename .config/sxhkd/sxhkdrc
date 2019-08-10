@@ -138,7 +138,7 @@ super + Return
 
 # program launcher
 super + @space
-	rofi -modi drun,run,window -show drun -show-icons -font "Misc Termsynu 12"
+	rofi -modi drun,run,window -show drun -show-icons -font "Liberation Sans 12"
 
 # Screenshot
 Print
