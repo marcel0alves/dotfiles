@@ -1,0 +1,37 @@
+#!/bin/busybox sh
+
+mount -t devtmpfs none /dev
+mount -t proc none /proc
+mount -t sysfs none /sys
+
+exec 0</dev/console
+exec 1>/dev/console
+exec 2>/dev/console
+
+while :
+do
+        echo -e -n "\nPassword: "
+	cryptsetup --header /etc/header.img --tries 1 open /dev/sdb gentoo >/dev/null 2>&1 
+	status=$?
+
+	case $status in
+
+		0)
+			mount -t ext4 -o noatime,nodiratime,defaults /dev/mapper/gentoo /mnt
+			umount /sys
+			umount /proc
+
+			echo "Booting Gentoo Linux."
+			exec switch_root /mnt /sbin/init
+			;;
+
+		2)
+			echo "Bad password."
+			;;
+
+		*)
+			echo "Failed."
+			;;
+	
+	esac
+done
