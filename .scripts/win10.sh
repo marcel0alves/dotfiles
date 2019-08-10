@@ -1,14 +1,13 @@
 #!/bin/sh
 # Windows 10 VM.
+set -x
 
-# Path to Windows 10 ISO
-WIN10ISO=~/ISO/win10_1809_x64.iso
-
-# Path to VirtIO drivers
-VIRTIOISO=~/ISO/virtio-win-0.1.164.iso
-
-# Path to Windows 10 HD
-WIN10=~/VirtualMachines/win10/win10.img
+# Paths
+ISODIR=$HOME/VMs/ISO
+VMDIR=$HOME/VMs
+WIN10ISO=$ISODIR/win10_1809_x64.iso
+VIRTIOISO=$ISODIR/virtio-win-0.1.164.iso
+WIN10=$VMDIR/Win10/win10.img
 
 # Starting QEMU
 qemu-system-x86_64 \
@@ -22,14 +21,15 @@ qemu-system-x86_64 \
 	-parallel none \
 	-k en-us \
 	-drive id=disk0,if=virtio,cache=none,format=qcow2,file=$WIN10 \
+	-cdrom $WIN10ISO -boot order=d \
 	-drive file=$VIRTIOISO,index=1,media=cdrom \
 	-net nic,macaddr=52:54:17:fa:c0:7c -net vde \
 	-usb -device usb-tablet \
 	-device virtio-serial-pci \
 	-name "Windows 10"
 
-sleep 0.5 ; echo "Windows 10 started."
-# spicy --class=win10 --title="Windows 10" 127.0.0.1 -p 5900 &
+#	 spicy --class=win10 --title="Windows 10" 127.0.0.1 -p 5900 &
+
 
 #	-drive file=$VIRTIOISO,index=1,media=cdrom \
 #	-spice port=5900,addr=127.0.0.1,disable-ticketing \

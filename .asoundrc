@@ -14,7 +14,7 @@ ctl.!default {
 #
 ctl.equal { 
 	type equal
-	controls "/home/johnwick/.alsaequal.bin"
+	controls "/home/macfcam/.alsaequal.bin"
 }
 
 pcm.plugequal {

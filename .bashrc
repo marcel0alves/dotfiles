@@ -32,24 +32,18 @@ export EDITOR=/usr/bin/vim
 
 # Aliases
 
-# VDE, QEMU, etc.
-alias vde-start="su -c '/home/johnwick/.scripts/vde-network start'"
-alias vde-stop="su -c '/home/johnwick/.scripts/vde-network stop'"
-alias win10="~/.scripts/win10.sh"
-alias win2k16="~/.scripts/win2k16.sh"
-alias debian="~/.scripts/debian.sh"
-
 # Ls
 alias ll="ls -l --g"
 alias la="ls -la --g"
 
 # Emerge functions
-alias updatesystem="su -c 'emerge --sync && emerge -auvND @world'"
+alias updatesystem="sudo eix-sync && sudo emerge -auvND @world"
 alias cleanemerge="sudo emerge --ask --depclean"
 alias searchpkg="emerge -s"
 alias installpkg="sudo emerge -av"
 alias removepkg="sudo emerge --ask --unmerge"
 alias emergeworld="sudo emerge -auvND @world"
+alias cleanportage="sudo rm -rfv /var/tmp/portage/*"
 
 # Portage files
 alias make.conf="sudo vim /etc/portage/make.conf"
@@ -63,12 +57,10 @@ alias barconfig="vim ~/.config/polybar/config"
 # Bspwm config
 alias bspconfig="vim ~/.config/bspwm/bspwmrc"
 
-# Functions
+# Dmesg colored
+alias dmesg="sudo dmesg --color=always"
 
-# Run as root
-sudo() {
-	su -c "$*"
-}
+# Functions
 
 # Show how much RAM application uses
 ram () {

@@ -1,5 +1,8 @@
 #!/bin/sh
+set -x
+
 # QEMU VDE network environment preparation script
+# NAT Networking with IP forwarding
 
 # TAP device
 TAP=mytap0
@@ -19,21 +22,21 @@ case "$1" in
 	start)
 		
 		# Start tap switch
-		echo -e "\nStarting VDE network" ; sleep 0.5
+		echo -e "\nStarting VDE network"
 
 		vde_switch -tap "$TAP" -daemon -mod 660 -group users
 
 		# Flush old config
-		echo -e "\nFlushing old config" ; sleep 0.5
+		echo -e "\nFlushing old config"
 		ip addr flush dev $TAP scope global
 
 		# Bring tap interface up
-		echo -e "\nConfiguring TAP device" ; sleep 0.5
+		echo -e "\nConfiguring TAP device"
 		ip addr add "$GATEWAY"/"$NETMASK" dev "$TAP"
 		ip link set "$TAP" up
 
 		# Start ip forwarding
-		echo -e "\nEnabling IP Forwarding" ; sleep 0.5
+		echo -e "\nEnabling IP Forwarding"
 		echo 1 > /proc/sys/net/ipv4/ip_forward
 
 		# Check which network nic is connected
@@ -51,7 +54,7 @@ case "$1" in
 		read question
 		if [ $question == "yes" ]; then
 			# Start DHCP server (DNSMASQ)
-			echo -e "\nStarting DHCP server" ; sleep 0.5
+			echo -e "\nStarting DHCP server"
 			dnsmasq \
 				--strict-order \
 				--interface="$TAP" \
@@ -65,12 +68,12 @@ case "$1" in
 			echo "DNSMASQ started."
 		fi			
 				
-		echo -e "\nDone!" ; sleep 0.5
+		echo -e "\nDone!"
 		;;
 
 	stop)
 		# Delete all NAT rules
-		echo -e "\nResetting iptables" ; sleep 0.5
+		echo -e "\nResetting iptables"
 		iptables -t nat -F
 		iptables -t nat -X
 
@@ -78,11 +81,11 @@ case "$1" in
 		echo 0 > /proc/sys/net/ipv4/ip_forward
 
 		# Bring tap interface down
-		echo -e "\nDisabling tap device" ; sleep 0.5
+		echo -e "\nDisabling tap device"
 		ip link set "$TAP" down
 
 		# Remove all IPv4/IPv6 address
-		echo -e "\nRemoving all IPv4 address" ; sleep 0.5
+		echo -e "\nRemoving all IPv4 address"
 		ip addr flush dev "$TAP" scope global
 
 		# Kill VDE switch
@@ -90,7 +93,7 @@ case "$1" in
 		if [ -z "$VDEPID" ]; then
 			exit 0
 		else
-			echo -e "\nKilling VDE switch..." ; sleep 0.5
+			echo -e "\nKilling VDE switch..."
 			kill $VDEPID && echo "VDE switch terminated."
 		fi
 
@@ -99,7 +102,7 @@ case "$1" in
 		if [ -z "$DNSMASQPID" ]; then
 			exit 0
 		else
-			echo -e "\nKilling DNSMASQ..." ; sleep 0.5			
+			echo -e "\nKilling DNSMASQ..."
 			kill $DNSMASQPID && echo "DNSMASQ terminated."
 		fi
 

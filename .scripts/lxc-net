@@ -1,0 +1,32 @@
+#!/bin/sh
+set -x
+
+# NAT Network with IP forwarding
+
+# Bridge device
+BRIDGE=lxcbr0
+
+# Network configuration
+NETWORK=10.0.0.0
+NETMASK=24
+GATEWAY=10.0.0.1
+
+# Host interface
+LINK=wlp3s0 		# change to your interface.
+
+# Creating bridge device and flush old config
+ip link add name "$BRIDGE" type bridge
+ip link set "$BRIDGE" up
+ip addr flush dev "$BRIDGE" scope global
+
+# Bring bridge interface up
+ip addr add "$GATEWAY"/"$NETMASK" dev "$BRIDGE"
+ip link set "$BRIDGE" up
+
+# Start IP forwarding
+echo 1 > /proc/sys/net/ipv4/ip_forward
+
+# Setup iptables rules
+iptables -t nat -A POSTROUTING -s "$NETWORK"/"$NETMASK" -o "$LINK" -j MASQUERADE
+
+echo "Done"
