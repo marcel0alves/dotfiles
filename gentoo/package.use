@@ -1,45 +1,55 @@
-# Xorg
-x11-base/xorg-server suid
+# Cryptsetup
+sys-fs/cryptsetup static static-libs -luks1_default
+
+# Busybox
+sys-apps/busybox static -ipv6
+
+# Firmware
+sys-kernel/linux-firmware savedconfig
+
+# QEMU/KVM/Virt-Manager
+app-emulation/qemu filecaps gtk lzo numa opengl spice usbredir vde -alsa -jpeg -png
+app-emulation/libvirt macvtap pcap qemu virt-network
+
+# required by app-emulation/virt-manager-2.0.0::gentoo
+# # required by virt-manager (argument)
+>=dev-libs/libxml2-2.9.9-r1 python
+# # required by app-emulation/virt-manager-2.0.0::gentoo[gtk]
+# # required by virt-manager (argument)
+>=net-misc/spice-gtk-0.35 usbredir
+
+# DNSMASQ
+net-dns/dnsmasq conntrack dhcp-tools dnssec script tftp
+
+# VDE
+net-misc/vde pcap
+
+# Getdns
+net-dns/getdns stubby -unbound
+
+# Fwknop - Client
+net-firewall/fwknop -server
 
 # Editors
 app-editors/vim python terminal
 
 # Personalization
-x11-misc/polybar alsa curl ipc network mpd
+x11-misc/polybar alsa curl ipc network
+>=x11-libs/cairo-1.16.0-r3 xcb
+
 x11-misc/rofi windowmode
-xfce-base/thunar -pcre -trash-panel-plugin
-
-# Multimedia
-media-plugins/alsa-plugins ffmpeg
-media-sound/mpd -network -ipv6
-media-sound/ncmpcpp clock visualizer
-
-# Browser
-www-client/firefox hwaccel
-
-# QEMU/KVM/Virt-Manager
-app-emulation/qemu filecaps gtk lzo numa opengl spice usbredir vde -alsa -jpeg -png
-net-misc/spice-gtk usbredir
-
-# Virtual Distributed Ethernet
-net-misc/vde pcap
-
-# DNSMASQ
-net-dns/dnsmasq conntrack dhcp-tools dnssec script tftp
-
-# Other
->=x11-libs/cairo-1.16.0-r2 xcb
 >=x11-libs/libxcb-1.13.1 xkb
->=dev-libs/gmp-6.1.2 static-libs
 
-# Required by virt-manager
->=dev-libs/libxml2-2.9.9 python
->=net-firewall/iptables-1.6.1-r3 ipv6
+xfce-base/thunar -*
 
-# Required by firefox
->=media-libs/libpng-1.6.35-r1 apng
+# Firefox
+www-client/firefox hwaccel
+>=media-libs/libpng-1.6.37 apng
 >=dev-lang/python-2.7.15:2.7 sqlite
 >=dev-lang/python-3.6.5 sqlite
+
+# Media
+media-plugins/alsa-plugins ffmpeg
 
 # Required by initramfs
 >=dev-libs/libgpg-error-1.29 static-libs
@@ -51,6 +61,9 @@ net-dns/dnsmasq conntrack dhcp-tools dnssec script tftp
 >=sys-fs/eudev-3.2.5 static-libs
 >=dev-libs/json-c-0.13.1-r1 static-libs
 >=app-crypt/argon2-20171227-r1 static-libs
-
-# Required by static LVM
+>=dev-libs/gmp-6.1.2 static-libs
 >=dev-libs/libaio-0.3.110 static-libs
+
+# Required by cryptsetup
+>=dev-libs/openssl-1.0.2r static-libs
+>=sys-libs/zlib-1.2.11-r2 static-libs
