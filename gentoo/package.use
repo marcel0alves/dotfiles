@@ -9,14 +9,6 @@ sys-kernel/linux-firmware savedconfig
 
 # QEMU/KVM/Virt-Manager
 app-emulation/qemu filecaps gtk lzo numa opengl spice usbredir vde -alsa -jpeg -png
-app-emulation/libvirt macvtap pcap qemu virt-network
-
-# required by app-emulation/virt-manager-2.0.0::gentoo
-# # required by virt-manager (argument)
->=dev-libs/libxml2-2.9.9-r1 python
-# # required by app-emulation/virt-manager-2.0.0::gentoo[gtk]
-# # required by virt-manager (argument)
->=net-misc/spice-gtk-0.35 usbredir
 
 # DNSMASQ
 net-dns/dnsmasq conntrack dhcp-tools dnssec script tftp
@@ -27,26 +19,17 @@ net-misc/vde pcap
 # Getdns
 net-dns/getdns stubby -unbound
 
-# Fwknop - Client
-net-firewall/fwknop -server
-
 # Editors
 app-editors/vim python terminal
 
-# Personalization
-x11-misc/polybar alsa curl ipc network
->=x11-libs/cairo-1.16.0-r3 xcb
-
-x11-misc/rofi windowmode
->=x11-libs/libxcb-1.13.1 xkb
-
-xfce-base/thunar -*
-
 # Firefox
-www-client/firefox hwaccel
+www-client/firefox hwaccel wayland -system-libvpx
 >=media-libs/libpng-1.6.37 apng
 >=dev-lang/python-2.7.15:2.7 sqlite
 >=dev-lang/python-3.6.5 sqlite
+
+# required by firefox-68.0.2
+>=dev-db/sqlite-3.28.0 secure-delete
 
 # Media
 media-plugins/alsa-plugins ffmpeg
@@ -67,3 +50,42 @@ media-plugins/alsa-plugins ffmpeg
 # Required by cryptsetup
 >=dev-libs/openssl-1.0.2r static-libs
 >=sys-libs/zlib-1.2.11-r2 static-libs
+
+# Sway
+gui-wm/sway -swaybar -swayidle
+
+# Wayland
+>=x11-libs/gtk+-3.24.8 X
+>=x11-libs/cairo-1.16.0-r3 X
+
+# Waybar
+gui-apps/waybar network
+dev-cpp/cairomm X
+dev-cpp/gtkmm X
+
+# Telegram
+dev-qt/qtgui egl
+
+# required by net-im/telegram-desktop-1.7.10::reagentoo
+# required by net-im/telegram-desktop (argument)
+>=sys-libs/zlib-1.2.11-r2 minizip
+# required by net-im/telegram-desktop-1.7.10::reagentoo
+# required by net-im/telegram-desktop (argument)
+>=x11-libs/libva-2.5.0-r1 X
+# required by dev-qt/qtgui-5.12.3-r1::gentoo[xcb]
+# required by dev-qt/qtimageformats-5.12.3::gentoo
+# required by net-im/telegram-desktop-1.7.10::reagentoo
+# required by net-im/telegram-desktop (argument)
+>=x11-libs/libxcb-1.13.1 xkb
+# required by dev-qt/qtgui-5.12.3-r1::gentoo[xcb]
+# required by dev-qt/qtimageformats-5.12.3::gentoo
+# required by net-im/telegram-desktop-1.7.10::reagentoo
+# required by net-im/telegram-desktop (argument)
+>=x11-libs/libxkbcommon-0.8.4 X
+# required by dev-qt/qtcore-5.12.3::gentoo
+# required by dev-qt/qtdbus-5.12.3::gentoo
+# required by dev-qt/qtgui-5.12.3-r1::gentoo[dbus]
+# required by dev-qt/qtimageformats-5.12.3::gentoo
+# required by net-im/telegram-desktop-1.7.10::reagentoo
+# required by net-im/telegram-desktop (argument)
+>=dev-libs/libpcre2-10.32 pcre16

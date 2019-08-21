@@ -20,24 +20,28 @@ fi
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
 	. /usr/share/bash-completion/bash_completion
 
-# Add local 'pip' to PATH:
-export PATH="${PATH}:${HOME}/.local/bin"
+export PATH="${PATH}:$HOME/.scripts"
+export PATH="${PATH}:$HOME/.local/bin"
 
 # Default editor for $USER
-# export EDITOR=${EDITOR:-/usr/bin/vim}
 export EDITOR=/usr/bin/vim
 
-# Fix Brazil lang
-# export LC_CTYPE=pt_BR.utf8
+# Wayland
+export GDK_BACKEND=wayland
+export QT_QPA_PLATFORM=wayland-egl
+export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 
 # Aliases
+
+# Sway
+alias sway="dbus-run-session sway -d 2>&1 >/var/log/sway.log"
 
 # Ls
 alias ll="ls -l --g"
 alias la="ls -la --g"
 
 # Emerge functions
-alias updatesystem="sudo eix-sync && sudo emerge -auvND @world"
+alias updatesystem="sudo emerge --sync && sudo emerge -auvND @world"
 alias cleanemerge="sudo emerge --ask --depclean"
 alias searchpkg="emerge -s"
 alias installpkg="sudo emerge -av"
@@ -52,10 +56,10 @@ alias package.mask="sudo vim /etc/portage/package.mask"
 alias package.accept_keywords="sudo vim /etc/portage/package.accept_keywords"
 
 # Polybar config
-alias barconfig="vim ~/.config/polybar/config"
+# alias barconfig="vim ~/.config/polybar/config"
 
 # Bspwm config
-alias bspconfig="vim ~/.config/bspwm/bspwmrc"
+# alias bspconfig="vim ~/.config/bspwm/bspwmrc"
 
 # Dmesg colored
 alias dmesg="sudo dmesg --color=always"

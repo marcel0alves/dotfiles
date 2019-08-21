@@ -17,7 +17,7 @@ do
 	case $status in
 
 		0)
-			mount -t ext4 -o noatime,nodiratime,defaults /dev/mapper/gentoo /mnt
+			mount -t btrfs -o noatime,autodefrag,discard,ssd,compress=lzo,subvol=@rootfs /dev/mapper/gentoo /mnt
 			umount /sys
 			umount /proc
 
@@ -32,6 +32,6 @@ do
 		*)
 			echo "Failed."
 			;;
-	
+
 	esac
 done

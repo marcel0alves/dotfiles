@@ -1,2 +1,2 @@
-sys-kernel/linux-firmware @BINARY-REDISTRIBUTABLE
-sys-firmware/intel-microcode intel-ucode
+=sys-kernel/linux-firmware-20190815 linux-fw-redistributable no-source-code
+>=sys-firmware/intel-microcode-20190618_p20190722 intel-ucode
