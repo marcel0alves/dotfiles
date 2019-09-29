@@ -134,21 +134,29 @@ super + x
 
 # terminal emulator
 super + Return
-	st
+	alacritty
 
 # program launcher
 super + @space
-	rofi -modi drun,run,window -show drun -show-icons -font "Liberation Sans 12"
+	rofi -modi drun,run,window -show drun -show-icons -font "Noto Sans 9"
 
 # Screenshot
 Print
-	scrot '%d-%m-%Y-%T.png' -e 'xclip -selection clipboard -t "image/png" < $f && \
-	mv $f ~/Pictures/Screenshots/' && notify-send 'Scrot' 'Screenshot salva em \n~/Pics/Screenshots/'
+	maim | xclip -selection clipboard -t image/png
 
 # Screenshoot cropped
 alt + Print
-	sleep 1 ; scrot -s '%d-%m-%Y-%T.png' -e 'xclip -selection clipboard -t "image/png" < $f && \
-	mv $f ~/Pictures/Screenshots/' && notify-send 'Scrot' 'Screenshot salva em \n~/Pics/Screenshots/'
+	maim -s | xclip -selection clipboard -t image/png
+
+# Volume options
+XF86AudioMute
+	amixer set Master toggle
+
+XF86AudioLowerVolume
+	amixer set Master 1-
+
+XF86AudioRaiseVolume
+	amixer set Master 1+
 
 # make sxhkd reload its configuration files:
 super + shift + Escape

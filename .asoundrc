@@ -1,20 +1,11 @@
-# Defauls
-# 
-pcm.!default {
-	type hw
-	card 0
-}
-
-ctl.!default {
-	type hw
-	card 0
-}
+defaults.ctl.card 1
+defaults.pcm.card 1
+defaults.timer.card 1
 
 # Alsaequal
-#
-ctl.equal { 
+ctl.equal {
 	type equal
-	controls "/home/macfcam/.alsaequal.bin"
+	controls "/home/leavemealone/.alsaequal.bin"
 }
 
 pcm.plugequal {

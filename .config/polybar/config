@@ -1,69 +1,37 @@
-; Polybar config
-; Made by: Marcelo Alves
-; Intelectual propriety does not exist. Enjoy it.
-
-; Global Settings
-;
-; margin-top = 10
-
-; Colors
-;
-
-; Normal colors
 [colors]
-;background = #282a36
-background = #26283F
-foreground = #f8f8f2
-
-black = #26283F
+foreground = #D4D7D9
 red = #9E534E
-;red = #ff5555
 
-; Bright colors
-[bright_colors]
-black  = #44475a
-red = #69364F
-
-; Bar
-;
 [bar/bar]
 monitor = eDP-1
 bottom = false
 
-width = 100%
+width = 86%
 height = 26
-;offset-x = 5%
-;offset-y = 5
+offset-x = 7%
+offset-y = 5
 
 fixed-center = true
 
-background = ${colors.background}
-foregronud = ${colors.foreground}
-
-padding-left = 2
-padding-right = 2
+background = #090406
+foreground = ${colors.foreground}
 
 module-margin-left = 1
 module-margin-right = 1
 
-;font-0 = lucy tewi:style=Regular:pixelsize=8;2
 font-0 = Misc Termsynu:style=Regular:pixelsize=10;2
 font-1 = FontAwesome:pixelsize=10;3
 
-modules-left = bspwm mpc
-modules-center = date
-modules-right = temperature eth wlan backlight-acpi battery alsa
+modules-left = bspwm
+modules-center = title
+modules-right = battery date
+;modules-right = temperature eth wlan backlight-acpi battery alsa
 
 cursor-click = pointer
 cursor-scroll = ns-resize
 
 wm-restack = bspwm
 
-; Modules
-;
-
-; bspwm
-;
 [module/bspwm]
 type = internal/bspwm
 
@@ -71,20 +39,27 @@ format = <label-state>
 label-monitor = %name%
 
 label-focused = %name%
-label-focused-background = ${colors.red}
+label-focused-background = #407076
 label-focused-foreground = ${colors.foreground}
 label-focused-padding = 2
 
 label-occupied = %name%
-label-occupied-foreground = ${colors.foreground}
+abel-occupied-foreground = ${colors.foreground}
 label-occupied-padding = 2
 
 label-empty = %name%
-label-empty-foreground = ${colors.red}
+label-empty-foreground = #2d2d2d
 label-empty-padding = 2
 
-; Wireless
-;
+[module/title]
+type = internal/xwindow
+
+format = <label>
+format-foreground = ${colors.foreground}
+format-padding = 2
+
+label-maxlen = 50
+
 [module/wlan]
 type = internal/network
 interface = wlp3s0
@@ -92,39 +67,31 @@ interval = 1.0
 
 format-connected = <label-connected>
 
-label-connected = "%{F#9E534E}%{F-} %local_ip%  "
+label-connected = "%{F#9E534E}%{F-} %local_ip%"
 label-connected-foreground = ${colors.foreground}
 
-; Ethernet
-;
 [module/eth]
 type = internal/network
-interface = enp2s0
+interface = enp0s25
 interval = 1.0
 
 format-connected = <label-connected>
 
-label-connected = "%{F#9E534E}%{F-} %local_ip%  "
+label-connected = "%{F#9E534E}%{F-} %local_ip%"
 label-connected-foreground = ${colors.foreground}
 
-; Backlight-acpi
-;
 [module/backlight-acpi]
 inherit = module/xbacklight
 type = internal/backlight
 card = intel_backlight
 
-; Xbacklight
-;
 [module/xbacklight]
 type = internal/xbacklight
 
 format = <label>
 format-foreground = ${colors.foreground}
-label = "%{F#9E534E}%{F-} %percentage%%  "
+label = "%{F#9E534E}%{F-} %percentage%%"
 
-; ALSA
-;
 [module/alsa]
 type = internal/alsa
 
@@ -148,8 +115,6 @@ ramp-volume-2 = 
 
 ramp-volume-foreground = ${colors.red}
 
-; Battery
-;
 [module/battery]
 type = internal/battery
 battery = BAT0
@@ -158,13 +123,11 @@ full-at = 98
 
 format-charging = <animation-charging><label-charging>
 format-discharging = <ramp-capacity><label-discharging>
+format-full = <ramp-capacity><label-full>
 
-label-discharging = "%percentage%%  "
-label-full = "%{F#9E534E}%{F-} %percentage%%  "
-label-charging = "%percentage%%  "
-label-discharging-foreground = ${colors.foreground}
-label-full-foreground = ${colors.foreground}
-label-charging-foreground = ${colors.foreground}
+label-discharging-foreground = #D4D7D9
+label-full-foreground = #D4D7D9
+label-charging-foreground = #D4D7D9
 
 ramp-capacity-0 = " "
 ramp-capacity-1 = " "
@@ -181,93 +144,22 @@ animation-charging-4 = " "
 animation-charging-framerate = 350
 animation-charging-foreground = ${colors.red}
 
-; CPU
-;
-[module/cpu]
-type = internal/cpu
-interval = 0.5
-
-format = <label> <bar-load>
-
-label = "CPU"
-label-foreground = ${colors.foreground}
-
-bar-load-indicator =
-bar-load-width = 15
-bar-load-foreground-0 = ${colors.secondary}
-bar-load-foreground-1 = ${colors.secondary}
-bar-load-foreground-2 = ${colors.secondary}
-bar-load-foreground-3 = ${colors.secondary}
-bar-load-fill = 
-bar-load-empty = 
-bar-load-empty-foreground = ${colors.primary}
-
-
-; Memory
-;
-[module/memory]
-type = internal/memory
-interval = 2
-
-format = <label> <bar-used>
-
-label = "RAM"
-label-foreground = ${colors.foreground-alt}
-
-bar-used-indicator =
-bar-used-width = 15
-bar-used-foreground-0 = ${colors.secondary}
-bar-used-foreground-1 = ${colors.secondary}
-bar-used-foreground-2 = ${colors.secondary}
-bar-used-foreground-3 = ${colors.secondary}
-bar-used-fill = 
-bar-used-empty = 
-bar-used-empty-foreground = ${colors.primary}
-
-; Custom modules
-;
-
-; Temperature
-;
 [module/temperature]
 type = custom/script
-interval = 1.5
-exec = sensors | awk '/Core/ {print substr ($3, 2, 2) " C"}' | tr '\n' ' '
-;exec = sensors | awk '/CPU/ {print substr($2, 2, 7)}'
-
-format-prefix = "%{F#9E534E}%{F-} CPU "
-format-foreground = ${colors.foreground}
-format-suffix = " "
-
-; CPU MHz
-;
-[module/speed]
-type = custom/script
 interval = 1
-exec = lscpu | awk '/CPU MHz/ {printf substr ($3,1,length($3)-4)}' | sed 's/$/ MHz/'
+exec = sensors | awk '/Core/ {print substr ($3, 2, 2) " C"}' | tr '\n' ' '
 
-format-foreground = ${colors.foreground}
-format-suffix = "  "
+format-prefix = "%{F#9E534E}%{F-} "
+format-foreground = #D4D7D9
 
-;Date
-;
 [module/date]
 type = custom/script
 interval = 1.0
 
+format-background = ${colors.red}
 format-foreground = ${colors.foreground}
+format-padding = 1
 
-exec = echo "[  $(date +'%A, %b %d %H:%M')  ]"
-
-; Current music
-;
-[module/mpc]
-type = custom/script
-interval = 1.0
-format-foreground = ${colors.foreground}
-format-prefix = "  "
-format-prefix-foreground = ${colors.red}
-
-exec = ~/.config/polybar/scripts/nowplaying
+exec = date +'%A, %b %d %H:%M'
 
 ; vim:ft=dosini

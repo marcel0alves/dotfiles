@@ -22,19 +22,15 @@ fi
 
 export PATH="${PATH}:$HOME/.scripts"
 export PATH="${PATH}:$HOME/.local/bin"
+export WALLPAPERS=$HOME/Pictures/Wallpapers
 
 # Default editor for $USER
 export EDITOR=/usr/bin/vim
 
-# Wayland
-export GDK_BACKEND=wayland
-export QT_QPA_PLATFORM=wayland-egl
-export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
-
 # Aliases
 
-# Sway
-alias sway="dbus-run-session sway -d 2>&1 >/var/log/sway.log"
+# Startx
+alias startx="startx -- vt1"
 
 # Ls
 alias ll="ls -l --g"
@@ -54,12 +50,6 @@ alias make.conf="sudo vim /etc/portage/make.conf"
 alias package.use="sudo vim /etc/portage/package.use"
 alias package.mask="sudo vim /etc/portage/package.mask"
 alias package.accept_keywords="sudo vim /etc/portage/package.accept_keywords"
-
-# Polybar config
-# alias barconfig="vim ~/.config/polybar/config"
-
-# Bspwm config
-# alias bspconfig="vim ~/.config/bspwm/bspwmrc"
 
 # Dmesg colored
 alias dmesg="sudo dmesg --color=always"

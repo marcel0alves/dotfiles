@@ -1,10 +1,8 @@
-# Set keyboard to us-intl
-setxkbmap -layout us -model dell -variant intl
-
-# Enable Num Lock at Startx
-numlockx 
+# Set keyboard to br-thinkpad
+setxkbmap -layout br -variant thinkpad
 
 # Start X
-xrandr --output eDP-1 --mode 1920x1080 --rate 60.01
+xrandr --output eDP1 --mode 1366x768 --rate 60.00
 xsetroot -cursor_name left_ptr
 exec bspwm
+
