@@ -1,3 +1,7 @@
+# Xorg/X11
+x11-base/xorg-server -ipv6 -suid
+x11-drivers/xf86-video-intel dri sna
+
 # Cryptsetup
 sys-fs/cryptsetup static static-libs -luks1_default
 
@@ -19,20 +23,31 @@ net-misc/vde pcap
 # Getdns
 net-dns/getdns stubby -unbound
 
+# Port Knock
+net-misc/knock -server
+
 # Editors
 app-editors/vim python terminal
 
 # Firefox
-www-client/firefox hwaccel wayland -system-libvpx
+www-client/firefox clang custom-cflags custom-optimization hwaccel -system-libvpx
 >=media-libs/libpng-1.6.37 apng
 >=dev-lang/python-2.7.15:2.7 sqlite
 >=dev-lang/python-3.6.5 sqlite
-
-# required by firefox-68.0.2
+# required by www-client/firefox-68.1.0::gentoo[system-sqlite]
+# required by @selected
+# required by @world (argument)
 >=dev-db/sqlite-3.28.0 secure-delete
 
 # Media
 media-plugins/alsa-plugins ffmpeg
+
+# Personalization
+x11-misc/rofi windowmode
+x11-misc/polybar network curl ipc
+x11-misc/dunst dunstify
+>=x11-libs/cairo-1.16.0-r3 xcb
+>=x11-libs/libxcb-1.13.1 xkb
 
 # Required by initramfs
 >=dev-libs/libgpg-error-1.29 static-libs
@@ -50,42 +65,3 @@ media-plugins/alsa-plugins ffmpeg
 # Required by cryptsetup
 >=dev-libs/openssl-1.0.2r static-libs
 >=sys-libs/zlib-1.2.11-r2 static-libs
-
-# Sway
-gui-wm/sway -swaybar -swayidle
-
-# Wayland
->=x11-libs/gtk+-3.24.8 X
->=x11-libs/cairo-1.16.0-r3 X
-
-# Waybar
-gui-apps/waybar network
-dev-cpp/cairomm X
-dev-cpp/gtkmm X
-
-# Telegram
-dev-qt/qtgui egl
-
-# required by net-im/telegram-desktop-1.7.10::reagentoo
-# required by net-im/telegram-desktop (argument)
->=sys-libs/zlib-1.2.11-r2 minizip
-# required by net-im/telegram-desktop-1.7.10::reagentoo
-# required by net-im/telegram-desktop (argument)
->=x11-libs/libva-2.5.0-r1 X
-# required by dev-qt/qtgui-5.12.3-r1::gentoo[xcb]
-# required by dev-qt/qtimageformats-5.12.3::gentoo
-# required by net-im/telegram-desktop-1.7.10::reagentoo
-# required by net-im/telegram-desktop (argument)
->=x11-libs/libxcb-1.13.1 xkb
-# required by dev-qt/qtgui-5.12.3-r1::gentoo[xcb]
-# required by dev-qt/qtimageformats-5.12.3::gentoo
-# required by net-im/telegram-desktop-1.7.10::reagentoo
-# required by net-im/telegram-desktop (argument)
->=x11-libs/libxkbcommon-0.8.4 X
-# required by dev-qt/qtcore-5.12.3::gentoo
-# required by dev-qt/qtdbus-5.12.3::gentoo
-# required by dev-qt/qtgui-5.12.3-r1::gentoo[dbus]
-# required by dev-qt/qtimageformats-5.12.3::gentoo
-# required by net-im/telegram-desktop-1.7.10::reagentoo
-# required by net-im/telegram-desktop (argument)
->=dev-libs/libpcre2-10.32 pcre16
