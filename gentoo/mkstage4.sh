@@ -61,7 +61,7 @@ default_exclude_list="
 /proc
 /sys
 /tmp
-/usr/portage
+/var/db/repos/gentoo
 /usr/src
 /var/log
 /var/tmp
@@ -81,7 +81,7 @@ default_include_files="
 /proc
 /sys
 /tmp
-/usr/portage
+/var/db/repos/gentoo
 /usr/src
 /var/log/emerge.log"
 
