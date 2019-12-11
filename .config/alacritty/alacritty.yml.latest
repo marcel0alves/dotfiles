@@ -2,13 +2,13 @@
 window:
   # Window dimensions (changes require restart)
   dimensions:
-    columns: 140
-    lines: 35
+    columns: 130
+    lines: 40
 
   # Window padding (changes require restart)
   padding:
-    x: 15
-    y: 15
+    x: 10
+    y: 10
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: true
@@ -38,22 +38,22 @@ tabspaces: 8
 font:
   # Normal (roman) font face
   normal:
-    family: Monego
-    style: Bold
+    family: Roboto Mono
+    style: Regular
 
   bold:
-    family: Monego
+    family: Roboto Mono
     style: Bold
 
   italic:
-    family: Monego
+    family: Roboto Mono
     style: Italic
 
   bold_italic:
-    family: Monego
+    family: Roboto Mono
     style: Bold Italic
 
-  size: 7.0
+  size: 7.5
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -71,36 +71,42 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: false
 
-# Colors (Nord)
+# Base16 Eighties 256 - alacritty color config
+# Chris Kempson (http://chriskempson.com)
 colors:
-   # Default colors
-   primary:
-     background: '0x2E3440'
-     foreground: '0xD8DEE9'
+  # Default colors
+  primary:
+    background: '0x2d2d2d'
+    foreground: '0xd3d0c8'
 
-   # Normal colors
-   normal:
-     black:   '0x3B4252'
-     red:     '0xBF616A'
-     green:   '0xA3BE8C'
-     yellow:  '0xEBCB8B'
-     blue:    '0x81A1C1'
-     magenta: '0xB48EAD'
-     cyan:    '0x88C0D0'
-     white:   '0xE5E9F0'
+  # Colors the cursor will use if `custom_cursor_colors` is true
+  cursor:
+    text: '0x2d2d2d'
+    cursor: '0xd3d0c8'
 
-   # Bright colors
-   bright:
-     black:   '0x4C566A'
-     red:     '0xBF616A'
-     green:   '0xA3BE8C'
-     yellow:  '0xEBCB8B'
-     blue:    '0x81A1C1'
-     magenta: '0xB48EAD'
-     cyan:    '0x8FBCBB'
-     white:   '0xECEFF4'
+  # Normal colors
+  normal:
+    black:   '0x2d2d2d'
+    red:     '0xf2777a'
+    green:   '0x99cc99'
+    yellow:  '0xffcc66'
+    blue:    '0x6699cc'
+    magenta: '0xcc99cc'
+    cyan:    '0x66cccc'
+    white:   '0xd3d0c8'
 
-   indexed_colors:
+  # Bright colors
+  bright:
+    black:   '0x747369'
+    red:     '0xf2777a'
+    green:   '0x99cc99'
+    yellow:  '0xffcc66'
+    blue:    '0x6699cc'
+    magenta: '0xcc99cc'
+    cyan:    '0x66cccc'
+    white:   '0xf2f0ec'
+
+  indexed_colors:
     - { index: 16, color: '0xf99157' }
     - { index: 17, color: '0xd27b53' }
     - { index: 18, color: '0x393939' }
