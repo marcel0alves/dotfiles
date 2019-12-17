@@ -16,9 +16,8 @@ fi
 
 # Put your fun stuff here
 
-# Use bash-completion, if available
-[[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
-	. /usr/share/bash-completion/bash_completion
+# Use bash-completion
+source /etc/bash/bashrc.d/bash_completion.sh
 
 export PATH="${PATH}:$HOME/.scripts"
 export PATH="${PATH}:$HOME/.local/bin"
