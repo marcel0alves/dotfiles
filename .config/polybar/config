@@ -4,11 +4,11 @@ red = #9E534E
 
 [bar/bar]
 monitor = eDP-1
-bottom = false
+bottom = true
 
-width = 86%
-height = 26
-offset-x = 7%
+width = 80%
+height = 30
+offset-x = 10%
 offset-y = 5
 
 fixed-center = true
@@ -19,12 +19,12 @@ foreground = ${colors.foreground}
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = Misc Termsynu:style=Regular:pixelsize=10;2
+font-0 = lucy tewi:style=Regular:pixelsize=10;2
 font-1 = FontAwesome:pixelsize=10;3
 
 modules-left = bspwm
 modules-center = title
-modules-right = battery date
+modules-right = alsa battery date
 ;modules-right = temperature eth wlan backlight-acpi battery alsa
 
 cursor-click = pointer
@@ -58,7 +58,7 @@ format = <label>
 format-foreground = ${colors.foreground}
 format-padding = 2
 
-label-maxlen = 50
+label-maxlen = 70
 
 [module/wlan]
 type = internal/network
@@ -101,13 +101,14 @@ mapped = true
 
 interval = 1
 
-format-volume = <ramp-volume> <label-volume>
+format-volume = <label-volume>
+;format-volume = <ramp-volume> <label-volume>
 
-label-volume =  "%percentage%%"
+label-volume =  "%{F#9E534E}%{F-} %percentage%%"
 label-volume-foreground = ${colors.foreground}
 
 label-muted = "Mute"
-label-muted-foreground = ${colors.foreground}
+label-muted-foreground = ${colors.red}
 
 ramp-volume-0 = 
 ramp-volume-1 = 

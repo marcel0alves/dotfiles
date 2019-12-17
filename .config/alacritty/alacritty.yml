@@ -1,4 +1,6 @@
 # Configuration for Alacritty
+env:
+  TERM: xterm-256color
 window:
   # Window dimensions (changes require restart)
   dimensions:
@@ -28,7 +30,7 @@ window:
 scrolling:
   history: 10000
   multiplier: 3
-  faux_multiplier: 3
+  # faux_multiplier: 3
   auto_scroll: false
 
 # Spaces per Tab (changes require restart)
