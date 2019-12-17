@@ -1,6 +1,5 @@
-#!/bin/sh
+#!/bin/bash
 set -x
-
 # NAT Network with IP forwarding
 
 # Bridge device
@@ -12,16 +11,27 @@ NETMASK=24
 GATEWAY=10.0.0.1
 
 # Host interface
-LINK=wlp3s0 		# change to your interface.
+LINK=wlp3s0
 
-# Creating bridge device and flush old config
-ip link add name "$BRIDGE" type bridge
-ip link set "$BRIDGE" up
-ip addr flush dev "$BRIDGE" scope global
+# Bridge device
+create_bridge() {
+	ip link add name "$BRIDGE" type bridge
+	ip link set "$BRIDGE" up
+	ip addr flush dev "$BRIDGE" scope global
+	ip addr add "$GATEWAY"/"$NETMASK" dev "$BRIDGE"
+	ip link set "$BRIDGE" up
+}
 
-# Bring bridge interface up
-ip addr add "$GATEWAY"/"$NETMASK" dev "$BRIDGE"
-ip link set "$BRIDGE" up
+# Check if device exists
+ifconfig $BRIDGE
+device=$?
+
+if [ $device == "0" ]; then
+	ip link delete dev "$BRIDGE"
+	create_bridge
+else
+	create_bridge
+fi
 
 # Start IP forwarding
 echo 1 > /proc/sys/net/ipv4/ip_forward

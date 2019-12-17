@@ -1,0 +1,6 @@
+#!/bin/bash
+
+image=/tmp/lock.png
+rm -rf $image
+maim | convert - -define png:compression-level=1 -blur 0x2.5 $image
+i3lock -u -i $image
