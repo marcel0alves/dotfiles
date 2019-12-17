@@ -1,5 +1,5 @@
 # Xorg/X11
-x11-base/xorg-server -ipv6 -suid
+x11-base/xorg-server -suid -ipv6
 x11-drivers/xf86-video-intel dri sna
 
 # Cryptsetup
@@ -14,23 +14,33 @@ sys-kernel/linux-firmware savedconfig
 # QEMU/KVM/Virt-Manager
 app-emulation/qemu filecaps gtk lzo numa opengl spice usbredir vde -alsa -jpeg -png
 
-# DNSMASQ
+# Networking
 net-dns/dnsmasq conntrack dhcp-tools dnssec script tftp
-
-# VDE
 net-misc/vde pcap
-
-# Getdns
 net-dns/getdns stubby -unbound
-
-# Port Knock
 net-misc/knock -server
+net-wireless/wpa_supplicant -fils -hs2-0
+
+# Gtk
+x11-themes/gtk-engines-murrine -themes
 
 # Editors
 app-editors/vim python terminal
 
+# Git
+dev-vcs/git -* curl
+
+# Thunar
+xfce-base/thunar -*
+
+# Android file transfer
+sys-fs/android-file-transfer-linux fuse qt5
+# required by
+dev-qt/qtgui egl
+>=dev-libs/libpcre2-10.33-r1 pcre16
+
 # Firefox
-www-client/firefox clang custom-cflags custom-optimization hwaccel -system-libvpx
+www-client/firefox clang custom-cflags custom-optimization hwaccel
 >=media-libs/libpng-1.6.37 apng
 >=dev-lang/python-2.7.15:2.7 sqlite
 >=dev-lang/python-3.6.5 sqlite
@@ -38,9 +48,16 @@ www-client/firefox clang custom-cflags custom-optimization hwaccel -system-libvp
 # required by @selected
 # required by @world (argument)
 >=dev-db/sqlite-3.28.0 secure-delete
+# required by www-client/firefox-68.1.0::gentoo[system-libvpx]
+# required by firefox (argument)
+>=media-libs/libvpx-1.7.0 postproc
+# required by www-client/firefox-68.1.0::gentoo[clang]
+# required by firefox (argument)
+>=sys-devel/llvm-8.0.1 gold
 
 # Media
 media-plugins/alsa-plugins ffmpeg
+media-video/mpv cli
 
 # Personalization
 x11-misc/rofi windowmode

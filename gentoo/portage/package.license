@@ -1,1 +1,3 @@
-=sys-kernel/linux-firmware-20190923 linux-fw-redistributable no-source-code
+sys-kernel/linux-firmware linux-fw-redistributable no-source-code
+sys-firmware/intel-microcode intel-ucode
+>=games-fps/gzdoom-4.2.4 Activision ChexQuest3 DOOM-COLLECTORS-EDITION freedist
