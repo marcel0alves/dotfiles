@@ -11,7 +11,7 @@ exec 2>/dev/console
 while :
 do
         echo -e -n "\nPassword: "
-	cryptsetup --header /etc/header.img --tries 1 open /dev/sda gentoo >/dev/null 2>&1
+	cryptsetup --header /etc/header.img --tries 1 open /dev/sdb gentoo >/dev/null 2>&1
 	status=$?
 
 	case $status in
