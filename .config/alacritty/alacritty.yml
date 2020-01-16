@@ -4,8 +4,8 @@ env:
 window:
   # Window dimensions (changes require restart)
   dimensions:
-    columns: 140
-    lines: 35
+    columns: 135
+    lines: 40
 
   # Window padding (changes require restart)
   padding:
@@ -40,22 +40,22 @@ tabspaces: 8
 font:
   # Normal (roman) font face
   normal:
-    family: Monego
+    family: Ubuntu Mono derivative Powerline
     style: Bold
 
   bold:
-    family: Monego
+    family: Ubuntu Mono derivative Powerline
     style: Bold
 
   italic:
-    family: Monego
+    family: Ubuntu Mono derivative Powerline
     style: Italic
 
   bold_italic:
-    family: Monego
+    family: Ubuntu Mono derivative Powerline
     style: Bold Italic
 
-  size: 7.0
+  size: 8.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -73,36 +73,41 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: false
 
-# Colors (Nord)
+# Colors (Tomorrow Night)
 colors:
-   # Default colors
-   primary:
-     background: '0x2E3440'
-     foreground: '0xD8DEE9'
+  # Default colors
+  primary:
+    background: '0x1d1f21'
+    foreground: '0xc5c8c6'
 
-   # Normal colors
-   normal:
-     black:   '0x3B4252'
-     red:     '0xBF616A'
-     green:   '0xA3BE8C'
-     yellow:  '0xEBCB8B'
-     blue:    '0x81A1C1'
-     magenta: '0xB48EAD'
-     cyan:    '0x88C0D0'
-     white:   '0xE5E9F0'
+  # Colors the cursor will use if `custom_cursor_colors` is true
+  cursor:
+    text: '0x1d1f21'
+    cursor: '0xffffff'
 
-   # Bright colors
-   bright:
-     black:   '0x4C566A'
-     red:     '0xBF616A'
-     green:   '0xA3BE8C'
-     yellow:  '0xEBCB8B'
-     blue:    '0x81A1C1'
-     magenta: '0xB48EAD'
-     cyan:    '0x8FBCBB'
-     white:   '0xECEFF4'
+  # Normal colors
+  normal:
+    black:   '0x1d1f21'
+    red:     '0xcc6666'
+    green:   '0xb5bd68'
+    yellow:  '0xe6c547'
+    blue:    '0x81a2be'
+    magenta: '0xb294bb'
+    cyan:    '0x70c0ba'
+    white:   '0x373b41'
 
-   indexed_colors:
+  # Bright colors
+  bright:
+    black:   '0x666666'
+    red:     '0xff3334'
+    green:   '0x9ec400'
+    yellow:  '0xf0c674'
+    blue:    '0x81a2be'
+    magenta: '0xb77ee0'
+    cyan:    '0x54ced6'
+    white:   '0x282a2e'
+
+indexed_colors:
     - { index: 16, color: '0xf99157' }
     - { index: 17, color: '0xd27b53' }
     - { index: 18, color: '0x393939' }
