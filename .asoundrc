@@ -5,7 +5,7 @@ defaults.timer.card 1
 # Alsaequal
 ctl.equal {
 	type equal
-	controls "/home/leavemealone/.alsaequal.bin"
+	controls "/home/unknow/.alsaequal.bin"
 }
 
 pcm.plugequal {
