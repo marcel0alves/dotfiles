@@ -1,31 +1,30 @@
 [colors]
-foreground = #D4D7D9
-red = #9E534E
+;background = #11130B
+background = #111111
+foreground = #A9ABAA
 
 [bar/bar]
-monitor = eDP-1
+monitor = eDP1
 bottom = true
 
-width = 80%
-height = 30
-offset-x = 10%
-offset-y = 5
+width = 100%
+height = 26
 
 fixed-center = true
 
-background = #090406
+background = ${colors.background}
 foreground = ${colors.foreground}
 
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = lucy tewi:style=Regular:pixelsize=10;2
-font-1 = FontAwesome:pixelsize=10;3
+font-0 = Misc Termsynu:style=Regular:pixelsize=8;2
+font-1 = Typicons:pixelsize=14;2
+font-2 = FontAwesome:pixelsize=10;3
 
 modules-left = bspwm
 modules-center = title
-modules-right = alsa battery date
-;modules-right = temperature eth wlan backlight-acpi battery alsa
+modules-right = temperature xbacklight alsa battery date
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -39,16 +38,16 @@ format = <label-state>
 label-monitor = %name%
 
 label-focused = %name%
-label-focused-background = #407076
+label-focused-background = #3D443A
 label-focused-foreground = ${colors.foreground}
 label-focused-padding = 2
 
 label-occupied = %name%
-abel-occupied-foreground = ${colors.foreground}
+label-occupied-foreground = ${colors.foreground}
 label-occupied-padding = 2
 
 label-empty = %name%
-label-empty-foreground = #2d2d2d
+label-empty-foreground = #272D14
 label-empty-padding = 2
 
 [module/title]
@@ -58,7 +57,7 @@ format = <label>
 format-foreground = ${colors.foreground}
 format-padding = 2
 
-label-maxlen = 70
+label-maxlen = 60
 
 [module/wlan]
 type = internal/network
@@ -90,31 +89,24 @@ type = internal/xbacklight
 
 format = <label>
 format-foreground = ${colors.foreground}
-label = "%{F#9E534E}%{F-} %percentage%%"
+label = "%{F#9E534E}%{F-} %percentage%%"
 
 [module/alsa]
 type = internal/alsa
 
-master-soundcard = default
-master-mixer = Master
-mapped = true
+;master-soundcard = default
+;master-mixer = Master
+;mapped = true
 
 interval = 1
 
 format-volume = <label-volume>
-;format-volume = <ramp-volume> <label-volume>
 
-label-volume =  "%{F#9E534E}%{F-} %percentage%%"
+label-volume =  "%{F#6E891B}%{F-} %percentage%%"
 label-volume-foreground = ${colors.foreground}
 
-label-muted = "Mute"
-label-muted-foreground = ${colors.red}
-
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
-
-ramp-volume-foreground = ${colors.red}
+label-muted = " Mute"
+label-muted-foreground = ${colors.foreground}
 
 [module/battery]
 type = internal/battery
@@ -122,45 +114,36 @@ battery = BAT0
 adapter = AC
 full-at = 98
 
-format-charging = <animation-charging><label-charging>
+format-charging =  <label-charging>
+format-full =  <label-full>
 format-discharging = <ramp-capacity><label-discharging>
-format-full = <ramp-capacity><label-full>
-
-label-discharging-foreground = #D4D7D9
-label-full-foreground = #D4D7D9
-label-charging-foreground = #D4D7D9
 
 ramp-capacity-0 = " "
 ramp-capacity-1 = " "
 ramp-capacity-2 = " "
 ramp-capacity-3 = " "
 ramp-capacity-4 = " "
-ramp-capacity-foreground = ${colors.red}
 
-animation-charging-0 = " "
-animation-charging-1 = " "
-animation-charging-2 = " "
-animation-charging-3 = " "
-animation-charging-4 = " "
-animation-charging-framerate = 350
-animation-charging-foreground = ${colors.red}
+label-discharging-foreground = ${colors.foreground}
+label-full-foreground = ${colors.foreground}
+label-charging-foreground = ${colors.foreground}
 
 [module/temperature]
 type = custom/script
 interval = 1
-exec = sensors | awk '/Core/ {print substr ($3, 2, 2) " C"}' | tr '\n' ' '
+exec = sensors | awk '/Package id/ {print substr ($4, 2, 2) " C"}'
 
 format-prefix = "%{F#9E534E}%{F-} "
-format-foreground = #D4D7D9
+format-foreground = ${colors.foreground}
 
 [module/date]
 type = custom/script
 interval = 1.0
 
-format-background = ${colors.red}
+format-background = #3D443A
 format-foreground = ${colors.foreground}
 format-padding = 1
 
-exec = date +'%A, %b %d %H:%M'
+exec = date +'%b %d %H:%M'
 
 ; vim:ft=dosini
