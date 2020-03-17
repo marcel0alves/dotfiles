@@ -1,7 +1,8 @@
 # Set keyboard to br-thinkpad
-setxkbmap -layout us -model dell -variant intl
+setxkbmap -layout br -variant thinkpad
 
 # Start X
-xrandr --output eDP1 --mode 1920x1080 --rate 59.93
+xrandr --output eDP1 --mode 1366x768 --rate 60.00
 xsetroot -cursor_name left_ptr
 exec bspwm
+
