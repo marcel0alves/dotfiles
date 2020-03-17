@@ -14,19 +14,12 @@ if [[ $- != *i* ]] ; then
 	return
 fi
 
-# Put your fun stuff here
-
-# Use bash-completion
+# Use bash completion
 source /etc/bash/bashrc.d/bash_completion.sh
 
-export PATH="${PATH}:$HOME/.scripts"
-export PATH="${PATH}:$HOME/.local/bin"
-export WALLPAPERS=$HOME/Pictures/Wallpapers
-
-# Default editor for $USER
-export EDITOR=/usr/bin/vim
-
 # Aliases
+
+alias htop="htop -d 10"
 
 # Startx
 alias startx="startx -- vt1"
