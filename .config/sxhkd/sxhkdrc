@@ -114,11 +114,15 @@ alt + f
 
 # Open Telegram
 alt + t
-	./Telegram/Telegram
+	~/.local/bin/Telegram
 
 # Open Thunar
 super + e
 	thunar
+
+# Open ncmpcpp
+alt + n
+	st -g 120x30 -c ncmpcpp -n ncmpcpp -e ncmpcpp
 
 # Restart Polybar
 alt + shift + p
@@ -134,7 +138,7 @@ super + Return
 
 # program launcher
 super + @space
-	rofi -modi drun,run,window -show drun -show-icons -font "SF Pro Display Bold 10"
+	rofi -modi drun,run,window -show drun -show-icons -font "SF Pro Display 10"
 
 # Screenshot
 Print

@@ -1,8 +1,12 @@
 sys-kernel/gentoo-sources ~amd64
 =x11-wm/bspwm-0.9.9 ~amd64
 =x11-misc/sxhkd-0.6.1 ~amd64
-=media-plugins/alsaequal-0.7.1 ~amd64
 =net-dns/getdns-1.5.2-r2 ~amd64
+=media-fonts/cascadia-code-1910.04 ~amd64
+x11-misc/polybar ~amd64
+media-plugins/alsaequal
+net-misc/openssh ~amd64
+media-fonts/iosevka ~amd64
 
 # required by media-gfx/maim-5.5.3::gentoo
 # required by maim (argument)

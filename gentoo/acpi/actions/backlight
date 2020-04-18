@@ -1,6 +1,6 @@
 #!/bin/sh
 bl_dev=/sys/class/backlight/intel_backlight
-step=375
+step=479
 
 case $1 in
   -) echo $(($(< $bl_dev/brightness) - $step)) >$bl_dev/brightness;;

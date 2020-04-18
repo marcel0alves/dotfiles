@@ -1,5 +1,5 @@
 # Xorg/X11
-x11-base/xorg-server -suid -ipv6
+x11-base/xorg-server -ipv6 -suid
 x11-drivers/xf86-video-intel dri sna
 
 # Cryptsetup
@@ -14,30 +14,20 @@ sys-kernel/linux-firmware savedconfig
 # QEMU/KVM/Virt-Manager
 app-emulation/qemu filecaps gtk lzo numa opengl spice usbredir vde -alsa -jpeg -png
 
-# Networking
+# DNSMASQ
 net-dns/dnsmasq conntrack dhcp-tools dnssec script tftp
-net-misc/vde pcap
-net-dns/getdns stubby -unbound
-net-misc/knock -server
-net-wireless/wpa_supplicant -fils -hs2-0
 
-# Gtk
-x11-themes/gtk-engines-murrine -themes
+# VDE
+net-misc/vde pcap
+
+# Getdns
+net-dns/getdns stubby -unbound
+
+# Port Knock
+net-misc/knock -server
 
 # Editors
 app-editors/vim python terminal
-
-# Git
-dev-vcs/git -* curl
-
-# Thunar
-xfce-base/thunar -*
-
-# Android file transfer
-sys-fs/android-file-transfer-linux fuse qt5
-# required by
-dev-qt/qtgui egl
->=dev-libs/libpcre2-10.33-r1 pcre16
 
 # Firefox
 www-client/firefox clang custom-cflags custom-optimization hwaccel
@@ -49,15 +39,27 @@ www-client/firefox clang custom-cflags custom-optimization hwaccel
 # required by @world (argument)
 >=dev-db/sqlite-3.28.0 secure-delete
 # required by www-client/firefox-68.1.0::gentoo[system-libvpx]
-# required by firefox (argument)
+# required by @selected
+# required by @world (argument)
 >=media-libs/libvpx-1.7.0 postproc
 # required by www-client/firefox-68.1.0::gentoo[clang]
-# required by firefox (argument)
+# required by @selected
+# required by @world (argument)
 >=sys-devel/llvm-8.0.1 gold
 
 # Media
 media-plugins/alsa-plugins ffmpeg
-media-video/mpv cli
+media-sound/mpd -network -ipv6
+media-sound/ncmpcpp clock visualizer
+
+# required by media-sound/ncmpcpp-0.8.2-r1::gentoo
+# required by ncmpcpp (argument)
+>=dev-libs/boost-1.72.0-r1 icu nls
+
+# required by dev-util/itstool-2.0.6-r1::gentoo[python_single_target_python3_6]
+# required by gnome-extra/gucharmap-12.0.1::gentoo
+# required by gucharmap (argument)
+>=dev-libs/libxml2-2.9.9-r3 python
 
 # Personalization
 x11-misc/rofi windowmode

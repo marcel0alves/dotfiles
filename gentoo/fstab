@@ -1,2 +1,2 @@
 # /tmp on RAM
-tmpfs							/var/tmp/portage		tmpfs		rw,noatime,nodev,nosuid,mode=1777	0 0
+tmpfs							/var/tmp/portage		tmpfs		rw,noatime,nodev,nosuid,mode=1777,size=4G	0 0

@@ -7,19 +7,21 @@
 # DARKELF_FEATURES="postmerge_distclean" emerge ...
 
 darkelf_postmerge_distclean(){
- echo cleaning distfiles for ${CATEGORY}/${PF}...
- if [ -z $DISTDIR ] ; then
-  echo ERROR: DISTDIR is empty!
-  exit 1
- fi
- for f in $DISTDIR/* ; do
-  echo deleting "`readlink -f $f`"...
-  rm -r "`readlink -f $f`"
- done
+	echo cleaning distfiles for ${CATEGORY}/${PF}...
+
+	if [ -z $DISTDIR ] ; then
+		echo ERROR: DISTDIR is empty!
+		exit 1
+	fi
+
+	for f in $DISTDIR/* ; do
+		echo deleting "`readlink -f $f`"...
+		rm -r "`readlink -f $f`"
+	done
 }
 
 post_pkg_postinst(){
- if grep -q "postmerge_distclean" <<< $DARKELF_FEATURES ; then
-  darkelf_postmerge_distclean
- fi
+	if grep -q "postmerge_distclean" <<< $DARKELF_FEATURES ; then
+		darkelf_postmerge_distclean
+	fi
 }
