@@ -4,14 +4,15 @@ My personal config/dotfiles files for Linux. In development.
 
 Setup:
 - Gentoo
-- Sway
+- Bspwm
 - Bash
 - Alacritty
-- Waybar
-- Sysinfo
+- Polybar
+- Ufetch
+- Htop
 
-![alt text](https://i.postimg.cc/hgvN7Qwn/screenshot-20-08-2019-22-26-43.png)
+![alt text](https://i.postimg.cc/L9sryxMS/image-2020-05-13-00-13-07.png)
 
 Created by Marcelo Alves.
 
-Last Update: Aug 20, 2019
+Last Update: May 13, 2020
