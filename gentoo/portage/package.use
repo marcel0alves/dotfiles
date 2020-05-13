@@ -1,6 +1,7 @@
 # Xorg/X11
 x11-base/xorg-server -ipv6 -suid
 x11-drivers/xf86-video-intel dri sna
+media-libs/mesa -llvm
 
 # Cryptsetup
 sys-fs/cryptsetup static static-libs -luks1_default
@@ -11,62 +12,21 @@ sys-apps/busybox static -ipv6
 # Firmware
 sys-kernel/linux-firmware savedconfig
 
-# QEMU/KVM/Virt-Manager
-app-emulation/qemu filecaps gtk lzo numa opengl spice usbredir vde -alsa -jpeg -png
-
-# DNSMASQ
-net-dns/dnsmasq conntrack dhcp-tools dnssec script tftp
-
-# VDE
-net-misc/vde pcap
-
 # Getdns
 net-dns/getdns stubby -unbound
-
-# Port Knock
-net-misc/knock -server
 
 # Editors
 app-editors/vim python terminal
 
 # Firefox
-www-client/firefox clang custom-cflags custom-optimization hwaccel
->=media-libs/libpng-1.6.37 apng
->=dev-lang/python-2.7.15:2.7 sqlite
->=dev-lang/python-3.6.5 sqlite
-# required by www-client/firefox-68.1.0::gentoo[system-sqlite]
-# required by @selected
-# required by @world (argument)
->=dev-db/sqlite-3.28.0 secure-delete
-# required by www-client/firefox-68.1.0::gentoo[system-libvpx]
-# required by @selected
-# required by @world (argument)
->=media-libs/libvpx-1.7.0 postproc
-# required by www-client/firefox-68.1.0::gentoo[clang]
-# required by @selected
-# required by @world (argument)
->=sys-devel/llvm-8.0.1 gold
+www-client/firefox custom-cflags custom-optimization hwaccel -clang
 
 # Media
 media-plugins/alsa-plugins ffmpeg
-media-sound/mpd -network -ipv6
-media-sound/ncmpcpp clock visualizer
-
-# required by media-sound/ncmpcpp-0.8.2-r1::gentoo
-# required by ncmpcpp (argument)
->=dev-libs/boost-1.72.0-r1 icu nls
-
-# required by dev-util/itstool-2.0.6-r1::gentoo[python_single_target_python3_6]
-# required by gnome-extra/gucharmap-12.0.1::gentoo
-# required by gucharmap (argument)
->=dev-libs/libxml2-2.9.9-r3 python
 
 # Personalization
 x11-misc/rofi windowmode
 x11-misc/polybar network curl ipc
-x11-misc/dunst dunstify
->=x11-libs/cairo-1.16.0-r3 xcb
->=x11-libs/libxcb-1.13.1 xkb
 
 # Required by initramfs
 >=dev-libs/libgpg-error-1.29 static-libs
