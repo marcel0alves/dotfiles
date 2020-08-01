@@ -10,4 +10,4 @@ export PATH=$HOME/.local/platform-tools:$PATH
 export PATH=$HOME/.local/bin:$PATH
 
 # Default editor for $USER
-export EDITOR=/usr/bin/vim
+export EDITOR=/usr/bin/nvim

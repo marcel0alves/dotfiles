@@ -17,19 +17,11 @@ fi
 # Use bash completion
 source /etc/bash/bashrc.d/bash_completion.sh
 
-# Aliases
-
 alias htop="htop -d 10"
-
-# Startx
 alias startx="startx -- vt1"
+alias exa="exa -l --group-directories-first"
 
-# Ls
-alias ll="ls -l --g"
-alias la="ls -la --g"
-
-# Emerge functions
-alias updatesystem="sudo emerge --sync && sudo emerge -auvND @world"
+alias updatesystem="sudo emerge --sync --quiet && sudo emerge -auvND @world"
 alias cleanemerge="sudo emerge --ask --depclean"
 alias searchpkg="emerge -s"
 alias installpkg="sudo emerge -av"
@@ -37,11 +29,10 @@ alias removepkg="sudo emerge --ask --unmerge"
 alias emergeworld="sudo emerge -auvND @world"
 alias cleanportage="sudo rm -rfv /var/tmp/portage/*"
 
-# Portage files
-alias make.conf="sudo vim /etc/portage/make.conf"
-alias package.use="sudo vim /etc/portage/package.use"
-alias package.mask="sudo vim /etc/portage/package.mask"
-alias package.accept_keywords="sudo vim /etc/portage/package.accept_keywords"
+alias make.conf="sudo nvim /etc/portage/make.conf"
+alias package.use="sudo nvim /etc/portage/package.use"
+alias package.mask="sudo nvim /etc/portage/package.mask"
+alias package.accept_keywords="sudo nvim /etc/portage/package.accept_keywords"
 
 # Dmesg colored
 alias dmesg="sudo dmesg --color=always"
