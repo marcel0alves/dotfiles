@@ -5,12 +5,12 @@ window:
   # Window dimensions (changes require restart)
   dimensions:
     columns: 110
-    lines: 25
+    lines: 30
 
   # Window padding (changes require restart)
   padding:
-    x: 30
-    y: 30
+    x: 10
+    y: 10
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: true
@@ -30,32 +30,28 @@ window:
 scrolling:
   history: 10000
   multiplier: 3
-  # faux_multiplier: 3
-  auto_scroll: false
 
-# Spaces per Tab (changes require restart)
-tabspaces: 8
 
 # Font configuration (changes require restart)
 font:
   # Normal (roman) font face
   normal:
-    family: Iosevka Term
+    family: Ubuntu Mono
     style: Medium
 
   bold:
-    family: Iosevka Term
+    family: Ubuntu Mono
     style: Bold
 
   italic:
-    family: Iosevka Term
+    family: Ubuntu Mono
     style: Italic
 
   bold_italic:
-    family: Iosevka Term
+    family: Ubuntu Mono
     style: Bold Italic
 
-  size: 8.0
+  size: 9.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -73,49 +69,48 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: false
 
-# Base16 Gruvbox dark, hard 256 - alacritty color config
-# Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
+# Base16 Material Darker 256 - alacritty color config
+# Nate Peterson
 colors:
   # Default colors
   primary:
-    background: '0x1d2021'
-    foreground: '0xd5c4a1'
+    background: '0x212121'
+    foreground: '0xeeffff'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: '0x1d2021'
-    cursor: '0xd5c4a1'
+    text: '0x212121'
+    cursor: '0xeeffff'
 
   # Normal colors
   normal:
-    black:   '0x1d2021'
-    red:     '0xfb4934'
-    green:   '0xb8bb26'
-    yellow:  '0xfabd2f'
-    blue:    '0x83a598'
-    magenta: '0xd3869b'
-    cyan:    '0x8ec07c'
-    white:   '0xd5c4a1'
+    black:   '0x212121'
+    red:     '0xf07178'
+    green:   '0xc3e88d'
+    yellow:  '0xffcb6b'
+    blue:    '0x82aaff'
+    magenta: '0xc792ea'
+    cyan:    '0x89ddff'
+    white:   '0xeeffff'
 
   # Bright colors
   bright:
-    black:   '0x665c54'
-    red:     '0xfb4934'
-    green:   '0xb8bb26'
-    yellow:  '0xfabd2f'
-    blue:    '0x83a598'
-    magenta: '0xd3869b'
-    cyan:    '0x8ec07c'
-    white:   '0xfbf1c7'
+    black:   '0x4a4a4a'
+    red:     '0xf07178'
+    green:   '0xc3e88d'
+    yellow:  '0xffcb6b'
+    blue:    '0x82aaff'
+    magenta: '0xc792ea'
+    cyan:    '0x89ddff'
+    white:   '0xffffff'
 
   indexed_colors:
-    - { index: 16, color: '0xfe8019' }
-    - { index: 17, color: '0xd65d0e' }
-    - { index: 18, color: '0x3c3836' }
-    - { index: 19, color: '0x504945' }
-    - { index: 20, color: '0xbdae93' }
-    - { index: 21, color: '0xebdbb2' }
-
+    - { index: 16, color: '0xf78c6c' }
+    - { index: 17, color: '0xff5370' }
+    - { index: 18, color: '0x303030' }
+    - { index: 19, color: '0x353535' }
+    - { index: 20, color: '0xb2ccd6' }
+    - { index: 21, color: '0xeeffff' }
 
 # Visual Bell
 #
@@ -220,7 +215,7 @@ cursor:
   #   - ▇ Block
   #   - _ Underline
   #   - | Beam
-  style: Beam
+  style: Block
 
   # If this is `true`, the cursor will be rendered as a hollow box when the
   # window is not focused.
