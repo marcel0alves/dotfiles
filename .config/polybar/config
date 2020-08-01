@@ -1,30 +1,29 @@
 [colors]
-;background = #11130B
-background = #111111
-foreground = #A9ABAA
+background = #090406
+foreground = #D4D7D9
+
+red = #9E534E
 
 [bar/bar]
 monitor = eDP1
 bottom = true
-
 width = 100%
-height = 26
+height = 24
 
 fixed-center = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-module-margin-left = 1
-module-margin-right = 1
+module-margin-left = 2
+module-margin-right = 2
 
-font-0 = Misc Termsynu:style=Regular:pixelsize=8;2
-font-1 = Typicons:pixelsize=14;2
-font-2 = FontAwesome:pixelsize=10;3
+font-0 = scientifica:pixelsize=8;2
+font-1 = FontAwesome:pixelsize=10;3
 
 modules-left = bspwm
 modules-center = title
-modules-right = temperature xbacklight alsa battery date
+modules-right = temperature wlan battery date
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -38,7 +37,7 @@ format = <label-state>
 label-monitor = %name%
 
 label-focused = %name%
-label-focused-background = #3D443A
+label-focused-background = ${colors.red}
 label-focused-foreground = ${colors.foreground}
 label-focused-padding = 2
 
@@ -66,7 +65,7 @@ interval = 1.0
 
 format-connected = <label-connected>
 
-label-connected = "%{F#9E534E}%{F-} %local_ip%"
+label-connected = "%{F#9E534E}%{F-} %essid%"
 label-connected-foreground = ${colors.foreground}
 
 [module/eth]
@@ -114,8 +113,8 @@ battery = BAT0
 adapter = AC
 full-at = 98
 
-format-charging =  <label-charging>
-format-full =  <label-full>
+format-charging = %{F#9E534E}%{F-} <label-charging>
+format-full = %{F#9E534E}%{F-} Full
 format-discharging = <ramp-capacity><label-discharging>
 
 ramp-capacity-0 = " "
@@ -124,6 +123,7 @@ ramp-capacity-2 = " "
 ramp-capacity-3 = " "
 ramp-capacity-4 = " "
 
+ramp-capacity-foreground = ${colors.red}
 label-discharging-foreground = ${colors.foreground}
 label-full-foreground = ${colors.foreground}
 label-charging-foreground = ${colors.foreground}
@@ -131,7 +131,7 @@ label-charging-foreground = ${colors.foreground}
 [module/temperature]
 type = custom/script
 interval = 1
-exec = sensors | awk '/Package id/ {print substr ($4, 2, 2) " C"}'
+exec = sensors | awk '/Package id/ {print $4}' | sed 's/+//'
 
 format-prefix = "%{F#9E534E}%{F-} "
 format-foreground = ${colors.foreground}
@@ -140,7 +140,7 @@ format-foreground = ${colors.foreground}
 type = custom/script
 interval = 1.0
 
-format-background = #3D443A
+format-background = ${colors.red}
 format-foreground = ${colors.foreground}
 format-padding = 1
 
