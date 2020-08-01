@@ -1,32 +1,59 @@
-# Xorg/X11
+# ONLY PYTHON 3 USE
+*/* PYTHON_TARGETS: -python2_7
+*/* PYTHON_SINGLE_TARGET: -python2_7
+
 x11-base/xorg-server -ipv6 -suid
 x11-drivers/xf86-video-intel dri sna
 media-libs/mesa -llvm
+sys-kernel/linux-firmware savedconfig
+media-plugins/alsa-plugins ffmpeg
+media-sound/pulseaudio -asyncns -ipv6 -webrtc-aec
+
+x11-misc/rofi windowmode
+x11-misc/polybar network curl ipc
+xfce-base/thunar -pcre -trash-panel-plugin
+
+# Neovim
+app-editors/neovim -luajit
+
+# Firefox
+www-client/firefox custom-cflags custom-optimization gmp-autoupdate hwaccel -clang
+>=media-libs/libpng-1.6.37 apng
+>=dev-db/sqlite-3.31.1 secure-delete
+# required by www-client/firefox-68.8.0::gentoo
+# required by @selected
+# required by @world (argument)
+>=dev-lang/python-2.7.18:2.7 sqlite
+# required by www-client/firefox-68.8.0::gentoo
+# required by @selected
+# required by @world (argument)
+>=dev-lang/python-3.8.2-r2 sqlite
+# required by www-client/firefox-68.11.0::gentoo[system-libvpx]
+# required by @selected
+# required by @world (argument)
+=media-libs/libvpx-1.7.0-r1 postproc
+
+# Telegram
+# required by net-im/telegram-desktop-2.1.18::gentoo
+# required by telegram-desktop (argument)
+>=sys-libs/zlib-1.2.11-r2 minizip
+# required by dev-qt/qtwayland-5.14.2::gentoo
+>=dev-qt/qtgui-5.14.2 wayland egl
+# required by net-im/telegram-desktop-2.1.20::gentoo[gtk]
+# required by @selected
+# required by @world (argument)
+>=x11-libs/gtk+-3.24.20 wayland
+# required by x11-libs/gtk+-3.24.20::gentoo[wayland]
+# required by net-im/telegram-desktop-2.1.20::gentoo[gtk]
+# required by @selected
+# required by @world (argument)
+>=media-libs/mesa-20.0.8 wayland
 
 # Cryptsetup
 sys-fs/cryptsetup static static-libs -luks1_default
 
 # Busybox
 sys-apps/busybox static -ipv6
-
-# Firmware
-sys-kernel/linux-firmware savedconfig
-
-# Getdns
-net-dns/getdns stubby -unbound
-
-# Editors
-app-editors/vim python terminal
-
-# Firefox
-www-client/firefox custom-cflags custom-optimization hwaccel -clang
-
-# Media
-media-plugins/alsa-plugins ffmpeg
-
-# Personalization
-x11-misc/rofi windowmode
-x11-misc/polybar network curl ipc
 
 # Required by initramfs
 >=dev-libs/libgpg-error-1.29 static-libs
@@ -44,3 +71,10 @@ x11-misc/polybar network curl ipc
 # Required by cryptsetup
 >=dev-libs/openssl-1.0.2r static-libs
 >=sys-libs/zlib-1.2.11-r2 static-libs
+
+# Discord
+# required by net-print/cups-filters-1.27.4::gentoo[postscript]
+# required by net-print/cups-2.3.3-r1::gentoo
+# required by net-im/discord-bin-0.0.10::gentoo
+# required by net-im/discord-bin (argument)
+>=app-text/ghostscript-gpl-9.50 cups
