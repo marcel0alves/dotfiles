@@ -116,14 +116,6 @@ alt + f
 alt + t
 	~/.local/bin/Telegram
 
-# Open Thunar
-super + e
-	thunar
-
-# Open ncmpcpp
-alt + n
-	st -g 120x30 -c ncmpcpp -n ncmpcpp -e ncmpcpp
-
 # Restart Polybar
 alt + shift + p
 	~/.scripts/poly
@@ -136,9 +128,13 @@ super + x
 super + Return
 	alacritty
 
+# Thunar
+super + e
+	thunar
+
 # program launcher
 super + @space
-	rofi -modi drun,run,window -show drun -show-icons -font "SF Pro Display 10"
+	rofi -modi drun,run,window -show drun -show-icons -font "Roboto Regular 10"
 
 # Screenshot
 Print
@@ -161,6 +157,5 @@ XF86AudioRaiseVolume
 # make sxhkd reload its configuration files:
 super + shift + Escape
 	~/.config/bspwm/bspwmrc; \
-	pkill -USR1 -x sxhkd; \
-	notify-send 'Bspwm/Sxhkd' 'Configs reloaded'
+	pkill -USR1 -x sxhkd
 

@@ -1,22 +1,19 @@
-#! /bin/sh
+#!/bin/sh
 
-export PATH="${PATH}:$HOME/.scripts"
 export PATH="${PATH}:$HOME/.config/bspwm"
-WALLPAPERS=$HOME/Pictures/Wallpapers
 
 # Autostart
-hsetroot -fill $WALLPAPERS/FaroeIsland/faroeisland6.jpg
+hsetroot -fill $WALLPAPERS/island.jpg
 
-killall -q -9 sxhkd dunst poly mpd
+killall -q -9 sxhkd poly dunst
 
 sxhkd &
-dunst &
 poly &
-mpd &
+dunst &
 
 # Configuration
 bspc monitor -d 1 2 3 4 5 6
-bspc config border_width		2
+bspc config border_width		3
 bspc config window_gap			5
 bspc config split_ratio			0.5
 bspc config borderless_monocle		true
@@ -29,13 +26,11 @@ bspc config initial_polarity		second_child
 
 # Rules
 bspc rule -a "Firefox"			desktop='^1'		follow=on
-bspc rule -a TelegramDesktop 		desktop='^2'		follow=on 
-bspc rule -a Alacritty			desktop='^3'		follow=on	state=tiling	center=true
-bspc rule -a Thunar			desktop='^4'		follow=on	state=floating	center=true
+bspc rule -a TelegramDesktop 		desktop='^2'		follow=on
 bspc rule -a "realvnc-vncviewer"	desktop='^5' 		follow=on 	state=floating 	center=true
 
 bspc rule -a "Firefox":"Places"		state=floating		follow=on	center=true
 bspc rule -a "Firefox":"Browser"	state=floating		follow=on	center=true
 bspc rule -a Lxappearance 		state=floating 		follow=on	center=true
 bspc rule -a Sxiv 			state=floating 		center=true
-bspc rule -a Qemu-system-x86_64 	state=floating 		center=true
+bspc rule -a Alacritty			state=tiling 		follow=on	center=true
