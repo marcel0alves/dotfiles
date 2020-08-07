@@ -3,16 +3,17 @@
 My personal config/dotfiles files for Linux. In development.
 
 Setup:
-- Gentoo
+
+- ThinkPad T440p
+- Gentoo Linux
 - Bspwm
 - Bash
 - Alacritty
 - Polybar
-- Ufetch
-- Htop
+- neofetch
 
-![alt text](https://i.postimg.cc/L9sryxMS/image-2020-05-13-00-13-07.png)
+![alt text](https://i.postimg.cc/ChNT40Jp/image-2020-08-07-00-28-41.png)
 
 Created by Marcelo Alves.
 
-Last Update: May 13, 2020
+Last Update: Aug 07, 2020
