@@ -1,29 +1,35 @@
 [colors]
-background = #090406
-foreground = #D4D7D9
+;background = #282a36
+background = #212121
+;foreground = #e2e4e5
+foreground = #eeffff
 
 red = #9E534E
 
 [bar/bar]
 monitor = eDP1
-bottom = true
-width = 100%
-height = 24
-
+bottom = false
+width = 80%
+height = 30
+offset-x = 10%
+offset-y = 5
+dpi-x = 120
+dpi-y = 120
 fixed-center = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
+padding-left = 1
 module-margin-left = 2
 module-margin-right = 2
 
-font-0 = scientifica:pixelsize=8;2
-font-1 = FontAwesome:pixelsize=10;3
+font-0 = mononoki:style=Bold:pixelsize=8;3
+font-1 = FontAwesome:pixelsize=10;2
 
 modules-left = bspwm
 modules-center = title
-modules-right = temperature wlan battery date
+modules-right = temperature wlan eth battery date
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -36,18 +42,17 @@ type = internal/bspwm
 format = <label-state>
 label-monitor = %name%
 
-label-focused = %name%
-label-focused-background = ${colors.red}
+label-focused = 
 label-focused-foreground = ${colors.foreground}
-label-focused-padding = 2
+label-focused-padding = 1
 
-label-occupied = %name%
-label-occupied-foreground = ${colors.foreground}
-label-occupied-padding = 2
+label-occupied = 
+label-occupied-foreground = #78787e
+label-occupied-padding = 1
 
-label-empty = %name%
-label-empty-foreground = #272D14
-label-empty-padding = 2
+label-empty = 
+label-empty-foreground = #78787e
+label-empty-padding = 1
 
 [module/title]
 type = internal/xwindow
@@ -65,7 +70,7 @@ interval = 1.0
 
 format-connected = <label-connected>
 
-label-connected = "%{F#9E534E}%{F-} %essid%"
+label-connected = "%{F#57c7ff}%{F-} %essid%"
 label-connected-foreground = ${colors.foreground}
 
 [module/eth]
@@ -114,7 +119,7 @@ adapter = AC
 full-at = 98
 
 format-charging = %{F#9E534E}%{F-} <label-charging>
-format-full = %{F#9E534E}%{F-} Full
+format-full = %{F#5af78e}%{F-} Full
 format-discharging = <ramp-capacity><label-discharging>
 
 ramp-capacity-0 = " "
@@ -133,7 +138,7 @@ type = custom/script
 interval = 1
 exec = sensors | awk '/Package id/ {print $4}' | sed 's/+//'
 
-format-prefix = "%{F#9E534E}%{F-} "
+format-prefix = "%{F#ff5c57}%{F-} "
 format-foreground = ${colors.foreground}
 
 [module/date]
