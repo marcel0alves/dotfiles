@@ -5,7 +5,7 @@ window:
   # Window dimensions (changes require restart)
   dimensions:
     columns: 110
-    lines: 30
+    lines: 35
 
   # Window padding (changes require restart)
   padding:
@@ -36,22 +36,22 @@ scrolling:
 font:
   # Normal (roman) font face
   normal:
-    family: Ubuntu Mono
-    style: Medium
+    family: mononoki Nerd Font Mono
+    style: Regular
 
   bold:
-    family: Ubuntu Mono
+    family: mononoki Nerd Font Mono
     style: Bold
 
   italic:
-    family: Ubuntu Mono
+    family: mononoki Nerd Font Mono
     style: Italic
 
   bold_italic:
-    family: Ubuntu Mono
+    family: mononoki Nerd Font Mono
     style: Bold Italic
 
-  size: 9.0
+  size: 7.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
