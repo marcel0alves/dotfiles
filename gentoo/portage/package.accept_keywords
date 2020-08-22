@@ -1,9 +1,2 @@
-# Common packages
-sys-kernel/gentoo-sources ~amd64
-net-misc/openssh ~amd64
-media-fonts/fontawesome ~amd64
-dev-util/android-tools ~amd64
-
-# Maim screenshot capture
->=media-gfx/maim-5.6.3 ~amd64
->=x11-misc/slop-7.5 ~amd64
+# Use only ESR version of Firefox.
+www-client/firefox -~amd64

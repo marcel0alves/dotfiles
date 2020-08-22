@@ -1,5 +1,8 @@
+# required by linux-firmware (argument)
 sys-kernel/linux-firmware linux-fw-redistributable no-source-code
->=sys-firmware/intel-microcode-20200508_p20200508 intel-ucode
+# required by intel-microcode (argument)
+>=sys-firmware/intel-microcode-20200616_p20200617 intel-ucode
 
-# required by net-im/discord-bin (argument)
->=net-im/discord-bin-0.0.10 all-rights-reserved
+# Mailspring
+# required by mail-client/mailspring-bin (argument)
+>=mail-client/mailspring-bin-1.7.8 GPLv3
