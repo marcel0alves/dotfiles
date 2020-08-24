@@ -110,7 +110,7 @@ super + {Left,Down,Up,Right}
 
 # Open Firefox
 alt + f
-	firefox
+	xhost si:localuser:ff && sudo -u ff firefox
 
 # Open Telegram
 alt + t
@@ -134,7 +134,7 @@ super + e
 
 # program launcher
 super + @space
-	rofi -modi drun,run,window -show drun -show-icons -font "Roboto Regular 10"
+	rofi -show drun
 
 # Screenshot
 Print
