@@ -76,6 +76,8 @@ let g:vimtex_compiler_latexmk = {
   \ ],
 \ }
 
+let g:tex_flavor = 'latex'
+
 autocmd VimResized * :call Auto_hide_line_numbers()
 
 function! Auto_hide_line_numbers() abort
