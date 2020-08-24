@@ -17,9 +17,13 @@ fi
 # Use bash completion
 source /etc/bash/bashrc.d/bash_completion.sh
 
+alias noturbo="sudo $HOME/.scripts/noturbo.sh"
+
 alias htop="htop -d 10"
-alias startx="startx -- vt1"
+#alias startx="startx -- vt1"
 alias exa="exa -l --group-directories-first"
+alias ping="ping -O"
+alias vim="vi"
 
 alias updatesystem="sudo emerge --sync --quiet && sudo emerge -auvND @world"
 alias cleanemerge="sudo emerge --ask --depclean"
@@ -27,7 +31,7 @@ alias searchpkg="emerge -s"
 alias installpkg="sudo emerge -av"
 alias removepkg="sudo emerge --ask --unmerge"
 alias emergeworld="sudo emerge -auvND @world"
-alias cleanportage="sudo rm -rfv /var/tmp/portage/*"
+alias cleanportage="sudo rm -rf /var/tmp/portage/* && sudo rm -rf /var/tmp/portage-ondisk/*"
 
 alias make.conf="sudo nvim /etc/portage/make.conf"
 alias package.use="sudo nvim /etc/portage/package.use"
