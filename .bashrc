@@ -18,9 +18,8 @@ fi
 source /etc/bash/bashrc.d/bash_completion.sh
 
 alias noturbo="sudo $HOME/.scripts/noturbo.sh"
-
+alias startx="startx -- vt1"
 alias htop="htop -d 10"
-#alias startx="startx -- vt1"
 alias exa="exa -l --group-directories-first"
 alias ping="ping -O"
 alias vim="vi"
