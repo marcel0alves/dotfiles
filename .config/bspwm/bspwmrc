@@ -4,14 +4,14 @@ export PATH="${PATH}:$HOME/.config/bspwm"
 
 # Autostart
 xrandr --output eDP1 --mode 1920x1080 --rate 60.01
-hsetroot -fill $WALLPAPERS/boogeyman.jpg
+hsetroot -tile $WALLPAPERS/alena.jpg
 
-# killall -q -9 sxhkd poly dunst
-killall -q -9 sxhkd poly
+killall -q -9 sxhkd poly redshift picom
 
 sxhkd &
 poly &
-# dunst &
+redshift -v -c $HOME/.config/redshift.conf &
+picom --config $HOME/.picom.conf -b
 
 # Configuration
 bspc monitor -d 1 2 3 4 5 6
@@ -36,3 +36,4 @@ bspc rule -a "Firefox":"Browser"	state=floating		follow=on	    center=true
 bspc rule -a Lxappearance 		    state=floating 		follow=on	    center=true
 bspc rule -a Sxiv 			        state=floating 		center=true
 bspc rule -a Alacritty			    state=floating 		follow=on	    center=true
+bspc rule -a "org.remmina.Remmina"  state=floating      follow=on       center=true
