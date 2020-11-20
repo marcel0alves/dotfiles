@@ -1,6 +1,12 @@
+# GCC WITH GRAPHITE USEFLAG FOR GENTOOLTO
+sys-devel/gcc graphite
+
 # ONLY PYTHON 3 USE
 */* PYTHON_TARGETS: -python2_7
 */* PYTHON_SINGLE_TARGET: -python2_7
+
+# Disable LLVM_TARGETS for all
+*/* -llvm_targets_AMDGPU -llvm_targets_BPF -llvm_targets_NVPTX
 
 # Xorg, Drivers, WM...
 x11-base/xorg-server -ipv6 -suid
@@ -13,14 +19,21 @@ sys-kernel/gentoo-sources experimental
 x11-misc/rofi windowmode
 x11-misc/polybar network curl ipc
 media-fonts/noto -extra
+x11-themes/gtk-engines-murrine -themes
 
+x11-misc/picom doc opengl -pcre
 net-misc/aria2 bittorrent
+
+games-fps/gzdoom gtk
+# required by games-fps/gzdoom-4.4.2::gentoo
+# required by games-fps/gzdoom (argument)
+>=media-libs/libsdl2-2.0.12-r2 opengl
 
 # Editors
 app-editors/neovim -luajit
 
 # Firefox
-www-client/firefox clang hwaccel
+www-client/firefox gmp-autoupdate hwaccel lto openh264 -clang
 
 # required by www-client/firefox-68.11.0::gentoo
 # required by firefox (argument)
