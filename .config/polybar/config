@@ -9,9 +9,9 @@ red = #9E534E
 [bar/bar]
 #monitor = eDP-1
 bottom = false
-width = 80%
+;width = 80%
 height = 30
-offset-x = 10%
+;offset-x = 10%
 ;offset-y = 5
 dpi-x = 120
 dpi-y = 120
@@ -26,10 +26,11 @@ module-margin-right = 2
 
 font-0 = mononoki:style=Bold:pixelsize=8;3
 font-1 = FontAwesome:pixelsize=10;2
+font-2 = unifont:fontformat=truetype:size=8:antialias=true;3
 
 modules-left = bspwm
 modules-center = title
-modules-right = temperature wlan eth battery date
+modules-right = temperature wlan eth battery alsa date
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -102,19 +103,41 @@ label = "%{F#9E534E}%{F-} %percentage%%"
 [module/alsa]
 type = internal/alsa
 
+format-volume = <label-volume> <bar-volume>
+label-volume = VOL
+label-volume-foreground = ${colors.foreground}
+label-muted = Mute
+label-muted-foreground = #78787e
+;label-muted-foreground = ${colors.foreground}
+
+bar-volume-width = 15
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #55aa55
+bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-font = 2
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
 ;master-soundcard = default
 ;master-mixer = Master
 ;mapped = true
 
-interval = 1
+;interval = 1
 
-format-volume = <label-volume>
+;format-volume = <label-volume>
 
-label-volume =  "%{F#6E891B}%{F-} %percentage%%"
-label-volume-foreground = ${colors.foreground}
+;label-volume =  "%{F#6E891B}%{F-} %percentage%%"
+;label-volume-foreground = ${colors.foreground}
 
-label-muted = " Mute"
-label-muted-foreground = ${colors.foreground}
+;label-muted = " Mute"
+;label-muted-foreground = ${colors.foreground}
 
 [module/battery]
 type = internal/battery
