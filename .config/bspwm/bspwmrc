@@ -4,7 +4,7 @@ export PATH="${PATH}:$HOME/.config/bspwm"
 
 # Autostart
 xrandr --output eDP1 --mode 1920x1080 --rate 60.01
-hsetroot -tile $WALLPAPERS/alena.jpg
+hsetroot -fill $WALLPAPERS/doomguy.png
 
 killall -q -9 sxhkd poly redshift picom
 
@@ -16,7 +16,7 @@ picom --config $HOME/.picom.conf -b
 # Configuration
 bspc monitor -d 1 2 3 4 5 6
 bspc config border_width            5
-bspc config window_gap			    5
+bspc config window_gap			    10
 bspc config split_ratio			    0.5
 bspc config borderless_monocle		true
 bspc config gapless_monocle		    true
