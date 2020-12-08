@@ -23,6 +23,8 @@ alias htop="htop -d 10"
 alias exa="exa -l --group-directories-first"
 alias ping="ping -O"
 alias vim="vi"
+alias aria2c="aria2c -x 8 -s 8"
+alias youtube-dl="youtube-dl -xv --audio-format best"
 
 alias updatesystem="sudo emerge --sync --quiet && sudo emerge -auvND @world"
 alias cleanemerge="sudo emerge --ask --depclean"
