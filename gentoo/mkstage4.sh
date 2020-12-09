@@ -55,6 +55,7 @@ default_exclude_pattern=""
 # /var/db and /var/cache/edb are intentionally added here. they are listed
 # in $default_include_folders
 default_exclude_list="
+/swap
 /dev
 /lost+found
 /mnt
@@ -81,7 +82,7 @@ default_include_files="
 /proc
 /sys
 /tmp
-/var/db/repos/gentoo
+/var/db/repos
 /usr/src
 /var/log/emerge.log"
 
