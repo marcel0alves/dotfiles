@@ -11,17 +11,16 @@ exec 2>/dev/console
 while :
 do
         echo -e -n "\nPassword: "
-	cryptsetup --header /etc/header.img --tries 1 open /dev/sdb gentoo >/dev/null 2>&1
+	cryptsetup --header /etc/header.img --tries 1 open /dev/sda gentoo >/dev/null 2>&1
 	status=$?
 
 	case $status in
 
 		0)
-			mount -t ext4 -o noatime,nodiratime,defaults /dev/mapper/gentoo /mnt
+			mount -t f2fs -o discard /dev/mapper/gentoo /mnt
 			umount /sys
 			umount /proc
 
-			echo "Booting Gentoo Linux."
 			exec switch_root /mnt /sbin/init
 			;;
 
