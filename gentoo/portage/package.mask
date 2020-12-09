@@ -1,1 +1,2 @@
 >media-fonts/fontawesome-4.7.0
+dev-lang/python::lto-overlay
