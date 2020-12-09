@@ -1,9 +1,8 @@
 # GCC WITH GRAPHITE USEFLAG FOR GENTOOLTO
 sys-devel/gcc graphite
 
-# ONLY PYTHON 3 USE
-*/* PYTHON_TARGETS: -python2_7
-*/* PYTHON_SINGLE_TARGET: -python2_7
+# DEV-LANG PACKAGES
+dev-lang/rust system-llvm
 
 # Disable LLVM_TARGETS for all
 */* -llvm_targets_AMDGPU -llvm_targets_BPF -llvm_targets_NVPTX
@@ -11,7 +10,7 @@ sys-devel/gcc graphite
 # Xorg, Drivers, WM...
 x11-base/xorg-server -ipv6 -suid
 x11-drivers/xf86-video-intel dri sna
-media-libs/mesa -llvm
+media-libs/mesa llvm
 net-wireless/wpa_supplicant -fils -hs2-0 -mbo -mesh
 sys-kernel/gentoo-sources experimental
 
