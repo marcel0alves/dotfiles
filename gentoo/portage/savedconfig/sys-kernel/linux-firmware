@@ -1,0 +1,4 @@
+# Remove files that shall not be installed from this list.
+iwlwifi-7260-17.ucode
+intel/ibt-hw-37.7.10-fw-1.80.1.2d.d.bseq
+intel/ibt-hw-37.7.bseq
