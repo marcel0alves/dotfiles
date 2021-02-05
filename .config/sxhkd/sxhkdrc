@@ -110,11 +110,11 @@ super + {Left,Down,Up,Right}
 
 # Open Firefox
 alt + f
-	xhost si:localuser:ff && sudo -u ff firefox
+	firefox
 
 # Open Telegram
 alt + t
-	~/.local/bin/Telegram
+	Telegram
 
 # Restart Polybar
 alt + shift + p
