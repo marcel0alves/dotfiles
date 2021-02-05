@@ -24,9 +24,9 @@ padding-left = 1
 module-margin-left = 2
 module-margin-right = 2
 
-font-0 = mononoki:style=Bold:pixelsize=8;3
-font-1 = FontAwesome:pixelsize=10;2
-font-2 = unifont:fontformat=truetype:size=8:antialias=true;3
+font-0 = mononoki:style=Bold:pixelsize=7;2
+font-1 = FontAwesome:pixelsize=9;2
+font-2 = unifont:fontformat=truetype:size=6:antialias=true;2
 
 modules-left = bspwm
 modules-center = title
