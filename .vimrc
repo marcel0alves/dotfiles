@@ -4,8 +4,6 @@ call plug#begin(stdpath('data') . '/plugged')
 
 filetype plugin indent on
 
-Plug 'lervag/vimtex'
-Plug 'rust-lang/rust.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
 Plug 'chriskempson/base16-vim'
@@ -27,6 +25,7 @@ set tabstop=4
 set shiftwidth=4
 set number
 set relativenumber
+set guicursor=
 
 if has("termguicolors") && has("nvim")
   set t_8f=�[38;2;%lu;%lu;%lum
@@ -58,25 +57,6 @@ let g:lightline = {
     \ 'currentfunction': 'CocCurrentFunction',
   \ },
 \ }
-
-let g:polyglot_disabled = ['latex']
-let g:vimtex_compiler_method = 'latexmk'
-let g:vimtex_compiler_latexmk = {
-  \ 'backend' : 'nvim',
-  \ 'background' : 1,
-  \ 'build_dir' : 'build',
-  \ 'callback' : 1,
-  \ 'continuous' : 1,
-  \ 'executable' : 'latexmk',
-  \ 'hooks' : [],
-  \ 'options' : [
-    \ '-shell-escape',
-    \ '-file-line-error',
-    \ '-interaction=nonstopmode',
-  \ ],
-\ }
-
-let g:tex_flavor = 'latex'
 
 autocmd VimResized * :call Auto_hide_line_numbers()
 
