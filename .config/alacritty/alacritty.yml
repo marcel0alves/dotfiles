@@ -9,8 +9,8 @@ window:
 
   # Window padding (changes require restart)
   padding:
-    x: 10
-    y: 10
+    x: 5
+    y: 5
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: true
@@ -190,7 +190,7 @@ mouse:
     #  program: xdg-open
     #  args: []
     launcher:
-        program: sudo -u ff firefox
+        program: firefox
         args: []
 
     # URL modifiers
@@ -215,7 +215,7 @@ cursor:
   #   - ▇ Block
   #   - _ Underline
   #   - | Beam
-  style: Block
+  style: Underline
 
   # If this is `true`, the cursor will be rendered as a hollow box when the
   # window is not focused.
